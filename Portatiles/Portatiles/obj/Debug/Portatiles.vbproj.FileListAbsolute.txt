@@ -1,0 +1,59 @@
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\bin\Debug\Portatiles.exe
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\bin\Debug\Portatiles.pdb
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCatalogos.resources
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPresentacion.resources
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.Resources.resources
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.vbproj.GenerateResource.Cache
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.exe
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPermisos.resources
+C:\Users\ARIEL\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\obj\Debug\Portatiles.MDI.resources
+C:\Users\Jessenia\Desktop\Portatiles\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
+C:\Users\Jessenia\Desktop\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.exe
+C:\Users\Jessenia\Desktop\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\bin\Debug\Portatiles.exe
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\bin\Debug\Portatiles.pdb
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmFacturacion.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmImportador.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCompras.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmAjustes.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmAsistenteConfiguracion.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmBusqueda.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmConfiguracion.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmInicioSesion.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmListado.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPermisos.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPresentacion.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCatalogos.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.RFMDI.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.SplashAsistenteInicio.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.XtraForm1.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.Resources.resources
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.vbproj.GenerateResource.Cache
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
+G:\a trabajar primera presentacion\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.exe
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmFacturacion.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmImportador.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCompras.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmAjustes.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmAsistenteConfiguracion.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmBusqueda.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmConfiguracion.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmInicioSesion.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmListado.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPermisos.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPresentacion.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCatalogos.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmSeriesProducto.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.FrmTile.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.RFMDI.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.SplashAsistenteInicio.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.XtraForm1.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.Resources.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.vbproj.GenerateResource.Cache
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config

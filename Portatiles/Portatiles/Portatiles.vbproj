@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE4D59B4-0C5E-42EF-9666-F4EB43B449C3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Portatiles</RootNamespace>
+    <AssemblyName>Portatiles</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Portatiles.ModArranqueSistema</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v14.2" />
+    <Reference Include="DevExpress.Data.v14.2" />
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.SpellChecker.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.2" />
+    <Reference Include="DevExpress.Sparkline.v14.2.Core" />
+    <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.2" />
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v14.2.Extensions, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formularios\FrmFacturacion.Designer.vb">
+      <DependentUpon>FrmFacturacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmFacturacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmImportador.Designer.vb">
+      <DependentUpon>FrmImportador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmImportador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCompras.Designer.vb">
+      <DependentUpon>FrmCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAjustes.Designer.vb">
+      <DependentUpon>FrmAjustes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmAjustes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAsistenteConfiguracion.Designer.vb">
+      <DependentUpon>FrmAsistenteConfiguracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmAsistenteConfiguracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmBusqueda.Designer.vb">
+      <DependentUpon>FrmBusqueda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmBusqueda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmConfiguracion.Designer.vb">
+      <DependentUpon>FrmConfiguracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmConfiguracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmInicioSesion.Designer.vb">
+      <DependentUpon>FrmInicioSesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmInicioSesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmListado.Designer.vb">
+      <DependentUpon>FrmListado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmListado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmPermisos.Designer.vb">
+      <DependentUpon>FrmPermisos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmPermisos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmPresentacion.Designer.vb">
+      <DependentUpon>FrmPresentacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmPresentacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCatalogos.Designer.vb">
+      <DependentUpon>FrmCatalogos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmCatalogos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmRemisiones.Designer.vb" />
+    <Compile Include="Formularios\FrmRemisiones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmSeriesProducto.Designer.vb">
+      <DependentUpon>FrmSeriesProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmSeriesProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmTile.Designer.vb">
+      <DependentUpon>FrmTile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\RFMDI.Designer.vb">
+      <DependentUpon>RFMDI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\RFMDI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\SplashAsistenteInicio.Designer.vb">
+      <DependentUpon>SplashAsistenteInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\SplashAsistenteInicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\XtraForm1.Designer.vb">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\XtraForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\ModArranqueSistema.vb" />
+    <Compile Include="Modulos\ModConexiones.vb" />
+    <Compile Include="Modulos\ModFunciones.vb" />
+    <Compile Include="Modulos\ModVariables.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <EmbeddedResource Include="Formularios\FrmFacturacion.resx">
+      <DependentUpon>FrmFacturacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmImportador.resx">
+      <DependentUpon>FrmImportador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCompras.resx">
+      <DependentUpon>FrmCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmAjustes.resx">
+      <DependentUpon>FrmAjustes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmAsistenteConfiguracion.resx">
+      <DependentUpon>FrmAsistenteConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmBusqueda.resx">
+      <DependentUpon>FrmBusqueda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConfiguracion.resx">
+      <DependentUpon>FrmConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmInicioSesion.resx">
+      <DependentUpon>FrmInicioSesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmListado.resx">
+      <DependentUpon>FrmListado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmPermisos.resx">
+      <DependentUpon>FrmPermisos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmPresentacion.resx">
+      <DependentUpon>FrmPresentacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCatalogos.resx">
+      <DependentUpon>FrmCatalogos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmRemisiones.resx" />
+    <EmbeddedResource Include="Formularios\FrmSeriesProducto.resx">
+      <DependentUpon>FrmSeriesProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTile.resx">
+      <DependentUpon>FrmTile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\RFMDI.resx">
+      <DependentUpon>RFMDI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\SplashAsistenteInicio.resx">
+      <DependentUpon>SplashAsistenteInicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\XtraForm1.resx">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Koala.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Find_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Find_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow2 Right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow2 Right1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forbidden.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow2 Right2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contact.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shutdown.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gestion_calidad15478.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luggage.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Document Spreadsheet.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Write2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Write.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow - Down.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
