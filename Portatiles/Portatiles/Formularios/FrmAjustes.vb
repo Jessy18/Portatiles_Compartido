@@ -11,6 +11,12 @@ Public Class FrmAjustes
             CargarDatosAjuste()
         Else
             PonerNumeracion()
+            ClaveBusqueda = "Productos"
+            ClaveBusqueda = "Productos"
+            ClaveBusqueda = "Productos"
+            ClaveBusqueda = "Productos"
+            ClaveBusqueda = "Productos"
+
      
         End If
     End Sub
