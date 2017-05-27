@@ -11,6 +11,10 @@ Public Class FrmAjustes
             CargarDatosAjuste()
         Else
             PonerNumeracion()
+            If 1 = 1 Then
+                MsgBox("Soy un perro")
+            End If
+
         End If
     End Sub
 
