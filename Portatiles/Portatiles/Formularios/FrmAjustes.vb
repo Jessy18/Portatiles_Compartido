@@ -10,11 +10,8 @@ Public Class FrmAjustes
         If ChkEditando.Checked Then
             CargarDatosAjuste()
         Else
-
-            ClaveBusqueda = "Productos"
-            ClaveBusqueda = "Productos"
-            ClaveBusqueda = "Productos"
-            ClaveBusqueda = "Productos"
+            PonerNumeracion()
+     
         End If
     End Sub
 
