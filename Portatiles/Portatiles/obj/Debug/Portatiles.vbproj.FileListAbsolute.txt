@@ -57,3 +57,4 @@ C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Po
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.vbproj.GenerateResource.Cache
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
