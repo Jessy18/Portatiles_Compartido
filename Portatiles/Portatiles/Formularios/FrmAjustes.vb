@@ -10,11 +10,19 @@ Public Class FrmAjustes
         If ChkEditando.Checked Then
             CargarDatosAjuste()
         Else
+<<<<<<< HEAD
             PonerNumeracion()
             If 1 = 1 Then
                 MsgBox("Soy un perro")
             End If
 
+=======
+
+            ClaveBusqueda = "Productos"
+            ClaveBusqueda = "Productos"
+            ClaveBusqueda = "Productos"
+            ClaveBusqueda = "Productos"
+>>>>>>> parent of 3d32345... oo
         End If
     End Sub
 
