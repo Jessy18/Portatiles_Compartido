@@ -156,7 +156,9 @@
     <Compile Include="Formularios\FrmCatalogos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmRemisiones.Designer.vb" />
+    <Compile Include="Formularios\FrmRemisiones.Designer.vb">
+      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmRemisiones.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +172,12 @@
       <DependentUpon>FrmTile.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmTile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_CadenaConectar.Designer.vb">
+      <DependentUpon>Frm_CadenaConectar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Frm_CadenaConectar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\RFMDI.Designer.vb">
@@ -235,12 +243,17 @@
     <EmbeddedResource Include="Formularios\FrmCatalogos.resx">
       <DependentUpon>FrmCatalogos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmRemisiones.resx" />
+    <EmbeddedResource Include="Formularios\FrmRemisiones.resx">
+      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmSeriesProducto.resx">
       <DependentUpon>FrmSeriesProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmTile.resx">
       <DependentUpon>FrmTile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_CadenaConectar.resx">
+      <DependentUpon>Frm_CadenaConectar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\RFMDI.resx">
       <DependentUpon>RFMDI.vb</DependentUpon>

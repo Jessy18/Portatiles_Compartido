@@ -55,11 +55,39 @@ Partial Friend NotInheritable Class Settings
     
     <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=BDPortatiles;User ID=sa;Password=sql123")>  _
+     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString)>  _
     Public ReadOnly Property ConexionBD() As String
         Get
             Return CType(Me("ConexionBD"),String)
+        End Get
+    End Property
+    
+    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=Portatiles;User ID=sa;Password=123ariel")>  _
+    Public ReadOnly Property ConexionAADG() As String
+        Get
+            Return CType(Me("ConexionAADG"),String)
+        End Get
+    End Property
+    
+    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=BDPortatiles;User ID=sa;Password=sql123")>  _
+    Public ReadOnly Property ConexionJCC() As String
+        Get
+            Return CType(Me("ConexionJCC"),String)
+        End Get
+    End Property
+    
+    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString)>  _
+    Public ReadOnly Property ConexionEAGM() As String
+        Get
+            Return CType(Me("ConexionEAGM"),String)
         End Get
     End Property
 End Class

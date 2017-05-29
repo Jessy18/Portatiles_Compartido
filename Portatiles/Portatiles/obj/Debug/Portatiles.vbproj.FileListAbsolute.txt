@@ -83,3 +83,30 @@ C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Co
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.exe
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.pdb
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmFacturacion.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmImportador.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCompras.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmAjustes.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmAsistenteConfiguracion.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmBusqueda.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmConfiguracion.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmInicioSesion.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmListado.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPermisos.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPresentacion.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCatalogos.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmRemisiones.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmSeriesProducto.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmTile.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.RFMDI.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.SplashAsistenteInicio.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.XtraForm1.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Resources.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.vbproj.GenerateResource.Cache
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Frm_CadenaConectar.resources

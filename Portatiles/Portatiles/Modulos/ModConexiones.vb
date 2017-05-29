@@ -1,9 +1,10 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data
 Imports System.Windows.Forms
+Imports DevExpress.XtraEditors
 
 Module ModConexiones
-    Dim CadenaConexion As String = My.Settings.ConexionBD
+    'Dim CadenaConexion As String = My.Settings.ConexionBD
     Dim Conexion As SqlConnection
     Dim DtRetorno As DataTable
 
@@ -14,9 +15,8 @@ Module ModConexiones
             Conexion = New SqlConnection(CadenaConexion)
             Dim Adapter As New SqlDataAdapter(Cadena, Conexion)
             Adapter.Fill(DtRetorno)
-
         Catch ex As Exception
-
+            XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             Conexion.Dispose()
             Conexion.Close()
@@ -34,7 +34,7 @@ Module ModConexiones
             Adapter.Fill(DtRetorno)
 
         Catch ex As Exception
-
+            XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             Conexion.Dispose()
             Conexion.Close()
@@ -63,7 +63,7 @@ Module ModConexiones
                 Devolver = False
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             ComandoEjecutar.Connection.Dispose()
             ComandoEjecutar.Connection.Close()
@@ -85,7 +85,7 @@ Module ModConexiones
                 Devolver = False
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             'Comando.Connection.Dispose()
             Comando.Connection.Close()
@@ -99,6 +99,7 @@ Module ModConexiones
             Conexion = New SqlConnection(CadenaConexion)
             Comando = New SqlCommand(Cadena, Conexion)
         Catch ex As Exception
+            XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Conexion.Dispose()
             Conexion.Close()
         End Try

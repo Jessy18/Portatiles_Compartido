@@ -166,8 +166,32 @@ ErrException:
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        On Error GoTo ErrException
 
+        Exit Sub
+ErrException:
+        XtraMessageBox.Show("Error Nº" & Err.Number & ": " & Environment.NewLine & Err.Description, "Ha ocurrido un error", MessageBoxButtons.OK, MessageBoxIcon.Error)
     End Sub
+
+    Private Function Guardar() As Boolean
+        If IsNothing(LueSucEntrada.EditValue) Then
+            XtraMessageBox.Show("Olvidó seleccionar la Sucursal de Entrada de Productos", "Faltan llenar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        If IsNothing(LueSucSalida.EditValue) Then
+            XtraMessageBox.Show("Olvidó seleccionar la Sucursal de Salida de Productos", "Faltan llenar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        If gvRemisiones.RowCount <= 0 Then
+            XtraMessageBox.Show("No ha agregado productos a la tabla!" & vbNewLine & "Por favor proceda a agregar productos para efetuar la Remisión", "Faltan agregar productos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        GenericSql
+
+    End Function
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Dispose()

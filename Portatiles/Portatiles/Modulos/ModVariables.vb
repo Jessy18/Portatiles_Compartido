@@ -6,6 +6,7 @@ Module ModVariables
     Public GenericSql As String
     Public GenericRow As DataRow
     Public ResultMsg As Integer
+    Public CadenaConexion As String
 
     'Variables de Sesión de usuario
     Public CodUsuario As String

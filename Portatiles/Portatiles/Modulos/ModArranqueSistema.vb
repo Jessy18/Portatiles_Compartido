@@ -6,7 +6,7 @@
         Present.Dispose()
         Present.Close()
         Application.DoEvents()
-
+        Frm_CadenaConectar.ShowDialog()
         If VerificarInicio() = False Then
             Application.Run(SplashAsistenteInicio)
 
