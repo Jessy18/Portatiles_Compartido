@@ -1,0 +1,19 @@
+
+
+Cambios en BD:
+
+Tabla Sucursales (cambio de Nombres y de tipo de datos):
+
+	NumDocCompra	->	NumCompraSuc	(int)
+	NumDocRemision	->	NumRemisionSuc	(int)
+	NumDocFactura	->	NumFacturaSuc	(int)
+	NumDocAjuste	->	NumAjusteSuc	(int)
+
+Tabla Remisiones (cambio de nombres):
+	
+	NumDocRemision	->	NumRemisionSuc	(int)
+
+Catálogo de Resultados:
+1: Ejecución Correcta
+2: Archivos Duplicados / Archivos Sin Encontrar
+3: Error en la ejecucion de las consultas

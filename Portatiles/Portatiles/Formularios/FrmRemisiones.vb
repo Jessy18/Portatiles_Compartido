@@ -189,7 +189,16 @@ ErrException:
             Return False
         End If
 
-        GenericSql
+        'Obtenemos el último número de Remision, y una vez que lo obtenemos,  lo actualizamos 
+        DrEmpresa = BusquedaSeleccionFila("Select * From Empresa")
+        txtNumRemision.Text = DrEmpresa!Remisiones.ToString()
+        EjecutarConsulta("UPDATE FROM ")
+
+        GenericSql = "INSERT INTO Remisiones (NumRemision, IdSucursalSalida, IdSucursalEntrada, IdUsuRemite, IdUsuAutoriza, IdUsuRecibe, NumDocRemision, Fecha, Observaciones, Total, Editar, Anulada) VALUES        (@NumRemision,@IdSucursalSalida,@IdSucursalEntrada,@IdUsuRemite,@IdUsuAutoriza,@IdUsuRecibe,@NumDocRemision,@Fecha,@Observaciones,@Total,@Editar,@Anulada)"
+        CrearComando(GenericSql)
+        With Comando.Parameters
+            .AddWithValue("NumRemision", txtNumRemision.Text)
+        End With
 
     End Function
 
