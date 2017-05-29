@@ -23,13 +23,31 @@ Public Class FrmRemisiones
         LueSucSalida.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         LueSucEntrada.Properties.ForceInitialize()
 
+        LueUserAutoriza.Properties.DataSource = BusquedaSeleccion("Select IdUsuario, Nombre AS Usuario FROM Usuarios Where Activo = 1 ")
+        LueUserAutoriza.Properties.ValueMember = "IdUsuario"
+        LueUserAutoriza.Properties.DisplayMember = "Usuario"
+        LueUserAutoriza.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+        LueUserAutoriza.Properties.ForceInitialize()
+
         txtNumRemision.Text = IIf(String.IsNullOrEmpty(DrEmpresa!Remisiones.ToString), "1", DrEmpresa!Remisiones.ToString)
         txtNumSucRemision.Text = BuscarRegistroSql("Sucursales", "NumDocRemision", "IdSucursal", CodSucursal)
         DteFecha.DateTime = Now
 
+        LimpiarFormulario()
+
         Exit Sub
 ErrException:
         XtraMessageBox.Show(Err.Description, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    End Sub
+
+    Private Sub LimpiarFormulario()
+        Dim TextBoxs() As Control
+        TextBoxs = Me.Controls.OfType(Of TextEdit)()
+        For Each tb In TextBoxs
+            tb.Text = ""
+        Next
+
+
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -167,7 +185,9 @@ ErrException:
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         On Error GoTo ErrException
-
+        If Guardar() Then
+            Me.FrmRemisiones_Load(sender, e)
+        End If
         Exit Sub
 ErrException:
         XtraMessageBox.Show("Error Nº" & Err.Number & ": " & Environment.NewLine & Err.Description, "Ha ocurrido un error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -192,12 +212,30 @@ ErrException:
         'Obtenemos el último número de Remision, y una vez que lo obtenemos,  lo actualizamos 
         DrEmpresa = BusquedaSeleccionFila("Select * From Empresa")
         txtNumRemision.Text = DrEmpresa!Remisiones.ToString()
-        EjecutarConsulta("UPDATE FROM ")
+        EjecutarConsulta("UPDATE Empresa SET [Remisiones] = [Remisiones] + 1")
 
-        GenericSql = "INSERT INTO Remisiones (NumRemision, IdSucursalSalida, IdSucursalEntrada, IdUsuRemite, IdUsuAutoriza, IdUsuRecibe, NumDocRemision, Fecha, Observaciones, Total, Editar, Anulada) VALUES        (@NumRemision,@IdSucursalSalida,@IdSucursalEntrada,@IdUsuRemite,@IdUsuAutoriza,@IdUsuRecibe,@NumDocRemision,@Fecha,@Observaciones,@Total,@Editar,@Anulada)"
+        Dim DrSucursal As DataRow = BusquedaSeleccionFila("Select * From Sucursales Where IdSucursal = '" & LueSucSalida.EditValue.ToString & "'")
+        If Not IsDBNull(DrSucursal!NumRemisionSuc) Then
+            txtNumSucRemision.Text = DrSucursal!NumRemisionSuc.ToString
+        Else
+            txtNumSucRemision.Text = "1"
+        End If
+
+        GenericSql = "INSERT INTO Remisiones (NumRemision, IdSucursalSalida, IdSucursalEntrada, IdUsuRemite, IdUsuAutoriza, IdUsuRecibe, NumRemisionSuc, Fecha, Observaciones, Total, Editar, Anulada) VALUES        (@NumRemision,@IdSucursalSalida,@IdSucursalEntrada,@IdUsuRemite,@IdUsuAutoriza,@IdUsuRecibe,@NumDocRemision,@Fecha,@Observaciones,@Total,@Editar,@Anulada)"
         CrearComando(GenericSql)
         With Comando.Parameters
-            .AddWithValue("NumRemision", txtNumRemision.Text)
+            .AddWithValue("NumRemision", Val(txtNumRemision.Text))
+            .AddWithValue("IdSucursalSalida", LueSucSalida.EditValue.ToString)
+            .AddWithValue("IdSucursalEntrada", LueSucEntrada.EditValue.ToString)
+            .AddWithValue("IdUsuRemite", CodUsuario)
+            .AddWithValue("IdUsuAutoriza", LueUserAutoriza.EditValue)
+            .AddWithValue("IdUsuRecibe", LueUserRecibe.EditValue)
+            .AddWithValue("NumRemisionSuc", Val(txtNumSucRemision.Text))
+            .AddWithValue("Fecha", Now)
+            .AddWithValue("Observaciones", TxtObservaciones.Text.Trim)
+            .AddWithValue("Total", txtNumRemision.Text)
+            .AddWithValue("Editar", 0)
+            .AddWithValue("Anulada", 0)
         End With
 
     End Function
@@ -205,5 +243,16 @@ ErrException:
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Dispose()
         Me.Close()
+    End Sub
+
+    Private Sub LueSucEntrada_EditValueChanged(sender As Object, e As EventArgs) Handles LueSucEntrada.EditValueChanged
+        LueUserRecibe.EditValue = Nothing
+        If Not IsNothing(LueSucEntrada.EditValue) Then
+            LueUserRecibe.Properties.DataSource = BusquedaSeleccion("Select IdUsuario, Nombre AS Usuario FROM Usuarios Where Activo = 1 AND IdSucursal='" & LueSucEntrada.EditValue.ToString & "'")
+            LueUserRecibe.Properties.ValueMember = "IdUsuario"
+            LueUserRecibe.Properties.DisplayMember = "Usuario"
+            LueUserRecibe.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+            LueUserRecibe.Properties.ForceInitialize()
+        End If
     End Sub
 End Class

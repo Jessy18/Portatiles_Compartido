@@ -19,9 +19,9 @@ Partial Class FrmRemisiones
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim SuperToolTip2 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
-        Dim ToolTipTitleItem2 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
-        Dim ToolTipItem2 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
+        Dim SuperToolTip1 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
+        Dim ToolTipTitleItem1 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
+        Dim ToolTipItem1 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.ChkEditando = New DevExpress.XtraEditors.CheckEdit()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
@@ -59,6 +59,13 @@ Partial Class FrmRemisiones
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtObservaciones = New DevExpress.XtraEditors.MemoEdit()
+        Me.GroupControl4 = New DevExpress.XtraEditors.GroupControl()
+        Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
+        Me.LueUserAutoriza = New DevExpress.XtraEditors.LookUpEdit()
+        Me.MemoEdit1 = New DevExpress.XtraEditors.MemoEdit()
+        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
+        Me.LueUserRecibe = New DevExpress.XtraEditors.LookUpEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.ChkEditando.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +90,11 @@ Partial Class FrmRemisiones
         CType(Me.txtProducto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCodProducto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtObservaciones.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl4.SuspendLayout()
+        CType(Me.LueUserAutoriza.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LueUserRecibe.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -98,14 +110,14 @@ Partial Class FrmRemisiones
         Me.GroupControl1.Controls.Add(Me.LabelControl1)
         Me.GroupControl1.Location = New System.Drawing.Point(12, 12)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(563, 54)
+        Me.GroupControl1.Size = New System.Drawing.Size(694, 54)
         Me.GroupControl1.TabIndex = 1
         Me.GroupControl1.Text = "Datos de la Remisión"
         '
         'ChkEditando
         '
         Me.ChkEditando.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ChkEditando.Location = New System.Drawing.Point(475, 1)
+        Me.ChkEditando.Location = New System.Drawing.Point(606, 1)
         Me.ChkEditando.Name = "ChkEditando"
         Me.ChkEditando.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkEditando.Properties.Appearance.Options.UseFont = True
@@ -119,7 +131,7 @@ Partial Class FrmRemisiones
         Me.LabelControl3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl3.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.LabelControl3.Location = New System.Drawing.Point(398, 26)
+        Me.LabelControl3.Location = New System.Drawing.Point(529, 26)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(39, 18)
         Me.LabelControl3.TabIndex = 7
@@ -128,7 +140,7 @@ Partial Class FrmRemisiones
         'txtNumSucRemision
         '
         Me.txtNumSucRemision.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNumSucRemision.Location = New System.Drawing.Point(318, 24)
+        Me.txtNumSucRemision.Location = New System.Drawing.Point(449, 24)
         Me.txtNumSucRemision.Name = "txtNumSucRemision"
         Me.txtNumSucRemision.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.txtNumSucRemision.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -143,7 +155,7 @@ Partial Class FrmRemisiones
         Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.LabelControl2.Location = New System.Drawing.Point(224, 25)
+        Me.LabelControl2.Location = New System.Drawing.Point(355, 25)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(88, 18)
         Me.LabelControl2.TabIndex = 6
@@ -153,7 +165,7 @@ Partial Class FrmRemisiones
         '
         Me.DteFecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DteFecha.EditValue = New Date(2017, 5, 15, 23, 23, 20, 824)
-        Me.DteFecha.Location = New System.Drawing.Point(439, 24)
+        Me.DteFecha.Location = New System.Drawing.Point(570, 24)
         Me.DteFecha.Name = "DteFecha"
         Me.DteFecha.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DteFecha.Properties.Appearance.Options.UseFont = True
@@ -199,7 +211,7 @@ Partial Class FrmRemisiones
         Me.GroupControl2.Controls.Add(Me.LabelControl10)
         Me.GroupControl2.Location = New System.Drawing.Point(12, 72)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(563, 86)
+        Me.GroupControl2.Size = New System.Drawing.Size(398, 86)
         Me.GroupControl2.TabIndex = 13
         Me.GroupControl2.Text = "Sucursales"
         '
@@ -220,7 +232,7 @@ Partial Class FrmRemisiones
         Me.LueSucSalida.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LueSucSalida.Properties.NullText = ""
         Me.LueSucSalida.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.OnlyInPopup
-        Me.LueSucSalida.Size = New System.Drawing.Size(386, 22)
+        Me.LueSucSalida.Size = New System.Drawing.Size(222, 22)
         Me.LueSucSalida.TabIndex = 6
         '
         'MeObservaciones
@@ -229,7 +241,7 @@ Partial Class FrmRemisiones
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MeObservaciones.Location = New System.Drawing.Point(4, 459)
         Me.MeObservaciones.Name = "MeObservaciones"
-        Me.MeObservaciones.Size = New System.Drawing.Size(339, 48)
+        Me.MeObservaciones.Size = New System.Drawing.Size(174, 48)
         Me.MeObservaciones.TabIndex = 16
         '
         'LabelControl4
@@ -270,7 +282,7 @@ Partial Class FrmRemisiones
         Me.LueSucEntrada.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LueSucEntrada.Properties.NullText = ""
         Me.LueSucEntrada.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.OnlyInPopup
-        Me.LueSucEntrada.Size = New System.Drawing.Size(386, 22)
+        Me.LueSucEntrada.Size = New System.Drawing.Size(222, 22)
         Me.LueSucEntrada.TabIndex = 4
         '
         'LabelControl10
@@ -293,7 +305,7 @@ Partial Class FrmRemisiones
         Me.GroupBox1.Controls.Add(Me.LabelControl12)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 413)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(564, 39)
+        Me.GroupBox1.Size = New System.Drawing.Size(695, 39)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Totales"
@@ -302,7 +314,7 @@ Partial Class FrmRemisiones
         '
         Me.txtTotalProductos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotalProductos.EditValue = "0"
-        Me.txtTotalProductos.Location = New System.Drawing.Point(382, 13)
+        Me.txtTotalProductos.Location = New System.Drawing.Point(513, 13)
         Me.txtTotalProductos.Name = "txtTotalProductos"
         Me.txtTotalProductos.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.txtTotalProductos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -319,7 +331,7 @@ Partial Class FrmRemisiones
         Me.LabelControl13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl13.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl13.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.LabelControl13.Location = New System.Drawing.Point(443, 16)
+        Me.LabelControl13.Location = New System.Drawing.Point(574, 16)
         Me.LabelControl13.Name = "LabelControl13"
         Me.LabelControl13.Size = New System.Drawing.Size(50, 16)
         Me.LabelControl13.TabIndex = 2
@@ -329,7 +341,7 @@ Partial Class FrmRemisiones
         '
         Me.txtTotalCant.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotalCant.EditValue = "0"
-        Me.txtTotalCant.Location = New System.Drawing.Point(502, 13)
+        Me.txtTotalCant.Location = New System.Drawing.Point(633, 13)
         Me.txtTotalCant.Name = "txtTotalCant"
         Me.txtTotalCant.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.txtTotalCant.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -346,7 +358,7 @@ Partial Class FrmRemisiones
         Me.LabelControl12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl12.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.LabelControl12.Location = New System.Drawing.Point(320, 16)
+        Me.LabelControl12.Location = New System.Drawing.Point(451, 16)
         Me.LabelControl12.Name = "LabelControl12"
         Me.LabelControl12.Size = New System.Drawing.Size(56, 16)
         Me.LabelControl12.TabIndex = 0
@@ -361,7 +373,7 @@ Partial Class FrmRemisiones
         Me.btnGuardar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGuardar.Image = Global.Portatiles.My.Resources.Resources.Save_32x32
-        Me.btnGuardar.Location = New System.Drawing.Point(373, 474)
+        Me.btnGuardar.Location = New System.Drawing.Point(504, 474)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(98, 48)
         Me.btnGuardar.TabIndex = 17
@@ -376,7 +388,7 @@ Partial Class FrmRemisiones
         Me.btnSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSalir.Image = Global.Portatiles.My.Resources.Resources.Shutdown
-        Me.btnSalir.Location = New System.Drawing.Point(477, 474)
+        Me.btnSalir.Location = New System.Drawing.Point(608, 474)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(98, 48)
         Me.btnSalir.TabIndex = 18
@@ -391,7 +403,7 @@ Partial Class FrmRemisiones
         Me.gcRemisiones.Location = New System.Drawing.Point(12, 241)
         Me.gcRemisiones.MainView = Me.gvRemisiones
         Me.gcRemisiones.Name = "gcRemisiones"
-        Me.gcRemisiones.Size = New System.Drawing.Size(563, 174)
+        Me.gcRemisiones.Size = New System.Drawing.Size(694, 174)
         Me.gcRemisiones.TabIndex = 16
         Me.gcRemisiones.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvRemisiones})
         '
@@ -422,7 +434,7 @@ Partial Class FrmRemisiones
         Me.GroupControl3.Controls.Add(Me.LabelControl8)
         Me.GroupControl3.Location = New System.Drawing.Point(12, 164)
         Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(563, 71)
+        Me.GroupControl3.Size = New System.Drawing.Size(694, 71)
         Me.GroupControl3.TabIndex = 17
         Me.GroupControl3.Text = "Datos de Producto"
         '
@@ -430,7 +442,7 @@ Partial Class FrmRemisiones
         '
         Me.TxtExistencias.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtExistencias.EditValue = "0"
-        Me.TxtExistencias.Location = New System.Drawing.Point(406, 43)
+        Me.TxtExistencias.Location = New System.Drawing.Point(537, 43)
         Me.TxtExistencias.Name = "TxtExistencias"
         Me.TxtExistencias.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.TxtExistencias.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -447,7 +459,7 @@ Partial Class FrmRemisiones
         Me.LabelControl11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl11.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.LabelControl11.Location = New System.Drawing.Point(407, 24)
+        Me.LabelControl11.Location = New System.Drawing.Point(538, 24)
         Me.LabelControl11.Name = "LabelControl11"
         Me.LabelControl11.Size = New System.Drawing.Size(30, 16)
         Me.LabelControl11.TabIndex = 11
@@ -462,7 +474,7 @@ Partial Class FrmRemisiones
         Me.btnAgregar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar.Image = Global.Portatiles.My.Resources.Resources.add1
-        Me.btnAgregar.Location = New System.Drawing.Point(519, 22)
+        Me.btnAgregar.Location = New System.Drawing.Point(650, 22)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(39, 43)
         Me.btnAgregar.TabIndex = 4
@@ -471,7 +483,7 @@ Partial Class FrmRemisiones
         '
         Me.txtCantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCantidad.EditValue = "1"
-        Me.txtCantidad.Location = New System.Drawing.Point(462, 43)
+        Me.txtCantidad.Location = New System.Drawing.Point(593, 43)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.Properties.Appearance.Options.UseFont = True
@@ -485,7 +497,7 @@ Partial Class FrmRemisiones
         Me.LabelControl6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl6.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.LabelControl6.Location = New System.Drawing.Point(463, 24)
+        Me.LabelControl6.Location = New System.Drawing.Point(594, 24)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(50, 16)
         Me.LabelControl6.TabIndex = 8
@@ -502,12 +514,12 @@ Partial Class FrmRemisiones
         Me.btnBuscar.Location = New System.Drawing.Point(101, 30)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(40, 35)
-        ToolTipTitleItem2.Text = "Buscar Producto"
-        ToolTipItem2.LeftIndent = 6
-        ToolTipItem2.Text = "Abre una cuadro de diálogo auxiliar con la lista de productos activos"
-        SuperToolTip2.Items.Add(ToolTipTitleItem2)
-        SuperToolTip2.Items.Add(ToolTipItem2)
-        Me.btnBuscar.SuperTip = SuperToolTip2
+        ToolTipTitleItem1.Text = "Buscar Producto"
+        ToolTipItem1.LeftIndent = 6
+        ToolTipItem1.Text = "Abre una cuadro de diálogo auxiliar con la lista de productos activos"
+        SuperToolTip1.Items.Add(ToolTipTitleItem1)
+        SuperToolTip1.Items.Add(ToolTipItem1)
+        Me.btnBuscar.SuperTip = SuperToolTip1
         Me.btnBuscar.TabIndex = 1
         '
         'txtProducto
@@ -521,7 +533,7 @@ Partial Class FrmRemisiones
         Me.txtProducto.Properties.Appearance.Options.UseBackColor = True
         Me.txtProducto.Properties.Appearance.Options.UseFont = True
         Me.txtProducto.Properties.ReadOnly = True
-        Me.txtProducto.Size = New System.Drawing.Size(256, 22)
+        Me.txtProducto.Size = New System.Drawing.Size(387, 22)
         Me.txtProducto.TabIndex = 9
         '
         'LabelControl9
@@ -569,15 +581,113 @@ Partial Class FrmRemisiones
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtObservaciones.Location = New System.Drawing.Point(12, 477)
         Me.TxtObservaciones.Name = "TxtObservaciones"
-        Me.TxtObservaciones.Size = New System.Drawing.Size(343, 45)
+        Me.TxtObservaciones.Size = New System.Drawing.Size(474, 45)
         Me.TxtObservaciones.TabIndex = 22
+        '
+        'GroupControl4
+        '
+        Me.GroupControl4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupControl4.Controls.Add(Me.LabelControl16)
+        Me.GroupControl4.Controls.Add(Me.LabelControl14)
+        Me.GroupControl4.Controls.Add(Me.LueUserAutoriza)
+        Me.GroupControl4.Controls.Add(Me.MemoEdit1)
+        Me.GroupControl4.Controls.Add(Me.LabelControl15)
+        Me.GroupControl4.Controls.Add(Me.LueUserRecibe)
+        Me.GroupControl4.Location = New System.Drawing.Point(416, 72)
+        Me.GroupControl4.Name = "GroupControl4"
+        Me.GroupControl4.Size = New System.Drawing.Size(290, 86)
+        Me.GroupControl4.TabIndex = 20
+        Me.GroupControl4.Text = "Sucursales"
+        '
+        'LabelControl16
+        '
+        Me.LabelControl16.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl16.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
+        Me.LabelControl16.Location = New System.Drawing.Point(9, 57)
+        Me.LabelControl16.Name = "LabelControl16"
+        Me.LabelControl16.Size = New System.Drawing.Size(94, 18)
+        Me.LabelControl16.TabIndex = 21
+        Me.LabelControl16.Text = "¿Quién recibe?"
+        '
+        'LabelControl14
+        '
+        Me.LabelControl14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelControl14.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl14.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
+        Me.LabelControl14.Location = New System.Drawing.Point(9, 29)
+        Me.LabelControl14.Name = "LabelControl14"
+        Me.LabelControl14.Size = New System.Drawing.Size(108, 18)
+        Me.LabelControl14.TabIndex = 20
+        Me.LabelControl14.Text = "¿Quién Autoriza?"
+        '
+        'LueUserAutoriza
+        '
+        Me.LueUserAutoriza.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LueUserAutoriza.EditValue = ""
+        Me.LueUserAutoriza.Location = New System.Drawing.Point(135, 28)
+        Me.LueUserAutoriza.Name = "LueUserAutoriza"
+        Me.LueUserAutoriza.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LueUserAutoriza.Properties.Appearance.Options.UseFont = True
+        Me.LueUserAutoriza.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Tahoma", 9.75!)
+        Me.LueUserAutoriza.Properties.AppearanceDropDown.Options.UseFont = True
+        Me.LueUserAutoriza.Properties.AppearanceDropDownHeader.Font = New System.Drawing.Font("Tahoma", 9.75!)
+        Me.LueUserAutoriza.Properties.AppearanceDropDownHeader.Options.UseFont = True
+        Me.LueUserAutoriza.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003
+        Me.LueUserAutoriza.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.LueUserAutoriza.Properties.NullText = ""
+        Me.LueUserAutoriza.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.OnlyInPopup
+        Me.LueUserAutoriza.Size = New System.Drawing.Size(147, 22)
+        Me.LueUserAutoriza.TabIndex = 6
+        '
+        'MemoEdit1
+        '
+        Me.MemoEdit1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MemoEdit1.Location = New System.Drawing.Point(4, 459)
+        Me.MemoEdit1.Name = "MemoEdit1"
+        Me.MemoEdit1.Size = New System.Drawing.Size(76, 48)
+        Me.MemoEdit1.TabIndex = 16
+        '
+        'LabelControl15
+        '
+        Me.LabelControl15.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl15.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(91, Byte), Integer))
+        Me.LabelControl15.Location = New System.Drawing.Point(4, 441)
+        Me.LabelControl15.Name = "LabelControl15"
+        Me.LabelControl15.Size = New System.Drawing.Size(83, 16)
+        Me.LabelControl15.TabIndex = 19
+        Me.LabelControl15.Text = "Observaciones"
+        '
+        'LueUserRecibe
+        '
+        Me.LueUserRecibe.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LueUserRecibe.EditValue = ""
+        Me.LueUserRecibe.Location = New System.Drawing.Point(135, 56)
+        Me.LueUserRecibe.Name = "LueUserRecibe"
+        Me.LueUserRecibe.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LueUserRecibe.Properties.Appearance.Options.UseFont = True
+        Me.LueUserRecibe.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Tahoma", 9.75!)
+        Me.LueUserRecibe.Properties.AppearanceDropDown.Options.UseFont = True
+        Me.LueUserRecibe.Properties.AppearanceDropDownHeader.Font = New System.Drawing.Font("Tahoma", 9.75!)
+        Me.LueUserRecibe.Properties.AppearanceDropDownHeader.Options.UseFont = True
+        Me.LueUserRecibe.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003
+        Me.LueUserRecibe.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.LueUserRecibe.Properties.NullText = ""
+        Me.LueUserRecibe.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.OnlyInPopup
+        Me.LueUserRecibe.Size = New System.Drawing.Size(147, 22)
+        Me.LueUserRecibe.TabIndex = 4
         '
         'FrmRemisiones
         '
         Me.Appearance.Options.UseFont = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(587, 531)
+        Me.ClientSize = New System.Drawing.Size(718, 531)
+        Me.Controls.Add(Me.GroupControl4)
         Me.Controls.Add(Me.TxtObservaciones)
         Me.Controls.Add(Me.LabelControl5)
         Me.Controls.Add(Me.GroupBox1)
@@ -589,7 +699,7 @@ Partial Class FrmRemisiones
         Me.Controls.Add(Me.btnSalir)
         Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.MinimumSize = New System.Drawing.Size(603, 569)
+        Me.MinimumSize = New System.Drawing.Size(734, 569)
         Me.Name = "FrmRemisiones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Módulo de Remisiones"
@@ -621,6 +731,12 @@ Partial Class FrmRemisiones
         CType(Me.txtProducto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCodProducto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtObservaciones.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl4.ResumeLayout(False)
+        Me.GroupControl4.PerformLayout()
+        CType(Me.LueUserAutoriza.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LueUserRecibe.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -662,4 +778,11 @@ Partial Class FrmRemisiones
     Friend WithEvents TxtObservaciones As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents TxtExistencias As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents GroupControl4 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LueUserAutoriza As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents MemoEdit1 As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LueUserRecibe As DevExpress.XtraEditors.LookUpEdit
 End Class
