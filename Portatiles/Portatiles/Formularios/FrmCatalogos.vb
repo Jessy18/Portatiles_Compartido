@@ -871,7 +871,8 @@ tipoerr:
         On Error GoTo tipoerr
 
         LimpiarCamposTipoAjuste(False) 'limpiamos los campos menos el código
-        GenericRow = BusquedaSeleccionFila(String.Format("Select * From TipoAjuste WHERE IdTipoAjuste= '{0}'", TxtIdTipoAjuste.Text))
+        If txtIdTipoAjuste.Text.Trim = "" Then Exit Sub
+        GenericRow = BusquedaSeleccionFila(String.Format("Select * From TipoAjuste WHERE IdTipo= '{0}'", txtIdTipoAjuste.Text))
         If Not IsNothing(GenericRow) Then
             txtTipoAjuste.Text = Trim(GenericRow!TipoAjuste.ToString)
             RDGValorAjuste.SelectedIndex = IIf(GenericRow!Valor = 1, 0, 1)

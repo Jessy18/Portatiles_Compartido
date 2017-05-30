@@ -10,7 +10,8 @@ Public Class FrmFacturacion
         CrearTabla()
         CargarDatosLUE()
         CargarEstadoCombo()
-            PonerNumeracion()
+        PonerNumeracion()
+
 
     End Sub
     Private Sub CargarEstadoCombo()
@@ -120,6 +121,8 @@ tipoerr:
         lueSucursal.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal from Sucursales Where Activa=1 ")
         lueSucursal.Properties.ValueMember = "IdSucursal"
         lueSucursal.Properties.DisplayMember = "Sucursal"
+
+        lueSucursal.EditValue = Nothing
 
         If Not Administrador Then
             lueSucursal.Properties.ReadOnly = True

@@ -149,4 +149,13 @@
         FrmRemisiones.MdiParent = Me
         FrmRemisiones.Show()
     End Sub
+
+    Private Sub BBIFacturacion_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBIFacturacion.ItemClick
+        If Not Administrador Then
+            If Not PuedeAcceder("Movimientos", "Facturación") Then Exit Sub
+        End If
+
+        FrmFacturacion.MdiParent = Me
+        FrmFacturacion.Show()
+    End Sub
 End Class

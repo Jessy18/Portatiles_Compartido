@@ -110,3 +110,4 @@ C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Por
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Frm_CadenaConectar.resources
