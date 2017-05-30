@@ -414,6 +414,31 @@ tipoerr:
                     End If
                 Next
             Case "Usuarios"
+                'Primero valido que exista la columna del IdSucursal
+                If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdUsuario" Then
+                    XtraMessageBox.Show("La tabla no contiene la columna IdUsuario", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Valido los datos
+                For Each DrExcel As DataRow In DtExcel.Rows
+                    If BuscarRegistroSql(Archivo, "IdUsuario", "IdUsuario", DrExcel!IdUsuario.ToString) <> "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El código de usuario ya existe en la BD.")
+                    End If
+
+                    If DrExcel!IdSucursal.ToString.Trim = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": La sucursal del usuario debe ser especificada.")
+                    End If
+                    If BuscarRegistroSql("Sucursales", "IdSucursal", "IdSucursal", DrExcel!IdSucursal.ToString) = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El registro de Sucursal asociada no existe en la BD.")
+                    End If
+                    If DrExcel!Nombre.ToString.Trim = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario no puede quedar vacío.")
+                    End If
+                    If BuscarRegistroSql("Archivo", "IdUsuario", "IdUsuario", DrExcel!IdUsuario.ToString) = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario ya existe en la BD.")
+                    End If
+
+                Next
             Case "Proveedores"
             Case "Vendedores"
             Case "Clientes"

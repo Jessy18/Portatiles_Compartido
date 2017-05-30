@@ -109,12 +109,14 @@ tipoerr:
         If Not Drconfig Is Nothing Then
             txtNumVenta.Text = Drconfig!Ventas.ToString
         End If
-        If Not lueSucursal.EditValue Is Nothing Then
-            Dim DrSucursal As DataRow = BusquedaSeleccionFila(String.Format("Select * from Sucursales Where IdSucursal={0}", lueSucursal.EditValue.ToString))
-            If Not DrSucursal Is Nothing Then
-                txtDocSucursal.Text = DrSucursal!NumDocCompra.ToString
-            End If
+        If lueSucursal.EditValue Is Nothing Then Exit Sub
+        If lueSucursal.EditValue.ToString.Trim = "" Then Exit Sub
+
+        Dim DrSucursal As DataRow = BusquedaSeleccionFila(String.Format("Select * from Sucursales Where IdSucursal={0}", lueSucursal.EditValue.ToString))
+        If Not DrSucursal Is Nothing Then
+            txtDocSucursal.Text = DrSucursal!NumCompraSuc.ToString
         End If
+
     End Sub
 
     Private Sub CargarDatosLUE()
@@ -467,10 +469,10 @@ tipoerr:
     End Sub
 
     Private Sub txtCodVendedor_TextChanged(sender As Object, e As EventArgs) Handles txtCodVendedor.TextChanged
-        If txtCodVendedor.Text.Trim = "" Then Exit Sub
-        If txtCodVendedor.Text.Trim = LueVendedor.EditValue.ToString Then Exit Sub
-        If BuscarRegistroSql("Vendedores", "CodVendedor", "CodVendedor", txtCodVendedor.Text) <> "" Then
-            LueVendedor.EditValue = txtCodVendedor.Text
-        End If
+        'If txtCodVendedor.Text.Trim = "" Then Exit Sub
+        'If txtCodVendedor.Text.Trim = LueVendedor.EditValue.ToString Then Exit Sub
+        'If BuscarRegistroSql("Vendedores", "CodVendedor", "CodVendedor", txtCodVendedor.Text) <> "" Then
+        '    LueVendedor.EditValue = txtCodVendedor.Text
+        'End If
     End Sub
 End Class

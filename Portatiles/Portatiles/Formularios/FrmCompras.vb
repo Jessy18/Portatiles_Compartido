@@ -106,7 +106,7 @@ tipoerr:
         If Not lueSucursal.EditValue Is Nothing Then
             Dim DrSucursal As DataRow = BusquedaSeleccionFila(String.Format("Select * from Sucursales Where IdSucursal={0}", lueSucursal.EditValue.ToString))
             If Not DrSucursal Is Nothing Then
-                txtDocSucursal.Text = DrSucursal!NumDocCompra.ToString
+                txtDocSucursal.Text = DrSucursal!NumCompraSuc.ToString
             End If
         End If
     End Sub

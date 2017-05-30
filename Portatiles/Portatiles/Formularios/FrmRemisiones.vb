@@ -30,7 +30,7 @@ Public Class FrmRemisiones
         LueUserAutoriza.Properties.ForceInitialize()
 
         txtNumRemision.Text = IIf(String.IsNullOrEmpty(DrEmpresa!Remisiones.ToString), "1", DrEmpresa!Remisiones.ToString)
-        txtNumSucRemision.Text = BuscarRegistroSql("Sucursales", "NumDocRemision", "IdSucursal", CodSucursal)
+        txtNumSucRemision.Text = BuscarRegistroSql("Sucursales", "NumRemisionSuc", "IdSucursal", CodSucursal)
         DteFecha.DateTime = Now
 
         LimpiarFormulario()
