@@ -72,7 +72,7 @@ Partial Class Kardex
         Me.btnSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSalir.Image = Global.Portatiles.My.Resources.Resources.Shutdown
-        Me.btnSalir.Location = New System.Drawing.Point(513, 364)
+        Me.btnSalir.Location = New System.Drawing.Point(644, 360)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(98, 48)
         Me.btnSalir.TabIndex = 6
@@ -105,7 +105,7 @@ Partial Class Kardex
         Me.GroupControl1.Controls.Add(Me.txtNumMovimiento)
         Me.GroupControl1.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(609, 109)
+        Me.GroupControl1.Size = New System.Drawing.Size(740, 109)
         Me.GroupControl1.TabIndex = 7
         Me.GroupControl1.Text = "Filtros"
         '
@@ -354,7 +354,7 @@ Partial Class Kardex
         Me.gcAjustes.Location = New System.Drawing.Point(2, 107)
         Me.gcAjustes.MainView = Me.gvAjustes
         Me.gcAjustes.Name = "gcAjustes"
-        Me.gcAjustes.Size = New System.Drawing.Size(609, 253)
+        Me.gcAjustes.Size = New System.Drawing.Size(740, 249)
         Me.gcAjustes.TabIndex = 8
         Me.gcAjustes.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvAjustes})
         '
@@ -380,7 +380,7 @@ Partial Class Kardex
         Me.btnEditar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnEditar.Image = Global.Portatiles.My.Resources.Resources.Write
-        Me.btnEditar.Location = New System.Drawing.Point(409, 364)
+        Me.btnEditar.Location = New System.Drawing.Point(540, 360)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(98, 48)
         Me.btnEditar.TabIndex = 9
@@ -395,24 +395,24 @@ Partial Class Kardex
         Me.btnCerrarEdicion.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnCerrarEdicion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCerrarEdicion.Image = Global.Portatiles.My.Resources.Resources.Lock
-        Me.btnCerrarEdicion.Location = New System.Drawing.Point(305, 364)
+        Me.btnCerrarEdicion.Location = New System.Drawing.Point(436, 360)
         Me.btnCerrarEdicion.Name = "btnCerrarEdicion"
         Me.btnCerrarEdicion.Size = New System.Drawing.Size(98, 48)
         Me.btnCerrarEdicion.TabIndex = 10
         Me.btnCerrarEdicion.Text = "Cerrar Edición"
         '
-        'FrmListado
+        'Kardex
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(614, 415)
+        Me.ClientSize = New System.Drawing.Size(745, 411)
         Me.Controls.Add(Me.btnCerrarEdicion)
         Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.gcAjustes)
         Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.btnSalir)
         Me.MinimumSize = New System.Drawing.Size(630, 450)
-        Me.Name = "FrmListado"
+        Me.Name = "Kardex"
         Me.Text = "Listado de Registros"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
