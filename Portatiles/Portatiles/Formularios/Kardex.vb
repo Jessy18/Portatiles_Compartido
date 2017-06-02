@@ -19,53 +19,53 @@ Public Class Kardex
     End Sub
     Private Sub CargarDatosLue()
 
-        LblLue2.Visible = False
-        Lue2.Visible = False
-        BtnBuscarLue2.Visible = False
+        'LblLue2.Visible = False
+        ' Lue2.Visible = False
+        'BtnBuscarLue2.Visible = False
 
-        lueSucursal.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal from Sucursales Where Activa=1 ")
-        lueSucursal.Properties.ValueMember = "IdSucursal"
-        lueSucursal.Properties.DisplayMember = "Sucursal"
+        lueProducto.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal from Sucursales Where Activa=1 ")
+        lueProducto.Properties.ValueMember = "IdSucursal"
+        lueProducto.Properties.DisplayMember = "Sucursal"
 
         If Not Administrador Then
-            lueSucursal.Properties.ReadOnly = True
-            lueSucursal.EditValue = CodSucursal
+            lueProducto.Properties.ReadOnly = True
+            lueProducto.EditValue = CodSucursal
         End If
         'El llenado de datos en los siguientes controles depende del tipo de documento que se va buscar
         Select Case MovimientoListado
             Case "Ajustes"
-                Lue1.Properties.DataSource = BusquedaSeleccion("Select Convert(nvarchar(3),IdTipo) as IdTipo, TipoAjuste from TipoAjuste")
-                Lue1.Properties.ValueMember = "IdTipo"
-                Lue1.Properties.DisplayMember = "TipoAjuste"
-                LblLue1.Text = "Tipo" & vbCrLf & "Ajuste"
+                'Lue1.Properties.DataSource = BusquedaSeleccion("Select Convert(nvarchar(3),IdTipo) as IdTipo, TipoAjuste from TipoAjuste")
+                'Lue1.Properties.ValueMember = "IdTipo"
+                'Lue1.Properties.DisplayMember = "TipoAjuste"
+                'LblLue1.Text = "Tipo" & vbCrLf & "Ajuste"
 
             Case "Compras"
-                Lue1.Properties.DataSource = BusquedaSeleccion("Select IdProveedor, Proveedor from Proveedores ")
-                Lue1.Properties.ValueMember = "IdProveedor"
-                Lue1.Properties.DisplayMember = "Proveedor"
-                LblLue1.Text = "Proveedor"
+                'Lue1.Properties.DataSource = BusquedaSeleccion("Select IdProveedor, Proveedor from Proveedores ")
+                'Lue1.Properties.ValueMember = "IdProveedor"
+                'Lue1.Properties.DisplayMember = "Proveedor"
+                'LblLue1.Text = "Proveedor"
 
             Case "Remisiones"
-                Lue1.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal from Sucursales Where Activa=1 ")
-                Lue1.Properties.ValueMember = "IdSucursal"
-                Lue1.Properties.DisplayMember = "Sucursal"
-                LblSucursal.Text = "Sucursal" & vbCrLf & "Salida"
-                LblLue1.Text = "Sucursal" & vbCrLf & "Entrada"
+                'Lue1.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal from Sucursales Where Activa=1 ")
+                'Lue1.Properties.ValueMember = "IdSucursal"
+                'Lue1.Properties.DisplayMember = "Sucursal"
+                'LblProducto.Text = "Sucursal" & vbCrLf & "Salida"
+                'LblLue1.Text = "Sucursal" & vbCrLf & "Entrada"
             Case "Ventas"
-                Lue1.Properties.DataSource = BusquedaSeleccion("Select Clientes.IdCliente, DatosEntidad.Nombres+' '+DatosEntidad.Apellidos as Cliente, DatosEntidad.Empresa from Clientes INNER JOIN DatosEntidad ON Clientes.IdDatos=DatosEntidad.IdDatos ")
-                Lue1.Properties.ValueMember = "IdCliente"
-                Lue1.Properties.DisplayMember = "Cliente"
-                LblLue1.Text = "Cliente"
+                'Lue1.Properties.DataSource = BusquedaSeleccion("Select Clientes.IdCliente, DatosEntidad.Nombres+' '+DatosEntidad.Apellidos as Cliente, DatosEntidad.Empresa from Clientes INNER JOIN DatosEntidad ON Clientes.IdDatos=DatosEntidad.IdDatos ")
+                'Lue1.Properties.ValueMember = "IdCliente"
+                'Lue1.Properties.DisplayMember = "Cliente"
+                'LblLue1.Text = "Cliente"
         End Select
     End Sub
     Private Sub CargarEstadoCombo()
-        With CmbEstado.Properties.Items
-            .Add("Todos")
-            .Add("En edición")
-            .Add("Cerrados")
-            .Add("Anulados")
-            .Add("No Anulados")
-        End With
+        'With CmbEstado.Properties.Items
+        '    .Add("Todos")
+        '    .Add("En edición")
+        '    .Add("Cerrados")
+        '    .Add("Anulados")
+        '    .Add("No Anulados")
+        'End With
 
     End Sub
 
@@ -89,29 +89,29 @@ Public Class Kardex
             GenericSql += String.Format(" AND {0}.Fecha between CONVERT(DATETIME, '{1}',102) AND CONVERT(DATETIME,'{2} 23:59:59',102)", MovimientoListado, Format(DteFechaIni.DateTime, "yyyy/MM/dd"), Format(DteFechaFin.DateTime, "yyyy/MM/dd"))
         End If
 
-        If lueSucursal.EditValue.ToString.Trim <> "" Then
+        If lueProducto.EditValue.ToString.Trim <> "" Then
             If MovimientoListado = "Remisiones" Then
-                GenericSql += String.Format(" AND {0}.IdSucursalSalida='{1}' ", MovimientoListado, lueSucursal.EditValue.ToString)
+                GenericSql += String.Format(" AND {0}.IdSucursalSalida='{1}' ", MovimientoListado, lueProducto.EditValue.ToString)
             Else
-                GenericSql += String.Format(" AND {0}.IdSucursal='{1}' ", MovimientoListado, lueSucursal.EditValue.ToString)
+                GenericSql += String.Format(" AND {0}.IdSucursal='{1}' ", MovimientoListado, lueProducto.EditValue.ToString)
             End If
         End If
         'Aqui filtramos el valor del lue no 1 por cada movimiento
-        If Lue1.EditValue.ToString.Trim <> "" Then
-            Select Case MovimientoListado
-                Case "Ajustes"
-                    NombreCampo = MovimientoListado & ".IdTipo"
-                Case "Remisiones"
-                    NombreCampo = MovimientoListado & ".IdSucursalEntrada"
-                Case "Ventas"
-                    NombreCampo = MovimientoListado & ".IdCliente"
-                Case "Compras"
-                    NombreCampo = MovimientoListado & ".IdProveedor"
-            End Select
-            GenericSql += String.Format(" AND {0}={1}", NombreCampo, Lue1.EditValue.ToString)
-            NombreCampo = ""
-        End If
-        If txtNumMovimiento.Text.Trim <> "" Then
+        'If Lue1.EditValue.ToString.Trim <> "" Then
+        '    Select Case MovimientoListado
+        '        Case "Ajustes"
+        '            NombreCampo = MovimientoListado & ".IdTipo"
+        '        Case "Remisiones"
+        '            NombreCampo = MovimientoListado & ".IdSucursalEntrada"
+        '        Case "Ventas"
+        '            NombreCampo = MovimientoListado & ".IdCliente"
+        '        Case "Compras"
+        '            NombreCampo = MovimientoListado & ".IdProveedor"
+        '    End Select
+        '    GenericSql += String.Format(" AND {0}={1}", NombreCampo, Lue1.EditValue.ToString)
+        '    NombreCampo = ""
+        'End If
+        If txtExistencia.Text.Trim <> "" Then
             Select Case MovimientoListado
                 Case "Ajustes"
                     NombreCampo = MovimientoListado & ".NumAjuste"
@@ -122,40 +122,40 @@ Public Class Kardex
                 Case "Compras"
                     NombreCampo = MovimientoListado & ".NumCompra"
             End Select
-            GenericSql += String.Format(" AND {0}={1}", NombreCampo, txtNumMovimiento.Text)
+            GenericSql += String.Format(" AND {0}={1}", NombreCampo, txtExistencia.Text)
             NombreCampo = ""
         End If
-        If txtDocSucursal.Text.Trim <> "" Then
-            Select Case MovimientoListado
-                Case "Ajustes"
-                    NombreCampo = MovimientoListado & ".NumDocAjuste"
-                Case " Remisiones"
-                    NombreCampo = MovimientoListado & ".NumDocRemision"
-                Case "Ventas"
-                    NombreCampo = MovimientoListado & ".NumDocFactura"
-                Case "Compras"
-                    NombreCampo = MovimientoListado & ".NumDocCompra"
-            End Select
-            GenericSql += String.Format(" AND {0}={1}", NombreCampo, txtDocSucursal.Text)
-            NombreCampo = ""
-        End If
+        'If txtDocSucursal.Text.Trim <> "" Then
+        Select Case MovimientoListado
+            Case "Ajustes"
+                NombreCampo = MovimientoListado & ".NumDocAjuste"
+            Case " Remisiones"
+                NombreCampo = MovimientoListado & ".NumDocRemision"
+            Case "Ventas"
+                NombreCampo = MovimientoListado & ".NumDocFactura"
+            Case "Compras"
+                NombreCampo = MovimientoListado & ".NumDocCompra"
+        End Select
+        'GenericSql += String.Format(" AND {0}={1}", NombreCampo, txtDocSucursal.Text)
+        NombreCampo = ""
+        'End If
         'Aqui validamos la cadena a concatenar según el estado seleccionado y según el movimiento 
-        If CmbEstado.Text.Trim <> "" Then
-            Select Case CmbEstado.Text
+        'If CmbEstado.Text.Trim <> "" Then
+        'Select Case CmbEstado.Text
 
-                Case "Todos"
-                Case "En edición"
-                    NombreCampo = String.Format(" AND {0}{1}=1 ", MovimientoListado, ".Editar")
-                Case "Cerrados"
-                    NombreCampo = String.Format(" AND {0}{1}=0 ", MovimientoListado, ".Editar")
-                Case "Anulados"
-                    NombreCampo = String.Format(" AND {0}{1}=1 ", MovimientoListado, IIf(MovimientoListado = "Ajustes", ".Anulado", ".Anulada"))
-                Case "No Anulados"
-                    NombreCampo = String.Format(" AND {0}{1}=0 ", MovimientoListado, IIf(MovimientoListado = "Ajustes", ".Anulado", ".Anulada"))
-            End Select
-            GenericSql += NombreCampo
-            NombreCampo = ""
-        End If
+        '    Case "Todos"
+        '    Case "En edición"
+        'NombreCampo = String.Format(" AND {0}{1}=1 ", MovimientoListado, ".Editar")
+        '    Case "Cerrados"
+        'NombreCampo = String.Format(" AND {0}{1}=0 ", MovimientoListado, ".Editar")
+        '    Case "Anulados"
+        'NombreCampo = String.Format(" AND {0}{1}=1 ", MovimientoListado, IIf(MovimientoListado = "Ajustes", ".Anulado", ".Anulada"))
+        '    Case "No Anulados"
+        'NombreCampo = String.Format(" AND {0}{1}=0 ", MovimientoListado, IIf(MovimientoListado = "Ajustes", ".Anulado", ".Anulada"))
+        'End Select
+        'GenericSql += NombreCampo
+        'NombreCampo = ""
+        'End If
         gcAjustes.DataSource = BusquedaSeleccion(GenericSql)
         Exit Sub
 tipoerr:
@@ -216,7 +216,7 @@ tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Function
 
-    Private Sub BtnBuscarLue1_Click(sender As Object, e As EventArgs) Handles BtnBuscarLue1.Click
+    Private Sub BtnBuscarLue1_Click(sender As Object, e As EventArgs)
         On Error GoTo tipoerr
         Select Case MovimientoListado
             Case "Ajustes"
@@ -231,7 +231,7 @@ tipoerr:
 
         FrmBusqueda.ShowDialog()
         If Not CodigoGenerico.Trim = "" Then
-            Lue1.EditValue = (CodigoGenerico)
+            'Lue1.EditValue = (CodigoGenerico)
         End If
         Exit Sub
 tipoerr:
@@ -239,7 +239,7 @@ tipoerr:
 
     End Sub
 
-    Private Sub BtnBuscarLue2_Click(sender As Object, e As EventArgs) Handles BtnBuscarLue2.Click
+    Private Sub BtnBuscarLue2_Click(sender As Object, e As EventArgs)
         On Error GoTo tipoerr
         'Select Case MovimientoListado
 
@@ -257,20 +257,20 @@ tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Sub
 
-    Private Sub BtnBuscarSucursal_Click(sender As Object, e As EventArgs) Handles BtnBuscarSucursal.Click
+    Private Sub BtnBuscarSucursal_Click(sender As Object, e As EventArgs)
         On Error GoTo tipoerr
         ClaveBusqueda = "Sucursales"
 
         FrmBusqueda.ShowDialog()
         If Not CodigoGenerico.Trim = "" Then
-            lueSucursal.EditValue = (CodigoGenerico)
+            lueProducto.EditValue = (CodigoGenerico)
         End If
         Exit Sub
 tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Sub
 
-    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
         On Error GoTo tipoerr
         If PuedeAccionar() Then
             Select Case MovimientoListado
@@ -312,30 +312,30 @@ tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Sub
 
-    Private Sub LblLue1_Click(sender As Object, e As EventArgs) Handles LblLue1.Click
-        Lue1.EditValue = ""
-        Lue1.Text = ""
+    Private Sub LblLue1_Click(sender As Object, e As EventArgs)
+        'Lue1.EditValue = ""
+        'Lue1.Text = ""
     End Sub
 
-    Private Sub LblLue2_Click(sender As Object, e As EventArgs) Handles LblLue2.Click
-        Lue2.EditValue = ""
-        Lue2.Text = ""
+    Private Sub LblLue2_Click(sender As Object, e As EventArgs)
+        'Lue2.EditValue = ""
+        'Lue2.Text = ""
     End Sub
 
-    Private Sub LabelControl1_Click(sender As Object, e As EventArgs) Handles LabelControl1.Click
-        CmbEstado.Text = ""
-        CmbEstado.SelectedItem = Nothing
+    Private Sub LabelControl1_Click(sender As Object, e As EventArgs)
+        'CmbEstado.Text = ""
+        'CmbEstado.SelectedItem = Nothing
     End Sub
 
-    Private Sub LabelControl2_Click(sender As Object, e As EventArgs) Handles LabelControl2.Click
-        txtDocSucursal.Text = ""
+    Private Sub LabelControl2_Click(sender As Object, e As EventArgs)
+        'txtDocSucursal.Text = ""
     End Sub
 
-    Private Sub LblMovimiento_Click(sender As Object, e As EventArgs) Handles LblMovimiento.Click
-        txtNumMovimiento.Text = ""
+    Private Sub LblMovimiento_Click(sender As Object, e As EventArgs) Handles LblExistencia.Click
+        txtExistencia.Text = ""
     End Sub
 
-    Private Sub btnCerrarEdicion_Click(sender As Object, e As EventArgs) Handles btnCerrarEdicion.Click
+    Private Sub btnCerrarEdicion_Click(sender As Object, e As EventArgs)
         On Error GoTo tipoerr
         Dim Condicion As String
         If PuedeAccionar() Then
