@@ -238,23 +238,6 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Reportes\DataSets\dsUsuarios.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsUsuarios.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\Diseñadores\xrUsuariosAct.Designer.vb">
-      <DependentUpon>xrUsuariosAct.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\Diseñadores\xrUsuariosAct.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\xrUsuarios.Designer.vb">
-      <DependentUpon>xrUsuarios.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\xrUsuarios.vb">
-      <SubType>Component</SubType>
-    </Compile>
     <EmbeddedResource Include="Formularios\FrmFacturacion.resx">
       <DependentUpon>FrmFacturacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -330,12 +313,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\Diseñadores\xrUsuariosAct.resx">
-      <DependentUpon>xrUsuariosAct.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\xrUsuarios.resx">
-      <DependentUpon>xrUsuarios.vb</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -354,17 +331,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Reportes\DataSets\dsUsuarios.xsc">
-      <DependentUpon>dsUsuarios.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DataSets\dsUsuarios.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsUsuarios.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="Reportes\DataSets\dsUsuarios.xss">
-      <DependentUpon>dsUsuarios.xsd</DependentUpon>
-    </None>
     <None Include="Resources\add1.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -490,7 +456,13 @@
   <ItemGroup>
     <None Include="Resources\Refresh.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Print_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\DataSets\" />
+    <Folder Include="Reportes\Diseñadores\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
