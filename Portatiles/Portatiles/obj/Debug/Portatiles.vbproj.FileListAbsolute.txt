@@ -116,3 +116,5 @@ C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Por
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmReportViewer.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.xrUsuariosAct.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.xrUsuarios.resources
