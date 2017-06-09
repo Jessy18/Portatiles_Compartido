@@ -89,46 +89,7 @@ Public Class FrmImportador
     ' PROGRAMACION DEL CATALOGO DE MARCAS 
 #Region "PROGRAMACION DEL CATALOGO DE MARCAS"
 
-    Private Sub LoadMarcas()
-        On Error GoTo tipoerr
-        gcRegistros.DataSource = BusquedaSeleccion("Select * From Marcas order by IdMarca ")
-        LimpiarCamposMarcas(True)
-        Application.DoEvents()
 
-        Exit Sub
-tipoerr:
-        XtraMessageBox.Show(Err.Description, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    End Sub
-
-    Private Sub LimpiarCamposMarcas(ByVal limpiarcodigo As Boolean)
-        If limpiarcodigo Then txtRuta.Text = ""
-        txthoja.Text = ""
-    End Sub
-
-    Private Sub NuevoCodigoMarcas()
-        On Error GoTo tipoerr
-        LimpiarCamposMarcas(True)
-        txtRuta.Text = CodigoNuevo("Marcas", "IdMarca", 3)
-        txthoja.Focus()
-        Exit Sub
-tipoerr:
-        XtraMessageBox.Show(Err.Description, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    End Sub
-
-    Private Function ValidarDatosMarcas() As Boolean
-        ValidarDatosMarcas = True
-        If txtRuta.Text.Trim = "" Then
-            XtraMessageBox.Show("El código de la marca no puede quedar vacío", "Validar Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            ValidarDatosMarcas = False
-            Exit Function
-        End If
-
-        If txthoja.Text.Trim = "" Then
-            XtraMessageBox.Show("El nombre de la marca no puede quedar vacío", "Validar Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            ValidarDatosMarcas = False
-            Exit Function
-        End If
-    End Function
 
     Private Sub GuardarMarca()
         On Error GoTo tipoerr
@@ -161,47 +122,6 @@ tipoerr:
     End Sub
 
 
-
-    Private Sub CargarDatosMarca()
-        On Error GoTo tipoerr
-
-        LimpiarCamposMarcas(False) 'limpiamos los campos menos el código
-        GenericRow = BusquedaSeleccionFila("Select * From Marcas WHERE IdMarca= '" & txtRuta.Text & "'")
-        If Not IsNothing(GenericRow) Then
-            txthoja.Text = Trim(GenericRow!Marca.ToString)
-        End If
-
-        Exit Sub
-tipoerr:
-        XtraMessageBox.Show(Err.Description, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    End Sub
-
-    Private Sub TxtCodIdioma_TextChanged(sender As Object, e As EventArgs) Handles txtRuta.TextChanged
-        CargarDatosMarca()
-    End Sub
-    Private Sub txtMarca_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txthoja.KeyPress
-        If Asc(e.KeyChar) = 13 Then
-            btnGuardar.PerformClick()
-        End If
-    End Sub
-
-    Private Sub gvIdiomas_DoubleClick(sender As Object, e As EventArgs) Handles gvRegistros.DoubleClick
-        If gvRegistros.RowCount = 0 Then Exit Sub
-        txtRuta.Text = gvRegistros.GetFocusedDataRow.Item("IdMarca").ToString
-    End Sub
-
-    Private Sub gvIdiomas_KeyUp(sender As Object, e As KeyEventArgs) Handles gvRegistros.KeyUp
-        If gvRegistros.RowCount = 0 Then Exit Sub
-        txtRuta.Text = gvRegistros.GetFocusedDataRow.Item("IdMarca").ToString
-    End Sub
-
-    Private Sub txtIdMarca_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRuta.KeyPress
-        If Asc(e.KeyChar) = 13 Then
-            CargarDatosMarca()
-        Else
-            ValidarNumeroEntero(txtRuta.Text, e)
-        End If
-    End Sub
 
     Private Sub ChkMarcaActiva_CheckedChanged(sender As Object, e As EventArgs)
         txthoja.Focus()
@@ -414,7 +334,7 @@ tipoerr:
                     End If
                 Next
             Case "Usuarios"
-                'Primero valido que exista la columna del IdSucursal
+                'Primero valido que exista la columna del IdUsuario
                 If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdUsuario" Then
                     XtraMessageBox.Show("La tabla no contiene la columna IdUsuario", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -440,6 +360,34 @@ tipoerr:
 
                 Next
             Case "Proveedores"
+                'Primero valido que exista la columna del IdProveedor
+                If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdProveedor" Then
+                    XtraMessageBox.Show("La tabla no contiene la columna IdProveedor", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Valido los datos
+                For Each DrExcel As DataRow In DtExcel.Rows
+                    If BuscarRegistroSql(Archivo, "IdProveedor", "IdProveedor", DrExcel!IdProveedor.ToString) <> "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El código de proveedor ya existe en la BD.")
+                    End If
+
+                    If DrExcel!Proveedor.ToString.Trim = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de proveedor no puede quedar vacío.")
+                    End If
+                    If DrExcel!CedulaRUC.ToString.Trim = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": La cédula RUC del proveedor no puede quedar vacía.")
+                    End If
+                    If BuscarRegistroSql("Sucursales", "IdSucursal", "IdSucursal", DrExcel!IdSucursal.ToString) = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El registro de Sucursal asociada no existe en la BD.")
+                    End If
+                    If DrExcel!Nombre.ToString.Trim = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario no puede quedar vacío.")
+                    End If
+                    If BuscarRegistroSql("Archivo", "IdUsuario", "IdUsuario", DrExcel!IdUsuario.ToString) = "" Then
+                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario ya existe en la BD.")
+                    End If
+
+                Next
             Case "Vendedores"
             Case "Clientes"
             Case "Marcas"
