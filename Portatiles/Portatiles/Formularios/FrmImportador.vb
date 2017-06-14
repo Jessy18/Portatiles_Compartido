@@ -69,14 +69,7 @@ Public Class FrmImportador
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If IsNothing(TreeCatalogos.FocusedNode.GetValue(0)) Then Exit Sub
 
-        Select Case TreeCatalogos.FocusedNode.GetValue(0).ToString
-            Case "Usuarios"
-                'GuardarUsuario()
-            Case "Marcas"
-                GuardarMarca()
-  
-            Case Else
-        End Select
+        GuardarDatos()
     End Sub
 
 
@@ -91,20 +84,63 @@ Public Class FrmImportador
 
 
 
-    Private Sub GuardarMarca()
+    Private Sub GuardarDatos()
         On Error GoTo tipoerr
         Dim Guardados As Boolean
 
-        For Each DrDato As DataRow In DtExcel.Rows
-            GenericSql = "INSERT INTO Marcas VALUES (@IdMarca, @Marca, @Activo )"
-            CrearComando(GenericSql)
-            'End If
 
-            With Comando.Parameters
-                .AddWithValue("IdMarca", DrDato!IdMarca)
-                .AddWithValue("Marca", DrDato!Marca)
-                .AddWithValue("Activo", True)
-            End With
+        For Each DrDato As DataRow In DtExcel.Rows
+
+            Select Case TreeCatalogos.FocusedNode.GetValue(0).ToString
+                ''Case "Usuarios"
+                ''    'GuardarUsuario()
+                ''Case "Marcas"
+
+                Case "Sucursales"
+                    GenericSql = "INSERT INTO Sucursales (IdSucursal, IdEmpresa, Sucursal, DirSucursal, Activa, NumDocCompra, NumDocRemision, NumDocFactura, NumDocAjuste) VALUES (@IdSucursal, @IdEmpresa, @Sucursal, @DirSucursal, @Activa, @NumDocCompra, @NumDocRemision, @NumDocFactura, @NumDocAjuste) "
+                    CrearComando(GenericSql)
+
+
+                    With Comando.Parameters
+                        .AddWithValue("IdSucursal", DrDato!IdSucursal.ToString)
+                        .AddWithValue("IdEmpresa", BuscarRegistroSql("Empresa", "IdEmpresa", "1", "1"))
+                        .AddWithValue("Sucursal", DrDato!IdSucursal.ToString)
+                        .AddWithValue("DirSucursal", DrDato!Direccion.ToString)
+                        .AddWithValue("NumDocCompra", DrDato!NumCompra.ToString)
+                        .AddWithValue("NumDocRemision", DrDato!NumRemision.ToString)
+                        .AddWithValue("NumDocFactura", DrDato!NumRemision.ToString)
+                        .AddWithValue("NumDocAjuste", DrDato!NumAjuste.ToString)
+                        .AddWithValue("Activa", CBool(True))
+                    End With
+                Case "Usuarios"
+
+                Case "Proveedores"
+
+
+                Case "Vendedores"
+
+                Case "Clientes"
+
+                Case "Marcas"
+                    GenericSql = "INSERT INTO Marcas VALUES (@IdMarca, @Marca, @Activo )"
+                    CrearComando(GenericSql)
+
+
+                    With Comando.Parameters
+                        .AddWithValue("IdMarca", DrDato!IdMarca)
+                        .AddWithValue("Marca", DrDato!Marca)
+                        .AddWithValue("Activo", True)
+                    End With
+                Case "Categorías de Productos"
+
+                Case "Tipo de Ajuste"
+
+                Case "Productos"
+
+                Case Else
+            End Select
+
+            
             Guardados = EjecutarComando()
 
 
@@ -391,22 +427,46 @@ tipoerr:
                 End If
                 'Valido los datos
                 For Each DrExcel As DataRow In DtExcel.Rows
-                    If BuscarRegistroSql(Archivo, "IdProveedor", "IdProveedor", DrExcel!IdProveedor.ToString) <> "" Then
-                        AgregarLineaError(DrExcel!Linea.ToString, "El código de proveedor ya existe en la BD.")
+                    If BuscarRegistroSql(Archivo, "IdVendedor", "IdVendedor", DrExcel!IdVendedor.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de vendedor ya existe en la BD.")
                     End If
 
-                    If DrExcel!Proveedor.ToString.Trim = "" Then
-                        AgregarLineaError(DrExcel!Linea.ToString, "El nombre de proveedor no puede quedar vacío.")
+                    If DrExcel!Nombres.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El nombre de vendedor no puede quedar vacío.")
                     End If
-                    If DrExcel!CedulaRUC.ToString.Trim = "" Then
-                        AgregarLineaError(DrExcel!Linea.ToString, "La cédula RUC del proveedor no puede quedar vacía.")
+                    If DrExcel!Apellidos.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El apellido de vendedor no puede quedar vacío.")
                     End If
-                    If DrExcel!Telefono.ToString.Trim = "" Then
-                        AgregarLineaError(DrExcel!Linea.ToString, "El teléfono del proveedor no puede quedar vacío.")
+                    If DrExcel!Cedula.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "La cédula del vendedor no puede quedar vacía.")
                     End If
 
                 Next
             Case "Clientes"
+                'Primero valido que exista la columna del IdCliente
+                If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdCliente" Then
+                    XtraMessageBox.Show("La tabla no contiene la columna IdCliente", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Valido los datos
+                For Each DrExcel As DataRow In DtExcel.Rows
+                    If BuscarRegistroSql(Archivo, "IdCliente", "IdCliente", DrExcel!IdCliente.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de vendedor ya existe en la BD.")
+                    End If
+
+                    If DrExcel!Nombres.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El nombre de cliente no puede quedar vacío.")
+                    End If
+                    If DrExcel!Apellidos.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El apellido de vendedor no puede quedar vacío.")
+                    End If
+                    If DrExcel!CedulaRUC.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "La cédula RUC del cliente no puede quedar vacía.")
+                    End If
+
+                Next
+
+
             Case "Marcas"
                 'Primero valido que exista la columna del IdMarca
                 If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdMarca" Then
@@ -416,17 +476,72 @@ tipoerr:
                 'Valido los datos
                 For Each DrExcel As DataRow In DtExcel.Rows
                     If BuscarRegistroSql(Archivo, "IdMarca", "IdMarca", DrExcel!IdMarca.ToString) <> "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El código de marca ya existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de marca ya existe en la BD.")
                     End If
 
                     If BuscarRegistroSql(Archivo, "Marca", "Marca", DrExcel!Marca.ToString) <> "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El registro de marca ya existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El registro de marca ya existe en la BD.")
                     End If
                 Next
             Case "Categorías de Productos"
-            Case "Tipo de Ajuste"
-            Case "Productos"
+                'Primero valido que exista la columna del IdMarca
+                If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdCategoria" Then
+                    XtraMessageBox.Show("La tabla no contiene la columna IdCategoria", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Valido los datos
+                For Each DrExcel As DataRow In DtExcel.Rows
+                    If BuscarRegistroSql(Archivo, "IdCategoria", "IdCategoria", DrExcel!IdCategoria.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de Categoria ya existe en la BD.")
+                    End If
 
+                    If BuscarRegistroSql(Archivo, "Categoria", "Categoria", DrExcel!Categoria.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El registro de Categoria ya existe en la BD.")
+                    End If
+                Next
+                
+            Case "Tipo de Ajuste"
+                'Primero valido que exista la columna del IdMarca
+                If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdTipo" Then
+                    XtraMessageBox.Show("La tabla no contiene la columna IdTipo", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Valido los datos
+                For Each DrExcel As DataRow In DtExcel.Rows
+                    If BuscarRegistroSql(Archivo, "IdTipo", "IdTipo", DrExcel!IdTipo.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de Tipo de Ajuste ya existe en la BD.")
+                    End If
+
+                    If BuscarRegistroSql(Archivo, "TipoAjuste", "TipoAjuste", DrExcel!TipoAjuste.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El registro de tipo de ajuste ya existe en la BD.")
+                    End If
+                    If DrExcel!Valor.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El valor del tipo de ajuste no puede quedar vacío.")
+                    End If
+
+                Next
+            Case "Productos"
+                'Primero valido que exista la columna del IdMarca
+                If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdProducto" Then
+                    XtraMessageBox.Show("La tabla no contiene la columna IdProducto", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Valido los datos
+                For Each DrExcel As DataRow In DtExcel.Rows
+                    If BuscarRegistroSql(Archivo, "IdProducto", "IdProducto", DrExcel!IdProducto.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de producto ya existe en la BD.")
+                    End If
+                    If BuscarRegistroSql(Archivo, "Producto", "Producto", DrExcel!Producto.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "Ya existe un producto con esa misma descripción en la BD.")
+                    End If
+                    If BuscarRegistroSql("CategoriaProducto", "IdCategoria", "IdCategoria", DrExcel!IdCategoria.ToString) = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "La categoría específicada para el producto no existe en la BD.")
+                    End If
+                    If BuscarRegistroSql("Marcas", "IdMarca", "IdMarca", DrExcel!IdMarca.ToString) = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "La marca específicada para el producto no existe en la BD.")
+                    End If
+
+                Next
             Case Else
         End Select
         If ListErrores.Items.Count = 0 Then

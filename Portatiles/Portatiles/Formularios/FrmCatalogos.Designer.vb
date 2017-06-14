@@ -335,7 +335,7 @@ Partial Class FrmCatalogos
         '
         Me.SplitterControl1.Location = New System.Drawing.Point(237, 0)
         Me.SplitterControl1.Name = "SplitterControl1"
-        Me.SplitterControl1.Size = New System.Drawing.Size(5, 484)
+        Me.SplitterControl1.Size = New System.Drawing.Size(6, 484)
         Me.SplitterControl1.TabIndex = 2
         Me.SplitterControl1.TabStop = False
         '
@@ -346,9 +346,9 @@ Partial Class FrmCatalogos
         Me.PanelPrincipal.Controls.Add(Me.PanelTitulo)
         Me.PanelPrincipal.Controls.Add(Me.Splitter1)
         Me.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelPrincipal.Location = New System.Drawing.Point(242, 0)
+        Me.PanelPrincipal.Location = New System.Drawing.Point(243, 0)
         Me.PanelPrincipal.Name = "PanelPrincipal"
-        Me.PanelPrincipal.Size = New System.Drawing.Size(481, 484)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(480, 484)
         Me.PanelPrincipal.TabIndex = 3
         '
         'PanelBotones
@@ -361,7 +361,7 @@ Partial Class FrmCatalogos
         Me.PanelBotones.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelBotones.Location = New System.Drawing.Point(5, 417)
         Me.PanelBotones.Name = "PanelBotones"
-        Me.PanelBotones.Size = New System.Drawing.Size(474, 65)
+        Me.PanelBotones.Size = New System.Drawing.Size(473, 65)
         Me.PanelBotones.TabIndex = 4
         '
         'bnImprimir
@@ -373,7 +373,7 @@ Partial Class FrmCatalogos
         Me.bnImprimir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bnImprimir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.bnImprimir.Image = Global.Portatiles.My.Resources.Resources.Print_32x32
-        Me.bnImprimir.Location = New System.Drawing.Point(14, 9)
+        Me.bnImprimir.Location = New System.Drawing.Point(13, 9)
         Me.bnImprimir.Name = "bnImprimir"
         Me.bnImprimir.Size = New System.Drawing.Size(39, 48)
         Me.bnImprimir.TabIndex = 4
@@ -388,7 +388,7 @@ Partial Class FrmCatalogos
         Me.btnNuevo.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnNuevo.Image = Global.Portatiles.My.Resources.Resources.add1
-        Me.btnNuevo.Location = New System.Drawing.Point(56, 9)
+        Me.btnNuevo.Location = New System.Drawing.Point(55, 9)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(98, 48)
         Me.btnNuevo.TabIndex = 3
@@ -404,7 +404,7 @@ Partial Class FrmCatalogos
         Me.btnGuardar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGuardar.Image = Global.Portatiles.My.Resources.Resources.Save_32x32
-        Me.btnGuardar.Location = New System.Drawing.Point(160, 9)
+        Me.btnGuardar.Location = New System.Drawing.Point(159, 9)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(98, 48)
         Me.btnGuardar.TabIndex = 2
@@ -419,7 +419,7 @@ Partial Class FrmCatalogos
         Me.btnEliminar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnEliminar.Image = Global.Portatiles.My.Resources.Resources.Delete_32x32
-        Me.btnEliminar.Location = New System.Drawing.Point(264, 9)
+        Me.btnEliminar.Location = New System.Drawing.Point(263, 9)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(98, 48)
         Me.btnEliminar.TabIndex = 1
@@ -434,7 +434,7 @@ Partial Class FrmCatalogos
         Me.btnSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSalir.Image = Global.Portatiles.My.Resources.Resources.Shutdown
-        Me.btnSalir.Location = New System.Drawing.Point(368, 9)
+        Me.btnSalir.Location = New System.Drawing.Point(367, 9)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(98, 48)
         Me.btnSalir.TabIndex = 0
@@ -452,7 +452,7 @@ Partial Class FrmCatalogos
         Me.XTPCatalogos.Location = New System.Drawing.Point(8, 47)
         Me.XTPCatalogos.Name = "XTPCatalogos"
         Me.XTPCatalogos.SelectedTabPage = Me.xtpUsuarios
-        Me.XTPCatalogos.Size = New System.Drawing.Size(472, 368)
+        Me.XTPCatalogos.Size = New System.Drawing.Size(471, 368)
         Me.XTPCatalogos.TabIndex = 3
         Me.XTPCatalogos.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.xtpUsuarios, Me.xtpMarcas, Me.xtpCategorias, Me.XTPTipoAjuste, Me.XtcSucursal, Me.XTPProveedor, Me.XTPVendedores, Me.XTPClientes, Me.XTPProductos})
         '
@@ -470,13 +470,13 @@ Partial Class FrmCatalogos
         Me.xtpUsuarios.Controls.Add(Me.LabelControl1)
         Me.xtpUsuarios.Controls.Add(Me.TxtIdIUsuario)
         Me.xtpUsuarios.Name = "xtpUsuarios"
-        Me.xtpUsuarios.Size = New System.Drawing.Size(466, 337)
+        Me.xtpUsuarios.Size = New System.Drawing.Size(465, 337)
         Me.xtpUsuarios.Text = "Usuarios"
         '
         'ChkUsuarioAdministrador
         '
         Me.ChkUsuarioAdministrador.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ChkUsuarioAdministrador.Location = New System.Drawing.Point(288, 13)
+        Me.ChkUsuarioAdministrador.Location = New System.Drawing.Point(287, 13)
         Me.ChkUsuarioAdministrador.Name = "ChkUsuarioAdministrador"
         Me.ChkUsuarioAdministrador.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkUsuarioAdministrador.Properties.Appearance.Options.UseFont = True
@@ -487,7 +487,7 @@ Partial Class FrmCatalogos
         'ChkUsuarioActivo
         '
         Me.ChkUsuarioActivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ChkUsuarioActivo.Location = New System.Drawing.Point(404, 13)
+        Me.ChkUsuarioActivo.Location = New System.Drawing.Point(403, 13)
         Me.ChkUsuarioActivo.Name = "ChkUsuarioActivo"
         Me.ChkUsuarioActivo.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkUsuarioActivo.Properties.Appearance.Options.UseFont = True
@@ -506,7 +506,7 @@ Partial Class FrmCatalogos
         Me.lueSucursalUsuario.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.lueSucursalUsuario.Properties.NullText = ""
         Me.lueSucursalUsuario.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.OnlyInPopup
-        Me.lueSucursalUsuario.Size = New System.Drawing.Size(364, 20)
+        Me.lueSucursalUsuario.Size = New System.Drawing.Size(363, 20)
         Me.lueSucursalUsuario.TabIndex = 8
         '
         'LabelControl8
@@ -536,7 +536,7 @@ Partial Class FrmCatalogos
         Me.txtClave.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClave.Properties.Appearance.Options.UseFont = True
         Me.txtClave.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtClave.Size = New System.Drawing.Size(364, 22)
+        Me.txtClave.Size = New System.Drawing.Size(363, 22)
         Me.txtClave.TabIndex = 5
         '
         'gcUsuarios
@@ -547,7 +547,7 @@ Partial Class FrmCatalogos
         Me.gcUsuarios.Location = New System.Drawing.Point(10, 131)
         Me.gcUsuarios.MainView = Me.gvUsuarios
         Me.gcUsuarios.Name = "gcUsuarios"
-        Me.gcUsuarios.Size = New System.Drawing.Size(452, 202)
+        Me.gcUsuarios.Size = New System.Drawing.Size(451, 202)
         Me.gcUsuarios.TabIndex = 4
         Me.gcUsuarios.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvUsuarios})
         '
@@ -581,7 +581,7 @@ Partial Class FrmCatalogos
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsuario.Properties.Appearance.Options.UseFont = True
-        Me.txtUsuario.Size = New System.Drawing.Size(364, 22)
+        Me.txtUsuario.Size = New System.Drawing.Size(363, 22)
         Me.txtUsuario.TabIndex = 2
         '
         'LabelControl1
@@ -601,7 +601,7 @@ Partial Class FrmCatalogos
         Me.TxtIdIUsuario.Name = "TxtIdIUsuario"
         Me.TxtIdIUsuario.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtIdIUsuario.Properties.Appearance.Options.UseFont = True
-        Me.TxtIdIUsuario.Size = New System.Drawing.Size(184, 22)
+        Me.TxtIdIUsuario.Size = New System.Drawing.Size(183, 22)
         Me.TxtIdIUsuario.TabIndex = 0
         '
         'xtpMarcas
@@ -2034,7 +2034,7 @@ Partial Class FrmCatalogos
         Me.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelTitulo.Location = New System.Drawing.Point(5, 2)
         Me.PanelTitulo.Name = "PanelTitulo"
-        Me.PanelTitulo.Size = New System.Drawing.Size(474, 39)
+        Me.PanelTitulo.Size = New System.Drawing.Size(473, 39)
         Me.PanelTitulo.TabIndex = 2
         '
         'LblTitulo
@@ -2043,7 +2043,7 @@ Partial Class FrmCatalogos
         Me.LblTitulo.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 20.25!, System.Drawing.FontStyle.Italic)
         Me.LblTitulo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.LblTitulo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LblTitulo.Location = New System.Drawing.Point(50, 3)
+        Me.LblTitulo.Location = New System.Drawing.Point(49, 3)
         Me.LblTitulo.Name = "LblTitulo"
         Me.LblTitulo.Size = New System.Drawing.Size(375, 33)
         Me.LblTitulo.TabIndex = 1

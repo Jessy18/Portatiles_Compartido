@@ -19,9 +19,9 @@ Partial Class FrmCompras
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim SuperToolTip1 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
-        Dim ToolTipTitleItem1 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
-        Dim ToolTipItem1 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
+        Dim SuperToolTip2 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
+        Dim ToolTipTitleItem2 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
+        Dim ToolTipItem2 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.btnAgregar = New DevExpress.XtraEditors.SimpleButton()
         Me.txtCantidad = New DevExpress.XtraEditors.TextEdit()
@@ -179,12 +179,12 @@ Partial Class FrmCompras
         Me.btnBuscar.Location = New System.Drawing.Point(81, 33)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(32, 32)
-        ToolTipTitleItem1.Text = "Buscar Producto"
-        ToolTipItem1.LeftIndent = 6
-        ToolTipItem1.Text = "Abre una cuadro de diálogo auxiliar con la lista de productos activos"
-        SuperToolTip1.Items.Add(ToolTipTitleItem1)
-        SuperToolTip1.Items.Add(ToolTipItem1)
-        Me.btnBuscar.SuperTip = SuperToolTip1
+        ToolTipTitleItem2.Text = "Buscar Producto"
+        ToolTipItem2.LeftIndent = 6
+        ToolTipItem2.Text = "Abre una cuadro de diálogo auxiliar con la lista de productos activos"
+        SuperToolTip2.Items.Add(ToolTipTitleItem2)
+        SuperToolTip2.Items.Add(ToolTipItem2)
+        Me.btnBuscar.SuperTip = SuperToolTip2
         Me.btnBuscar.TabIndex = 1
         '
         'txtProducto

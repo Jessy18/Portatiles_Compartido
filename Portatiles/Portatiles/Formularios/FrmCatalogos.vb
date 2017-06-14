@@ -2143,20 +2143,7 @@ tipoerr:
 
 
 
+    Private Sub bnImprimir_Click(sender As Object, e As EventArgs) Handles bnImprimir.Click
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    End Sub
 End Class
