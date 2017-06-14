@@ -83,6 +83,10 @@ C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Co
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Frm_CadenaConectar.resources
+C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
+C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
+C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.exe.config
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.exe
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.pdb
@@ -102,6 +106,7 @@ C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Por
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmSeriesProducto.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmTile.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Frm_CadenaConectar.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Kardex.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.RFMDI.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.SplashAsistenteInicio.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.XtraForm1.resources
@@ -110,4 +115,6 @@ C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Por
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
-C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Frm_CadenaConectar.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmReportViewer.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.xrUsuariosAct.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.xrUsuarios.resources

@@ -326,11 +326,11 @@ tipoerr:
                 'Valido los datos
                 For Each DrExcel As DataRow In DtExcel.Rows
                     If BuscarRegistroSql(Archivo, "IdSucursal", "IdSucursal", DrExcel!IdSucursal.ToString) <> "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El código de Sucursal ya existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de Sucursal ya existe en la BD.")
                     End If
 
                     If BuscarRegistroSql(Archivo, "Sucursal", "Sucursal", DrExcel!Marca.ToString) <> "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El registro de Sucursal ya existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El registro de Sucursal ya existe en la BD.")
                     End If
                 Next
             Case "Usuarios"
@@ -342,20 +342,21 @@ tipoerr:
                 'Valido los datos
                 For Each DrExcel As DataRow In DtExcel.Rows
                     If BuscarRegistroSql(Archivo, "IdUsuario", "IdUsuario", DrExcel!IdUsuario.ToString) <> "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El código de usuario ya existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de usuario ya existe en la BD.")
                     End If
 
                     If DrExcel!IdSucursal.ToString.Trim = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": La sucursal del usuario debe ser especificada.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "La sucursal del usuario debe ser especificada.")
+
                     End If
                     If BuscarRegistroSql("Sucursales", "IdSucursal", "IdSucursal", DrExcel!IdSucursal.ToString) = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El registro de Sucursal asociada no existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El registro de Sucursal asociada no existe en la BD.")
                     End If
                     If DrExcel!Nombre.ToString.Trim = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario no puede quedar vacío.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El nombre de usuario no puede quedar vacío.")
                     End If
                     If BuscarRegistroSql("Archivo", "IdUsuario", "IdUsuario", DrExcel!IdUsuario.ToString) = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario ya existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El nombre de usuario ya existe en la BD.")
                     End If
 
                 Next
@@ -368,27 +369,43 @@ tipoerr:
                 'Valido los datos
                 For Each DrExcel As DataRow In DtExcel.Rows
                     If BuscarRegistroSql(Archivo, "IdProveedor", "IdProveedor", DrExcel!IdProveedor.ToString) <> "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El código de proveedor ya existe en la BD.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de proveedor ya existe en la BD.")
                     End If
 
                     If DrExcel!Proveedor.ToString.Trim = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de proveedor no puede quedar vacío.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "El nombre de proveedor no puede quedar vacío.")
                     End If
                     If DrExcel!CedulaRUC.ToString.Trim = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": La cédula RUC del proveedor no puede quedar vacía.")
+                        AgregarLineaError(DrExcel!Linea.ToString, "La cédula RUC del proveedor no puede quedar vacía.")
                     End If
-                    If BuscarRegistroSql("Sucursales", "IdSucursal", "IdSucursal", DrExcel!IdSucursal.ToString) = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El registro de Sucursal asociada no existe en la BD.")
-                    End If
-                    If DrExcel!Nombre.ToString.Trim = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario no puede quedar vacío.")
-                    End If
-                    If BuscarRegistroSql("Archivo", "IdUsuario", "IdUsuario", DrExcel!IdUsuario.ToString) = "" Then
-                        ListErrores.Items.Add("Linea " + DrExcel!Linea.ToString + ": El nombre de usuario ya existe en la BD.")
+                    If DrExcel!Telefono.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El teléfono del proveedor no puede quedar vacío.")
                     End If
 
                 Next
             Case "Vendedores"
+                'Primero valido que exista la columna del IdProveedor
+                If DtExcel.Columns(1).ColumnName.ToString.Trim <> "IdVendedor" Then
+                    XtraMessageBox.Show("La tabla no contiene la columna IdVendedor", "Importación de " + Archivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Valido los datos
+                For Each DrExcel As DataRow In DtExcel.Rows
+                    If BuscarRegistroSql(Archivo, "IdProveedor", "IdProveedor", DrExcel!IdProveedor.ToString) <> "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El código de proveedor ya existe en la BD.")
+                    End If
+
+                    If DrExcel!Proveedor.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El nombre de proveedor no puede quedar vacío.")
+                    End If
+                    If DrExcel!CedulaRUC.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "La cédula RUC del proveedor no puede quedar vacía.")
+                    End If
+                    If DrExcel!Telefono.ToString.Trim = "" Then
+                        AgregarLineaError(DrExcel!Linea.ToString, "El teléfono del proveedor no puede quedar vacío.")
+                    End If
+
+                Next
             Case "Clientes"
             Case "Marcas"
                 'Primero valido que exista la columna del IdMarca
@@ -423,6 +440,10 @@ tipoerr:
 tipoerr:
         XtraMessageBox.Show(Err.Description, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
+    End Sub
+
+    Private Sub AgregarLineaError(ByVal noLinea As String, ByVal mensaje As String)
+        ListErrores.Items.Add(String.Format("Linea {0}: {1}", noLinea, mensaje))
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click

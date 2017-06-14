@@ -1,4 +1,11 @@
-﻿Imports DevExpress.XtraEditors
+﻿imports DevExpress.XtraEditors.Controls
+imports DevExpress.XtraGrid
+imports DevExpress.XtraGrid.Views.Grid
+imports DevExpress.XtraEditors
+imports System.Globalization
+imports DevExpress.XtraGrid.Views.Grid.ViewInfo
+imports DevExpress.XtraBars
+imports DevExpress.XtraGrid.Columns
 
 Public Class FrmRemisiones
 
@@ -9,6 +16,8 @@ Public Class FrmRemisiones
         On Error GoTo ErrException
 
         DrEmpresa = BusquedaSeleccionFila("Select * From Empresa")
+
+        Me.LimpiarFormulario(0)
 
         LueSucEntrada.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal FROM Sucursales Where Activa = 1")
         LueSucEntrada.Properties.ValueMember = "IdSucursal"
@@ -23,29 +32,42 @@ Public Class FrmRemisiones
         LueSucSalida.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         LueSucEntrada.Properties.ForceInitialize()
 
-        LueUserAutoriza.Properties.DataSource = BusquedaSeleccion("Select IdUsuario, Nombre AS Usuario FROM Usuarios Where Activo = 1 ")
-        LueUserAutoriza.Properties.ValueMember = "IdUsuario"
-        LueUserAutoriza.Properties.DisplayMember = "Usuario"
-        LueUserAutoriza.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
-        LueUserAutoriza.Properties.ForceInitialize()
+        gLueUserAutoriza.Properties.DataSource = BusquedaSeleccion("Select IdUsuario, Nombre AS Usuario FROM Usuarios Where Activo = 1 ")
+        gLueUserAutoriza.Properties.DisplayMember = "Usuario"
+        gLueUserAutoriza.Properties.ValueMember = "IdUsuario"
+        gLueUserAutoriza.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+        gLueUserAutoriza.ForceInitialize()
 
+        CrearTabla()
         txtNumRemision.Text = IIf(String.IsNullOrEmpty(DrEmpresa!Remisiones.ToString), "1", DrEmpresa!Remisiones.ToString)
         txtNumSucRemision.Text = BuscarRegistroSql("Sucursales", "NumRemisionSuc", "IdSucursal", CodSucursal)
         DteFecha.DateTime = Now
-
-        LimpiarFormulario()
 
         Exit Sub
 ErrException:
         XtraMessageBox.Show(Err.Description, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
     End Sub
 
-    Private Sub LimpiarFormulario()
-        Dim TextBoxs() As Control
-        TextBoxs = Me.Controls.OfType(Of TextEdit)()
-        For Each tb In TextBoxs
-            tb.Text = ""
-        Next
+    ''' <summary>
+    ''' Función que limpia los campos del formulario
+    ''' </summary>
+    ''' <param name="QueLimpia">0: Limpia Todo, 1: Limpia la Sección de Productos
+    ''' Otro número: Limpia Todo</param>
+    ''' <param name="LimpiaCodProducto">En caso de que limpiea la sección de productos,
+    ''' especificar si limpia también el Código de Producto</param>
+    ''' <remarks></remarks>
+    Private Sub LimpiarFormulario(ByVal QueLimpia As Integer, Optional ByVal LimpiaCodProducto As Boolean = True)
+        Me.txtNumRemision.Text = ""
+        Me.txtNumSucRemision.Text = ""
+        DteFecha.DateTime = Now
+        LueSucEntrada.EditValue = Nothing
+        LueSucSalida.EditValue = Nothing
+        gLueUserAutoriza.EditValue = Nothing
+        gLueUserRecibe.EditValue = Nothing
+        txtCodProducto.Text = ""
+        txtProducto.Text = ""
+        txtCantidad.Text = "1"
+        TxtExistencias.Text = "0"
 
 
     End Sub
@@ -76,12 +98,17 @@ ErrException:
         End With
         gcRemisiones.DataSource = DtDetalle
 
-        For Each DCDetalle As DevExpress.XtraGrid.Columns.GridColumn In gvRemisiones.Columns
+        For Each DCDetalle As GridColumn In gvRemisiones.Columns
             gvRemisiones.Columns(DCDetalle.FieldName).OptionsColumn.AllowEdit = False
             If DCDetalle.FieldName = "Cantidad" Then
                 gvRemisiones.Columns(DCDetalle.FieldName).OptionsColumn.AllowEdit = True
+            Else
+                gvRemisiones.Columns(DCDetalle.FieldName).OptionsColumn.AllowEdit = False
             End If
         Next
+
+        DtDetalle.Rows.Add({"1", "Ariel", 2, 5})
+
         Exit Sub
 tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
@@ -228,8 +255,8 @@ ErrException:
             .AddWithValue("IdSucursalSalida", LueSucSalida.EditValue.ToString)
             .AddWithValue("IdSucursalEntrada", LueSucEntrada.EditValue.ToString)
             .AddWithValue("IdUsuRemite", CodUsuario)
-            .AddWithValue("IdUsuAutoriza", LueUserAutoriza.EditValue)
-            .AddWithValue("IdUsuRecibe", LueUserRecibe.EditValue)
+            .AddWithValue("IdUsuAutoriza", gLueUserAutoriza.EditValue)
+            .AddWithValue("IdUsuRecibe", gLueUserRecibe.EditValue)
             .AddWithValue("NumRemisionSuc", Val(txtNumSucRemision.Text))
             .AddWithValue("Fecha", Now)
             .AddWithValue("Observaciones", TxtObservaciones.Text.Trim)
@@ -246,13 +273,45 @@ ErrException:
     End Sub
 
     Private Sub LueSucEntrada_EditValueChanged(sender As Object, e As EventArgs) Handles LueSucEntrada.EditValueChanged
-        LueUserRecibe.EditValue = Nothing
-        If Not IsNothing(LueSucEntrada.EditValue) Then
-            LueUserRecibe.Properties.DataSource = BusquedaSeleccion("Select IdUsuario, Nombre AS Usuario FROM Usuarios Where Activo = 1 AND IdSucursal='" & LueSucEntrada.EditValue.ToString & "'")
-            LueUserRecibe.Properties.ValueMember = "IdUsuario"
-            LueUserRecibe.Properties.DisplayMember = "Usuario"
-            LueUserRecibe.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
-            LueUserRecibe.Properties.ForceInitialize()
+        gLueUserRecibe.EditValue = Nothing
+        If Not String.IsNullOrEmpty(LueSucEntrada.EditValue) Then
+            gLueUserRecibe.Properties.DataSource = BusquedaSeleccion("Select IdUsuario, Nombre AS Usuario FROM Usuarios Where Activo = 1 AND IdSucursal='" & LueSucEntrada.EditValue.ToString & "'")
+            gLueUserRecibe.Properties.ValueMember = "IdUsuario"
+            gLueUserRecibe.Properties.DisplayMember = "Usuario"
+            gLueUserRecibe.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+            gLueUserRecibe.ForceInitialize()
+            gvLueUserRecibe.Columns(0).Visible = False
+        End If
+    End Sub
+
+    Private Sub gvRemisiones_CellValueChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs)
+        On Error GoTo ErrException
+        If e.Column.FieldName = "Cantidad" Then
+            SumaTotales()
+        End If
+        Exit Sub
+ErrException:
+        XtraMessageBox.Show("Error Nº" & Err.Number & ": " & Environment.NewLine & Err.Description, "Ha ocurrido un error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+    End Sub
+
+    Private Sub BarManager1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarManager1.ItemClick
+        BarManager1.PopupShowMode = DevExpress.XtraBars.PopupShowMode.Classic
+        If e.Item.Caption = "Eliminar Fila Seleccionada" Then
+            EliminarFilaActual(gvRemisiones, DtDetalle)
+            SumaTotales()
+        ElseIf e.Item.Caption = "Actualizar Totales" Then
+            SumaTotales()
+        End If
+    End Sub
+
+    Private Sub gvRemisiones_MouseDown(sender As Object, e As MouseEventArgs) Handles gvRemisiones.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            Dim view As GridView = sender
+            Dim hitInfo As GridHitInfo = view.CalcHitInfo(e.Location)
+            If hitInfo.InRowCell Then
+                PopupMenu1.ShowPopup(BarManager1, view.GridControl.PointToScreen(e.Location))
+            End If
         End If
     End Sub
 End Class

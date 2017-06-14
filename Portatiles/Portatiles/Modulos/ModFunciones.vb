@@ -1,4 +1,5 @@
 ﻿Imports System.Windows.Forms
+Imports DevExpress.XtraEditors
 
 Module ModFunciones
     Public Function CodigoNuevo(ByVal Tabla As String, ByVal IdTabla As String, ByVal CantidadNumeros As Integer) As String
@@ -221,4 +222,18 @@ tipoerr:
         End If
 
     End Function
+
+    Public Sub EliminarFilaActual(ByVal ViewToModify As DevExpress.XtraGrid.Views.Grid.GridView, ByVal DtSourceGridView As DataTable)
+        If ViewToModify.RowCount <= 0 Then
+            XtraMessageBox.Show("La tabla actual no posee registros para eliminar", "No hay Registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End If
+
+        Dim pos As Integer
+        pos = ViewToModify.FocusedRowHandle
+        DtSourceGridView.Rows.RemoveAt(pos)
+        DtSourceGridView.AcceptChanges()
+
+    End Sub
+
 End Module
