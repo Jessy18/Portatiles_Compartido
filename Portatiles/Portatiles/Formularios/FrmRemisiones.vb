@@ -221,50 +221,75 @@ ErrException:
     End Sub
 
     Private Function Guardar() As Boolean
-        If IsNothing(LueSucEntrada.EditValue) Then
-            XtraMessageBox.Show("Olvidó seleccionar la Sucursal de Entrada de Productos", "Faltan llenar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        End If
+        'If IsNothing(LueSucEntrada.EditValue) Then
+        '    XtraMessageBox.Show("Olvidó seleccionar la Sucursal de Entrada de Productos", "Faltan llenar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return False
+        'End If
 
-        If IsNothing(LueSucSalida.EditValue) Then
-            XtraMessageBox.Show("Olvidó seleccionar la Sucursal de Salida de Productos", "Faltan llenar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        End If
+        'If IsNothing(LueSucSalida.EditValue) Then
+        '    XtraMessageBox.Show("Olvidó seleccionar la Sucursal de Salida de Productos", "Faltan llenar datos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return False
+        'End If
 
-        If gvRemisiones.RowCount <= 0 Then
-            XtraMessageBox.Show("No ha agregado productos a la tabla!" & vbNewLine & "Por favor proceda a agregar productos para efetuar la Remisión", "Faltan agregar productos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        End If
+        'If gvRemisiones.RowCount <= 0 Then
+        '    XtraMessageBox.Show("No ha agregado productos a la tabla!" & vbNewLine & "Por favor proceda a agregar productos para efetuar la Remisión", "Faltan agregar productos", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return False
+        'End If
 
-        'Obtenemos el último número de Remision, y una vez que lo obtenemos,  lo actualizamos 
-        DrEmpresa = BusquedaSeleccionFila("Select * From Empresa")
-        txtNumRemision.Text = DrEmpresa!Remisiones.ToString()
-        EjecutarConsulta("UPDATE Empresa SET [Remisiones] = [Remisiones] + 1")
+        
 
-        Dim DrSucursal As DataRow = BusquedaSeleccionFila("Select * From Sucursales Where IdSucursal = '" & LueSucSalida.EditValue.ToString & "'")
-        If Not IsDBNull(DrSucursal!NumRemisionSuc) Then
-            txtNumSucRemision.Text = DrSucursal!NumRemisionSuc.ToString
-        Else
-            txtNumSucRemision.Text = "1"
-        End If
+        'Dim DrSucursal As DataRow = BusquedaSeleccionFila("Select * From Sucursales Where IdSucursal = '" & LueSucSalida.EditValue.ToString & "'")
+        'If Not IsDBNull(DrSucursal!NumRemisionSuc) Then
+        '    txtNumSucRemision.Text = DrSucursal!NumRemisionSuc.ToString
+        'Else
+        '    txtNumSucRemision.Text = "1"
+        'End If
 
-        GenericSql = "INSERT INTO Remisiones (NumRemision, IdSucursalSalida, IdSucursalEntrada, IdUsuRemite, IdUsuAutoriza, IdUsuRecibe, NumRemisionSuc, Fecha, Observaciones, Total, Editar, Anulada) VALUES        (@NumRemision,@IdSucursalSalida,@IdSucursalEntrada,@IdUsuRemite,@IdUsuAutoriza,@IdUsuRecibe,@NumDocRemision,@Fecha,@Observaciones,@Total,@Editar,@Anulada)"
-        CrearComando(GenericSql)
-        With Comando.Parameters
-            .AddWithValue("NumRemision", Val(txtNumRemision.Text))
-            .AddWithValue("IdSucursalSalida", LueSucSalida.EditValue.ToString)
-            .AddWithValue("IdSucursalEntrada", LueSucEntrada.EditValue.ToString)
-            .AddWithValue("IdUsuRemite", CodUsuario)
-            .AddWithValue("IdUsuAutoriza", gLueUserAutoriza.EditValue)
-            .AddWithValue("IdUsuRecibe", gLueUserRecibe.EditValue)
-            .AddWithValue("NumRemisionSuc", Val(txtNumSucRemision.Text))
-            .AddWithValue("Fecha", Now)
-            .AddWithValue("Observaciones", TxtObservaciones.Text.Trim)
-            .AddWithValue("Total", txtNumRemision.Text)
-            .AddWithValue("Editar", 0)
-            .AddWithValue("Anulada", 0)
-        End With
+        'GenericSql = "INSERT INTO Remisiones (NumRemision, IdSucursalSalida, IdSucursalEntrada, IdUsuRemite, IdUsuAutoriza, IdUsuRecibe, NumRemisionSuc, Fecha, Observaciones, Total, Editar, Anulada) VALUES        (@NumRemision,@IdSucursalSalida,@IdSucursalEntrada,@IdUsuRemite,@IdUsuAutoriza,@IdUsuRecibe,@NumDocRemision,@Fecha,@Observaciones,@Total,@Editar,@Anulada)"
+        'CrearComando(GenericSql)
+        'With Comando.Parameters
+        '    .AddWithValue("NumRemision", Val(txtNumRemision.Text))
+        '    .AddWithValue("IdSucursalSalida", LueSucSalida.EditValue.ToString)
+        '    .AddWithValue("IdSucursalEntrada", LueSucEntrada.EditValue.ToString)
+        '    .AddWithValue("IdUsuRemite", CodUsuario)
+        '    .AddWithValue("IdUsuAutoriza", gLueUserAutoriza.EditValue)
+        '    .AddWithValue("IdUsuRecibe", gLueUserRecibe.EditValue)
+        '    .AddWithValue("NumRemisionSuc", Val(txtNumSucRemision.Text))
+        '    .AddWithValue("Fecha", Now)
+        '    .AddWithValue("Observaciones", TxtObservaciones.Text.Trim)
+        '    .AddWithValue("Total", txtNumRemision.Text)
+        '    .AddWithValue("Editar", 0)
+        '    .AddWithValue("Anulada", 0)
+        'End With
 
+        Try
+            AbrirTransaccion() 'entonces, mandas a abrir la transaccion, aqui ya esta abierta tanto la Conexion, Transaccion y el COMANDO
+
+            'el comando no llama al CrearComando(), por que la conexion ya esta abierta, y esta enlazado a un transaction
+            'fijate que solo se pasa la consulta o nombre del procedimiento, parametros y de un solo ejecutas el comando, no mandas a llamar a EjecutarComando
+            Comando.CommandText = "INSERT INTO TipoAjuste (TipoAjuste, Valor) VALUES (@TipoAjuste, @Valor)"
+            Comando.CommandType = CommandType.Text
+            Comando.Parameters.AddWithValue("TipoAjuste", "Aumenta")
+            Comando.Parameters.AddWithValue("Valor", 1)
+            Comando.ExecuteNonQuery() 'Aqui se hace una insercion, me dijsite al primero, luego parçé
+            'por eso, este es la primera insercion, entonces mira la tabla
+
+            ' y siempre seguis utilizando el mismo comando, vale? vale
+            'Comando.CommandText = "INSERT INTO Marcas (IdMarca, Marca, Activo) VALUES (@IdMarca, @Marca, @Activo)"
+            Comando.Parameters.Clear()
+            Comando.CommandText = "Marcas_Agregar" 'solo mandas a llamar el nombre del proc
+            Comando.CommandType = CommandType.StoredProcedure ' y aqui lo cambias a StoredPROC
+            Comando.Parameters.AddWithValue("IdMarca", "010") 'ya existe este id, no tiene que Dale, guardarlo
+            Comando.Parameters.AddWithValue("Marca", "ZORRITONE")
+            'Comando.Parameters.AddWithValue("Activo", 1) 'este se comentarea por que se pasa en el proc
+            Comando.ExecuteNonQuery() 'y aqui otra
+
+            CommitTransaccion()
+        Catch ex As Exception
+            RevertirTransaccion(ex.Message)
+        End Try
+        
+        'capturo un error, que es ese el del id
     End Function
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click

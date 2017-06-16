@@ -104,4 +104,63 @@ Module ModConexiones
             Conexion.Close()
         End Try
     End Sub
+
+    Public Sub AbrirTransaccion()
+        Try
+            Conexion = New SqlConnection(CadenaConexion) 'instanciamos la conexion
+            Conexion.Open() 'Se apertura la conexion
+            Transaccion = Conexion.BeginTransaction() 'Se apertura la transaccion con la conexion ABIERTA
+            Comando = New SqlCommand() 'Se instancia el comando
+            Comando.Connection = Conexion 'Se le asigna la conexion al comando
+            'la conexion del comando permanece abierta
+            Comando.Transaction = Transaccion 'y al comando se le asigna la Transaccion
+            'es decir, que hay una relacion COMANDO - TRANSACCION, todo lo que se vaya insertando en 
+            'el comando, se va a ejecutar cuando se haga COMMIT en la transaccion, bien
+        Catch ex As Exception
+            XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Conexion.Dispose()
+            Conexion.Close()
+        End Try
+    End Sub
+
+    Public Sub CommitTransaccion()
+        Try
+            If Conexion.State = ConnectionState.Open Then 'se supone que todo el tiempo que desde que se abrio la transact, la conex permanecio abierta
+                Transaccion.Commit() 'una vez que se hace commit, ya no se podrà revertir las operaciones
+                'ACA LOS CAMBIOS YA SE APLICARON, cuando paso por el COMMIT
+                Comando.Connection.Close() 'y cuando le dimos commit, procedemos a cerrar todas las conexiones y a liberar memoria, vale?ok totalmene
+                Conexion.Close()
+                Transaccion.Dispose()
+                Conexion.Dispose()
+            End If
+
+        Catch ex As Exception
+            XtraMessageBox.Show("Error al Guardar los Cambios a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Conexion.Dispose()
+            Conexion.Close()
+        End Try
+    End Sub
+
+    Public Sub RevertirTransaccion(ByVal ErrorMessage As String)
+        Try
+            If Conexion.State = ConnectionState.Open Then
+                Transaccion.Rollback() 'hay dos cosas que cambian con respecto al commit, primero que aqui se hace un ROLLBACK
+                'segundo, si te fijas, recibe un parametro, es el mensaje de error que dice por que se tuvo que revertir la transaccion, y se muestra
+                'en un Message BOX
+
+                XtraMessageBox.Show("Han ocurrido errores en las operaciones.!" & vbNewLine & "Mensaje del Error: " & ErrorMessage, "Reversión de Datos exitosa", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+                Comando.Connection.Close()
+                Conexion.Close()
+                Transaccion.Dispose()
+                Conexion.Dispose()
+            End If
+
+        Catch ex As Exception
+            XtraMessageBox.Show("Error al Revertir los Cambios!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Conexion.Dispose()
+            Conexion.Close()
+        End Try
+    End Sub
+
 End Module

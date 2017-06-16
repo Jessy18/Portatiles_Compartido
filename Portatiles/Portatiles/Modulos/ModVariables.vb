@@ -2,6 +2,7 @@
 
 Module ModVariables
     Public Comando As SqlCommand
+    Public Transaccion As SqlTransaction
     Public ExisteRegistro As Boolean
     Public GenericSql As String
     Public GenericRow As DataRow
