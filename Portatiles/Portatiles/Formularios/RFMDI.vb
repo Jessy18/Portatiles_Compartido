@@ -146,8 +146,8 @@
             If Not PuedeAcceder("Movimientos", "Remisiones") Then Exit Sub
         End If
 
-        FrmRemisiones.MdiParent = Me
-        FrmRemisiones.Show()
+        FrmRemision.MdiParent = Me
+        FrmRemision.Show()
     End Sub
 
     Private Sub BBIFacturacion_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBIFacturacion.ItemClick

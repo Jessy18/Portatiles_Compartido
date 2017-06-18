@@ -17,3 +17,12 @@ Catálogo de Resultados:
 1: Ejecución Correcta
 2: Archivos Duplicados / Archivos Sin Encontrar
 3: Error en la ejecucion de las consultas
+
+Tabla Productos
+	(Agregar)
+	Servicio 	bit
+
+Tabla Compras
+	(Agregar)
+	Aplicada	bit
+	NumDocCompra	->	NumCompraSuc	(int)

@@ -8,7 +8,7 @@ Module ModConexiones
     Dim Conexion As SqlConnection
     Dim DtRetorno As DataTable
 
-    Public Function BusquedaSeleccion(ByVal Cadena As String) As DataTable
+    Public Function BusquedaSeleccion(ByVal Cadena As String, ParamArray params As String()) As DataTable
         DtRetorno = New DataTable
         Try
             'aperturamos la conexion
@@ -22,7 +22,6 @@ Module ModConexiones
             Conexion.Close()
         End Try
         Return DtRetorno
-
     End Function
 
     Public Function BusquedaSeleccionFila(ByVal Cadena As String) As DataRow
@@ -87,7 +86,25 @@ Module ModConexiones
         Catch ex As Exception
             XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            'Comando.Connection.Dispose()
+            Comando.Connection.Close()
+        End Try
+        Return Devolver
+    End Function
+
+    Public Function EjecutarComandoProc() As Boolean
+        Dim Devolver As Boolean = False
+        Try
+            'aperturamos la conexion del comando
+            Comando.Connection.Open()
+            Comando.CommandType = CommandType.StoredProcedure
+            If Comando.ExecuteNonQuery() > 0 Then
+                Devolver = True
+            Else
+                Devolver = False
+            End If
+        Catch ex As Exception
+            XtraMessageBox.Show("Error al conectar a la BD!" & vbNewLine & "Mensaje del Error: " & ex.Message, "Problemas", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
             Comando.Connection.Close()
         End Try
         Return Devolver

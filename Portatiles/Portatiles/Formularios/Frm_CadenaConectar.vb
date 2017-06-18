@@ -30,8 +30,7 @@ ErrExcepcion:
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Me.Close()
-        Me.Dispose()
+        End
     End Sub
 
     Private Sub cmbDevelopers_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbDevelopers.KeyPress

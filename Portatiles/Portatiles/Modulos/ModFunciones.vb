@@ -54,7 +54,7 @@ tipoerr:
 
     Public Sub ValidarNumeroEntero(ByVal Texto As String, ByVal Evento As System.Windows.Forms.KeyPressEventArgs)
 
-        '/// Valida que solo se ingrese valores numéricos y un punto
+        '/// Valida que solo se ingrese valores numéricos
         Select Case Asc(Evento.KeyChar)
             Case 8 'tecla BACK
             Case 13 'Tecla ENTER
@@ -103,6 +103,7 @@ tipoerr:
 
         Dim DRConfig As DataRow = BusquedaSeleccionFila("Select * from Empresa ")
         If Not DRConfig Is Nothing Then
+            IdEmpresa = DRConfig!IdEmpresa
             Empresa = DRConfig!NombreEmpresa.ToString
             RazonSocial = DRConfig!RazonSocial.ToString
             RUCEmpresa = DRConfig!RUC.ToString
@@ -143,7 +144,12 @@ tipoerr:
         DtSeleccion.Columns.Add("Codigo", GetType(String))
     End Sub
 
-
+    ''' <summary>
+    ''' Crea el historial de las acciones, antes de ser modificadas
+    ''' </summary>
+    ''' <param name="row"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function CrearHADatosOLD(ByVal row As DataRow) As String
         Dim Devolver As String = ""
         If IsNothing(row) Then Return ""
@@ -178,8 +184,6 @@ tipoerr:
         End With
         EjecutarComando()
     End Sub
-
-
 
 
 

@@ -6,13 +6,7 @@ Public Class FrmInicioSesion
     Dim writer As StreamWriter
 
     Private Sub SBtnCancelar_Click(sender As Object, e As EventArgs) Handles SBtnCancelar.Click
-        Me.Dispose()
-        Me.Close()
-
-    End Sub
-
-    Private Sub FrmInicioSesion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        End
     End Sub
 
     Private Sub FrmInicioSesion_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated

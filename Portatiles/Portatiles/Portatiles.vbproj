@@ -175,10 +175,10 @@
     <Compile Include="Formularios\FrmCatalogos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmRemisiones.Designer.vb">
-      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    <Compile Include="Formularios\FrmRemision.Designer.vb">
+      <DependentUpon>FrmRemision.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmRemisiones.vb">
+    <Compile Include="Formularios\FrmRemision.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmReportViewer.Designer.vb">
@@ -274,8 +274,8 @@
     <EmbeddedResource Include="Formularios\FrmCatalogos.resx">
       <DependentUpon>FrmCatalogos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmRemisiones.resx">
-      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmRemision.resx">
+      <DependentUpon>FrmRemision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmReportViewer.resx">
       <DependentUpon>FrmReportViewer.vb</DependentUpon>
