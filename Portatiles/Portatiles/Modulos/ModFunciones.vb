@@ -171,7 +171,7 @@ tipoerr:
 
     Public Sub GuardarHistorialAccion(ByVal TipoAccion As String, ByVal Modulo As String, ByVal NumDoc As String, ByVal DatosOLD As String, ByVal DatosNEW As String)
         Dim sql As String
-        sql = "INSERT INTO HistorialAcciones (Fecha, IdUsuario, Modulo, Accion, NumDoc, DatosOLD, DatosNEW) VALUES (@Fecha,@IdUsuario,@Modulo,@Accion,@NumDoc,@DatosOLD,@DatosNEW)"
+        sql = "INSERT INTO HistorialAcciones (Fecha, IdUsuario, Modulo, Accion, NumDoc, DatosOLD, DatosNEW, IdSucursal, Usuario) VALUES (@Fecha,@IdUsuario,@Modulo,@Accion,@NumDoc,@DatosOLD,@DatosNEW, @IdSucursal, @Usuario)"
         CrearComando(sql)
         With Comando.Parameters
             .AddWithValue("Fecha", Now)
@@ -181,6 +181,8 @@ tipoerr:
             .AddWithValue("NumDoc", NumDoc)
             .AddWithValue("DatosOLD", DatosOLD)
             .AddWithValue("DatosNEW", DatosNEW)
+            .AddWithValue("IdSucursal", CodSucursal)
+            .AddWithValue("Usuario", Usuario)
         End With
         EjecutarComando()
     End Sub

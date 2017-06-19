@@ -3,45 +3,7 @@
 --- PROCEDIMIENTOS ALMACENADOS AADG
 
 --############################################          REMISIONES       #########################################
-go
---Create procedure Remisiones_Agregar (
---@IdSucursalSalida	as nvarchar(10),
---@IdSucursalEntrada	as nvarchar(10),
---@IdUsuRemite		as nvarchar(10),
---@IdUsuAutoriza		as nvarchar(10),
---@IdUsuRecibe		as nvarchar(10),
---@Fecha				as date,
---@Observaciones		as nvarchar(300),
---@Total				as numeric(10,0)
---)
---as
---begin transaction
---begin try
---	declare @NumRemision int
---	declare @NumRemisionSuc int
---	select @NumRemision = ISNULL(Remisiones, 1) FROM Empresa
---	select @NumRemisionSuc = ISNULL(NumRemisionSuc, 1) FROM Sucursales Where IdSucursal = @IdSucursalSalida	
 
---	if not exists (select * From Remisiones Where NumRemision=@NumRemision)
---	begin
---		if not exists (select * From Remisiones Where NumRemisionSuc=@NumRemisionSuc)
---		begin
---			-- insertamos la remision
---			INSERT INTO Remisiones (NumRemision,  IdSucursalSalida,  IdSucursalEntrada,  IdUsuRemite,  IdUsuAutoriza,  IdUsuRecibe,  NumRemisionSuc,  Fecha,  Observaciones,  Total,  Editar, Anulada) VALUES
---									(@NumRemision, @IdSucursalSalida, @IdSucursalEntrada, @IdUsuRemite, @IdUsuAutoriza, @IdUsuRecibe, @NumRemisionSuc, @Fecha, @Observaciones, @Total,       0,       0)
-
---			-- Actualizamos la numeración de Remisiones de la Empresa
---			UPDATE Empresa SET [Remisiones] = @NumRemision + 1
-
---			-- Actualizamos la numeración de Remisiones de la Sucursal
---			UPDATE Sucursales SET [NumRemisionSuc] = @NumRemisionSuc + 1 WHERE IdSucursal = @IdSucursalSalida
---		end
---	end 
---	commit transaction
---end try
---begin catch
---	rollback transaction
---end catch
 go
 create procedure Remisiones_Agregar (
 @NumRemision		as int,
@@ -130,8 +92,10 @@ begin
 	
 end 
 
---############################################      SUCURSALES     #########################################
+
 go
+
+--############################################      SUCURSALES     #########################################
 Create procedure Sucursales_GLUE(
 @IdEmpresa	int
 )
@@ -245,8 +209,7 @@ as
 UPDATE Marcas SET	Marca	=	@Marca,
 					Activo	=	@Activo
 			  WHERE IdMarca =	@IdMarca
-					  
-
+go					  
 
 --############################################      PRODUCTOS       #########################################
 go
@@ -352,4 +315,31 @@ begin
 	else
 		UPDATE Prod_Suc SET [Existencia] = @Total WHERE IdProducto = @idProducto AND IdSucursal = @idSucursal
 
+end
+
+
+--############################################      HISTORIAL ACCIONES       #########################################
+go
+create procedure HistorialAcciones_GRID
+(
+	@Fechaini	datetime,
+	@Fechafin	datetime,
+	@idUsuario	nvarchar(10) = ''
+)
+AS
+begin
+		
+	Select * From HistorialAcciones
+	--UPDATE HistorialAcciones SET Usuario = u.Nombre
+	--From HistorialAcciones as ha
+	--cross join Usuarios as u
+	--Where u.IDUsuario = '001'
+
+	Select Fecha, IdUsuario, Usuario, Modulo, Accion, NumDoc, IdSucursal, DatosOLD, DatosNEW from HistorialAcciones
+	 WHERE IdEmpresa = '" & IdEmpresa.ToString & "' AND Convert(Date, Fecha) 
+	 BETWEEN @Fechaini AND @Fechafin
+	 AND IdUsuario = @IdUsuario
+	 AND IdSucursal = @IdSucursal
+
+	
 end

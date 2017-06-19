@@ -41,7 +41,7 @@ Partial Class FrmRemision
         Me.gLueUserRecibe = New DevExpress.XtraEditors.GridLookUpEdit()
         Me.gvLueUserRecibe = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.gLueUserAutoriza = New DevExpress.XtraEditors.GridLookUpEdit()
-        Me.GridLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.gvLueUserAutoriza = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl4 = New DevExpress.XtraEditors.GroupControl()
@@ -93,7 +93,7 @@ Partial Class FrmRemision
         CType(Me.gLueUserRecibe.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gvLueUserRecibe, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gLueUserAutoriza.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvLueUserAutoriza, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl4.SuspendLayout()
         CType(Me.TxtExistencias.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -347,18 +347,18 @@ Partial Class FrmRemision
         Me.gLueUserAutoriza.Properties.Appearance.Options.UseFont = True
         Me.gLueUserAutoriza.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.gLueUserAutoriza.Properties.NullText = ""
-        Me.gLueUserAutoriza.Properties.View = Me.GridLookUpEdit1View
+        Me.gLueUserAutoriza.Properties.View = Me.gvLueUserAutoriza
         Me.gLueUserAutoriza.Size = New System.Drawing.Size(147, 22)
         Me.gLueUserAutoriza.TabIndex = 26
         '
-        'GridLookUpEdit1View
+        'gvLueUserAutoriza
         '
-        Me.GridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridLookUpEdit1View.Name = "GridLookUpEdit1View"
-        Me.GridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridLookUpEdit1View.OptionsView.ShowAutoFilterRow = True
-        Me.GridLookUpEdit1View.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
-        Me.GridLookUpEdit1View.OptionsView.ShowGroupPanel = False
+        Me.gvLueUserAutoriza.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gvLueUserAutoriza.Name = "gvLueUserAutoriza"
+        Me.gvLueUserAutoriza.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gvLueUserAutoriza.OptionsView.ShowAutoFilterRow = True
+        Me.gvLueUserAutoriza.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
+        Me.gvLueUserAutoriza.OptionsView.ShowGroupPanel = False
         '
         'LabelControl16
         '
@@ -784,7 +784,7 @@ Partial Class FrmRemision
         Me.MinimumSize = New System.Drawing.Size(733, 542)
         Me.Name = "FrmRemision"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmRemision"
+        Me.Text = "Módulo de Remisiones"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
@@ -804,7 +804,7 @@ Partial Class FrmRemision
         CType(Me.gLueUserRecibe.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gvLueUserRecibe, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gLueUserAutoriza.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvLueUserAutoriza, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl4.ResumeLayout(False)
         Me.GroupControl4.PerformLayout()
@@ -842,7 +842,7 @@ Partial Class FrmRemision
     Friend WithEvents gLueUserRecibe As DevExpress.XtraEditors.GridLookUpEdit
     Friend WithEvents gvLueUserRecibe As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents gLueUserAutoriza As DevExpress.XtraEditors.GridLookUpEdit
-    Friend WithEvents GridLookUpEdit1View As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents gvLueUserAutoriza As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GroupControl4 As DevExpress.XtraEditors.GroupControl

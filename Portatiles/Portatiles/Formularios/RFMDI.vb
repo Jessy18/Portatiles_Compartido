@@ -158,4 +158,9 @@
         FrmFacturacion.MdiParent = Me
         FrmFacturacion.Show()
     End Sub
+
+    Private Sub bbiHistorialAcc_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiHistorialAcc.ItemClick
+        FrmHistorialAcciones.MdiParent = Me
+        FrmHistorialAcciones.Show()
+    End Sub
 End Class

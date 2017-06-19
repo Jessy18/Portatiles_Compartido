@@ -29,19 +29,22 @@ Public Class FrmRemision
         LueSucEntrada.Properties.DisplayMember = "Sucursal"
         LueSucEntrada.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         LueSucEntrada.Properties.PopulateColumns()
+        LueSucEntrada.Properties.Columns(0).Visible = False
 
         LueSucSalida.Properties.DataSource = BusquedaSeleccion("Sucursales_GLUE '" & Str(IdEmpresa) & "'")
         LueSucSalida.Properties.ValueMember = "IdSucursal"
         LueSucSalida.Properties.DisplayMember = "Sucursal"
         LueSucSalida.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
-        LueSucEntrada.Properties.PopulateColumns()
+        LueSucSalida.Properties.PopulateColumns()
         LueSucSalida.EditValue = CodSucursal
+        LueSucSalida.Properties.Columns(0).Visible = False
 
         gLueUserAutoriza.Properties.DataSource = BusquedaSeleccion("Usuarios_GLUE")
         gLueUserAutoriza.Properties.DisplayMember = "Usuario"
         gLueUserAutoriza.Properties.ValueMember = "IdUsuario"
         gLueUserAutoriza.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
-        LueSucEntrada.Properties.PopulateColumns()
+        gLueUserAutoriza.Properties.PopulateViewColumns()
+        gvLueUserAutoriza.Columns(0).Visible = False
 
         CrearTabla()
         DrNumeros = BusquedaSeleccionFila("select * From Remisiones_ObtieneNum('" & LueSucSalida.EditValue.ToString & "')")
@@ -382,6 +385,16 @@ ErrException:
             Comando.Parameters.AddWithValue("idSucursal", LueSucSalida.EditValue)
             EjecutarComando()
         Next
+
+        HADatosNEW = "NumRemision: " & txtNumRemision.Text & " | " & _
+                    "NumRemisionSucursal: " & txtNumSucRemision.Text & " | " & _
+                    "SucursalSalida: " & LueSucSalida.EditValue.ToString & " " & LueSucSalida.Text & " | " & _
+                    "SucursalEntrada: " & LueSucEntrada.EditValue.ToString & " " & LueSucEntrada.Text & " | " & _
+                    "Fecha: " & FechaGuardar.ToLongDateString & " | " & _
+                    "Observaciones: " & TxtObservaciones.Text & " | "
+
+        GuardarHistorialAccion("Insertar", "Sucursales", txtNumRemision.Text, "", HADatosNEW)
+
         Return True
     End Function
 

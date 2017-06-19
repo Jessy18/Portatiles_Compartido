@@ -78,6 +78,7 @@ Partial Class RFMDI
         Me.PanelAgenda = New DevExpress.XtraEditors.PanelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.SchedulerBarController1 = New DevExpress.XtraScheduler.UI.SchedulerBarController()
+        Me.bbiHistorialAcc = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemDuration1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SchedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,9 +96,9 @@ Partial Class RFMDI
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBIFacturacion, Me.BBIRemision, Me.BBIAjustes, Me.BBICompras, Me.BBIKardex, Me.BBIListaFacturas, Me.BBIListaRemisiones, Me.BBIListadoAjustes, Me.BBIListadoCompras, Me.BBICatalogos, Me.BBIConfiguracion, Me.BBIImportador, Me.bbiPermisos, Me.bbiVerTile, Me.SkinRibbonGalleryBarItem1, Me.btsVerPanelLatIzq, Me.SkinRibbonGalleryBarItem2, Me.EditAppointmentQueryItem1, Me.EditOccurrenceUICommandItem1, Me.EditSeriesUICommandItem1, Me.DeleteAppointmentsItem1, Me.DeleteOccurrenceItem1, Me.DeleteSeriesItem1, Me.SplitAppointmentItem1, Me.ChangeAppointmentStatusItem1, Me.ChangeAppointmentLabelItem1, Me.ToggleRecurrenceItem1, Me.ChangeAppointmentReminderItem1})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBIFacturacion, Me.BBIRemision, Me.BBIAjustes, Me.BBICompras, Me.BBIKardex, Me.BBIListaFacturas, Me.BBIListaRemisiones, Me.BBIListadoAjustes, Me.BBIListadoCompras, Me.BBICatalogos, Me.BBIConfiguracion, Me.BBIImportador, Me.bbiPermisos, Me.bbiVerTile, Me.SkinRibbonGalleryBarItem1, Me.btsVerPanelLatIzq, Me.SkinRibbonGalleryBarItem2, Me.EditAppointmentQueryItem1, Me.EditOccurrenceUICommandItem1, Me.EditSeriesUICommandItem1, Me.DeleteAppointmentsItem1, Me.DeleteOccurrenceItem1, Me.DeleteSeriesItem1, Me.SplitAppointmentItem1, Me.ChangeAppointmentStatusItem1, Me.ChangeAppointmentLabelItem1, Me.ToggleRecurrenceItem1, Me.ChangeAppointmentReminderItem1, Me.bbiHistorialAcc})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 40
+        Me.RibbonControl.MaxItemId = 41
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageCategories.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageCategory() {Me.CalendarToolsRibbonPageCategory1})
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RPMovimientos})
@@ -381,6 +382,7 @@ Partial Class RFMDI
         Me.RPGConfiguracion.ItemLinks.Add(Me.bbiPermisos)
         Me.RPGConfiguracion.ItemLinks.Add(Me.bbiVerTile)
         Me.RPGConfiguracion.ItemLinks.Add(Me.btsVerPanelLatIzq)
+        Me.RPGConfiguracion.ItemLinks.Add(Me.bbiHistorialAcc)
         Me.RPGConfiguracion.Name = "RPGConfiguracion"
         Me.RPGConfiguracion.Text = "Herramientas"
         '
@@ -507,6 +509,12 @@ Partial Class RFMDI
         Me.SchedulerBarController1.BarItems.Add(Me.ChangeAppointmentReminderItem1)
         Me.SchedulerBarController1.Control = Me.SchedulerControl1
         '
+        'bbiHistorialAcc
+        '
+        Me.bbiHistorialAcc.Caption = "Historial Acciones"
+        Me.bbiHistorialAcc.Id = 40
+        Me.bbiHistorialAcc.Name = "bbiHistorialAcc"
+        '
         'RFMDI
         '
         Me.AllowFormGlass = DevExpress.Utils.DefaultBoolean.[True]
@@ -596,6 +604,7 @@ Partial Class RFMDI
     Friend WithEvents ActionsRibbonPageGroup1 As DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup
     Friend WithEvents OptionsRibbonPageGroup1 As DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup
     Friend WithEvents SchedulerBarController1 As DevExpress.XtraScheduler.UI.SchedulerBarController
+    Friend WithEvents bbiHistorialAcc As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

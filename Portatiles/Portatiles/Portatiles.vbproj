@@ -109,6 +109,12 @@
     <Compile Include="Formularios\FrmFacturacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmHistorialAcciones.Designer.vb">
+      <DependentUpon>FrmHistorialAcciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmHistorialAcciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmImportador.Designer.vb">
       <DependentUpon>FrmImportador.vb</DependentUpon>
     </Compile>
@@ -238,8 +244,17 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Reportes\Diseñadores\xrHistorialAcciones.Designer.vb">
+      <DependentUpon>xrHistorialAcciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Diseñadores\xrHistorialAcciones.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Formularios\FrmFacturacion.resx">
       <DependentUpon>FrmFacturacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmHistorialAcciones.resx">
+      <DependentUpon>FrmHistorialAcciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmImportador.resx">
       <DependentUpon>FrmImportador.vb</DependentUpon>
@@ -313,6 +328,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Diseñadores\xrHistorialAcciones.resx">
+      <DependentUpon>xrHistorialAcciones.vb</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -461,7 +479,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reportes\DataSets\" />
-    <Folder Include="Reportes\Diseñadores\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

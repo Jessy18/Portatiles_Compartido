@@ -91,6 +91,7 @@ C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Por
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.exe
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\bin\Debug\Portatiles.pdb
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmFacturacion.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmHistorialAcciones.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmImportador.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCompras.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmAjustes.resources
@@ -102,6 +103,8 @@ C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Por
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPermisos.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPresentacion.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCatalogos.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmRemision.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmReportViewer.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmSeriesProducto.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmTile.resources
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Frm_CadenaConectar.resources
@@ -114,5 +117,4 @@ C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Por
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe
 C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.pdb
-C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmReportViewer.resources
-C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmRemision.resources
+C:\Repositorios Github\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.xrHistorialAcciones.resources
