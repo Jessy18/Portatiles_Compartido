@@ -181,6 +181,12 @@
     <Compile Include="Formularios\FrmRemisiones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmReportes.Designer.vb">
+      <DependentUpon>FrmReportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmReportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmReportViewer.Designer.vb">
       <DependentUpon>FrmReportViewer.vb</DependentUpon>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmRemisiones.resx">
       <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmReportes.resx">
+      <DependentUpon>FrmReportes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmReportViewer.resx">
       <DependentUpon>FrmReportViewer.vb</DependentUpon>
