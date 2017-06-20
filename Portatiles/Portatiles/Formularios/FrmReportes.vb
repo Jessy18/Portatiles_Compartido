@@ -1,4 +1,5 @@
-﻿Public Class FrmReportes 
+﻿Imports DevExpress.XtraReports.UI
+Public Class FrmReportes
 
     Private Sub TreeList1_FocusedNodeChanged(sender As Object, e As DevExpress.XtraTreeList.FocusedNodeChangedEventArgs)
 
@@ -17,9 +18,11 @@
 
     Private Sub BtnImprimir_Click(sender As Object, e As EventArgs) Handles BtnImprimir.Click
         Dim Node As Integer
-        Node = CInt(Me.TreeList1.FocusedNode.ToString)
+        Node = CInt(Me.TreeList1.FocusedNode.Id)
         If Node = 0 Then
-
+            Dim Rpt As RptExistenciaSucursal = New RptExistenciaSucursal
+            Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
+            Tool.ShowPreview()
         End If
     End Sub
 End Class

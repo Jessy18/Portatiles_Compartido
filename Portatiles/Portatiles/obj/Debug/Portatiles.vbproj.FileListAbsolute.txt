@@ -143,3 +143,4 @@ C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portat
 C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Resources.resources
 C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.vbproj.GenerateResource.Cache
 C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
+C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.RptExistenciaSucursal.resources

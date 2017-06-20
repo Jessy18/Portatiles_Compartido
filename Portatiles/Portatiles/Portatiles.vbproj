@@ -244,6 +244,12 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Reportes\Diseñadores\RptExistenciaSucursal.Designer.vb">
+      <DependentUpon>RptExistenciaSucursal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Diseñadores\RptExistenciaSucursal.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Formularios\FrmFacturacion.resx">
       <DependentUpon>FrmFacturacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +328,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaSucursal.resx">
+      <DependentUpon>RptExistenciaSucursal.vb</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -470,7 +479,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reportes\DataSets\" />
-    <Folder Include="Reportes\Diseñadores\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
