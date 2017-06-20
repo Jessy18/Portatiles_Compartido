@@ -158,4 +158,9 @@
         FrmFacturacion.MdiParent = Me
         FrmFacturacion.Show()
     End Sub
+
+    Private Sub Reportes_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles Reportes.ItemClick
+        FrmReportes.MdiParent = Me
+        FrmReportes.Show()
+    End Sub
 End Class
