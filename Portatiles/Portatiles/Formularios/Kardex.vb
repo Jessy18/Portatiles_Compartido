@@ -1,12 +1,25 @@
 ﻿Imports DevExpress.XtraEditors
-Public Class Kardex
 
+Public Class Kardex
+    Dim Dtgeneral As DataTable
     Private Sub FrmListado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DteFechaIni.DateTime = Now
         DteFechaFin.DateTime = Now
         CargarDatosLue()
-        CargarEstadoCombo()
-        BuscarRegistros()
+        BuscarSaldoInicial()
+        'BuscarRegistros()
+        CrearDatatable()
+        gcAjustes.DataSource = Dtgeneral
+    End Sub
+    Private Sub CrearDatatable()
+        Dtgeneral = New DataTable
+
+        Dtgeneral.Columns.Add("Movimiento", GetType(String))
+        Dtgeneral.Columns.Add("NoDocumento", GetType(String))
+        Dtgeneral.Columns.Add("Cantidad", GetType(Double))
+        Dtgeneral.Columns.Add("Fecha", GetType(Date))
+        Dtgeneral.Columns.Add("Costo", GetType(Double))
+
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -19,54 +32,14 @@ Public Class Kardex
     End Sub
     Private Sub CargarDatosLue()
 
-        'LblLue2.Visible = False
-        ' Lue2.Visible = False
-        'BtnBuscarLue2.Visible = False
-
-        lueProducto.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal from Sucursales Where Activa=1 ")
-        lueProducto.Properties.ValueMember = "IdSucursal"
-        lueProducto.Properties.DisplayMember = "Sucursal"
+        lueProducto.Properties.DataSource = BusquedaSeleccion("Select IdProducto, Producto from Productos Where Activo=1 ")
+        lueProducto.Properties.ValueMember = "IdProducto"
+        lueProducto.Properties.DisplayMember = "Producto"
 
         If Not Administrador Then
             lueProducto.Properties.ReadOnly = True
             lueProducto.EditValue = CodSucursal
         End If
-        'El llenado de datos en los siguientes controles depende del tipo de documento que se va buscar
-        Select Case MovimientoListado
-            Case "Ajustes"
-                'Lue1.Properties.DataSource = BusquedaSeleccion("Select Convert(nvarchar(3),IdTipo) as IdTipo, TipoAjuste from TipoAjuste")
-                'Lue1.Properties.ValueMember = "IdTipo"
-                'Lue1.Properties.DisplayMember = "TipoAjuste"
-                'LblLue1.Text = "Tipo" & vbCrLf & "Ajuste"
-
-            Case "Compras"
-                'Lue1.Properties.DataSource = BusquedaSeleccion("Select IdProveedor, Proveedor from Proveedores ")
-                'Lue1.Properties.ValueMember = "IdProveedor"
-                'Lue1.Properties.DisplayMember = "Proveedor"
-                'LblLue1.Text = "Proveedor"
-
-            Case "Remisiones"
-                'Lue1.Properties.DataSource = BusquedaSeleccion("Select IdSucursal, Sucursal from Sucursales Where Activa=1 ")
-                'Lue1.Properties.ValueMember = "IdSucursal"
-                'Lue1.Properties.DisplayMember = "Sucursal"
-                'LblProducto.Text = "Sucursal" & vbCrLf & "Salida"
-                'LblLue1.Text = "Sucursal" & vbCrLf & "Entrada"
-            Case "Ventas"
-                'Lue1.Properties.DataSource = BusquedaSeleccion("Select Clientes.IdCliente, DatosEntidad.Nombres+' '+DatosEntidad.Apellidos as Cliente, DatosEntidad.Empresa from Clientes INNER JOIN DatosEntidad ON Clientes.IdDatos=DatosEntidad.IdDatos ")
-                'Lue1.Properties.ValueMember = "IdCliente"
-                'Lue1.Properties.DisplayMember = "Cliente"
-                'LblLue1.Text = "Cliente"
-        End Select
-    End Sub
-    Private Sub CargarEstadoCombo()
-        'With CmbEstado.Properties.Items
-        '    .Add("Todos")
-        '    .Add("En edición")
-        '    .Add("Cerrados")
-        '    .Add("Anulados")
-        '    .Add("No Anulados")
-        'End With
-
     End Sub
 
     Private Sub BuscarRegistros()
@@ -96,21 +69,7 @@ Public Class Kardex
                 GenericSql += String.Format(" AND {0}.IdSucursal='{1}' ", MovimientoListado, lueProducto.EditValue.ToString)
             End If
         End If
-        'Aqui filtramos el valor del lue no 1 por cada movimiento
-        'If Lue1.EditValue.ToString.Trim <> "" Then
-        '    Select Case MovimientoListado
-        '        Case "Ajustes"
-        '            NombreCampo = MovimientoListado & ".IdTipo"
-        '        Case "Remisiones"
-        '            NombreCampo = MovimientoListado & ".IdSucursalEntrada"
-        '        Case "Ventas"
-        '            NombreCampo = MovimientoListado & ".IdCliente"
-        '        Case "Compras"
-        '            NombreCampo = MovimientoListado & ".IdProveedor"
-        '    End Select
-        '    GenericSql += String.Format(" AND {0}={1}", NombreCampo, Lue1.EditValue.ToString)
-        '    NombreCampo = ""
-        'End If
+
         If txtExistencia.Text.Trim <> "" Then
             Select Case MovimientoListado
                 Case "Ajustes"
@@ -136,32 +95,41 @@ Public Class Kardex
             Case "Compras"
                 NombreCampo = MovimientoListado & ".NumDocCompra"
         End Select
-        'GenericSql += String.Format(" AND {0}={1}", NombreCampo, txtDocSucursal.Text)
-        NombreCampo = ""
-        'End If
-        'Aqui validamos la cadena a concatenar según el estado seleccionado y según el movimiento 
-        'If CmbEstado.Text.Trim <> "" Then
-        'Select Case CmbEstado.Text
 
-        '    Case "Todos"
-        '    Case "En edición"
-        'NombreCampo = String.Format(" AND {0}{1}=1 ", MovimientoListado, ".Editar")
-        '    Case "Cerrados"
-        'NombreCampo = String.Format(" AND {0}{1}=0 ", MovimientoListado, ".Editar")
-        '    Case "Anulados"
-        'NombreCampo = String.Format(" AND {0}{1}=1 ", MovimientoListado, IIf(MovimientoListado = "Ajustes", ".Anulado", ".Anulada"))
-        '    Case "No Anulados"
-        'NombreCampo = String.Format(" AND {0}{1}=0 ", MovimientoListado, IIf(MovimientoListado = "Ajustes", ".Anulado", ".Anulada"))
-        'End Select
-        'GenericSql += NombreCampo
-        'NombreCampo = ""
-        'End If
+        NombreCampo = ""
+ 
         gcAjustes.DataSource = BusquedaSeleccion(GenericSql)
         Exit Sub
 tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Sub
+    Private Sub BuscarSaldoInicial()
+        Dim DrAjuste, DrRemisiones, DrVentas, DrCompras As DataTable
+        Dim TotalAjustes, TotalRemision, TotalCompra, TotalVenta As Double
+        Dim CantAjuste, CantRemision, CantVenta, CantCompra As Double
 
+        DrAjuste = BusquedaSeleccion("SELECT   dbo.TipoAjuste.Valor, dbo.DetalleAjuste.NumAjuste, dbo.DetalleAjuste.Cantidad, dbo.Ajustes.Fecha, dbo.Productos.Producto FROM   dbo.Ajustes INNER JOIN   dbo.DetalleAjuste ON dbo.Ajustes.NumAjuste = dbo.DetalleAjuste.NumAjuste INNER JOIN dbo.TipoAjuste ON dbo.Ajustes.IdTipo = dbo.TipoAjuste.IdTipo INNER JOIN  dbo.Productos ON dbo.DetalleAjuste.IdProducto = dbo.Productos.IdProducto WHere Ajustes.Fecha<(Convert(datetime,'" & Format(DteFechaIni.DateTime) & "')) And Ajustes.Anulado=0 And Productos.IdProducto='" & lueProducto.EditValue & "'")
+        For Each Dr As DataRow In DrAjuste.Rows
+            CantAjuste = 0
+            CantAjuste = CDbl(Dr!Valor) * CDbl(Dr!Cantidad)
+            TotalAjustes = TotalAjustes + CantAjuste
+        Next
+
+        DrVentas = BusquedaSeleccion("SELECT  dbo.DetalleVenta.NumVenta, dbo.DetalleVenta.Cantidad, dbo.Ventas.Fecha, dbo.Productos.Producto FROM   dbo.Ventas INNER JOIN   dbo.DetalleVenta ON dbo.Ventas.NumVenta = dbo.DetalleVenta.NumVenta  INNER JOIN  dbo.Productos ON dbo.DetalleVenta.IdProducto = dbo.Productos.IdProducto WHere Ventas.Fecha<(Convert(datetime,'" & Format(DteFechaIni.DateTime) & "')) And Ventas.Anulada=0 And Productos.IdProducto='" & lueProducto.EditValue & "'")
+        For Each Dr As DataRow In DrVentas.Rows
+            CantVenta = 0
+            CantVenta = CDbl(Dr!Cantidad)
+            TotalVenta = TotalVenta + CantVenta
+        Next
+
+        DrCompras = BusquedaSeleccion("SELECT  dbo.DetalleVenta.NumVenta, dbo.DetalleVenta.Cantidad, dbo.Ventas.Fecha, dbo.Productos.Producto FROM   dbo.Ventas INNER JOIN   dbo.DetalleVenta ON dbo.Ventas.NumVenta = dbo.DetalleVenta.NumVenta  INNER JOIN  dbo.Productos ON dbo.DetalleVenta.IdProducto = dbo.Productos.IdProducto WHere Ventas.Fecha<(Convert(datetime,'" & Format(DteFechaIni.DateTime) & "')) And Ventas.Anulada=0 And Productos.IdProducto='" & lueProducto.EditValue & "'")
+        For Each Dr As DataRow In DrCompras.Rows
+            CantVenta = 0
+            CantVenta = CDbl(Dr!Cantidad)
+            TotalVenta = TotalVenta + CantVenta
+        Next
+
+    End Sub
     Private Function PuedeAccionar() As Boolean
         On Error GoTo tipoerr
 
@@ -312,25 +280,6 @@ tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Sub
 
-    Private Sub LblLue1_Click(sender As Object, e As EventArgs)
-        'Lue1.EditValue = ""
-        'Lue1.Text = ""
-    End Sub
-
-    Private Sub LblLue2_Click(sender As Object, e As EventArgs)
-        'Lue2.EditValue = ""
-        'Lue2.Text = ""
-    End Sub
-
-    Private Sub LabelControl1_Click(sender As Object, e As EventArgs)
-        'CmbEstado.Text = ""
-        'CmbEstado.SelectedItem = Nothing
-    End Sub
-
-    Private Sub LabelControl2_Click(sender As Object, e As EventArgs)
-        'txtDocSucursal.Text = ""
-    End Sub
-
     Private Sub LblMovimiento_Click(sender As Object, e As EventArgs) Handles LblExistencia.Click
         txtExistencia.Text = ""
     End Sub
@@ -359,4 +308,5 @@ tipoerr:
 tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Sub
+
 End Class

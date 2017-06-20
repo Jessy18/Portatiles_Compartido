@@ -163,4 +163,9 @@
         FrmReportes.MdiParent = Me
         FrmReportes.Show()
     End Sub
+
+    Private Sub BBIKardex_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BBIKardex.ItemClick
+        Kardex.MdiParent = Me
+        Kardex.Show()
+    End Sub
 End Class

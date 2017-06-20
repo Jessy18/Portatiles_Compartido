@@ -244,10 +244,21 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Reportes\Diseñadores\RptExistenciaSucursal.Designer.vb">
-      <DependentUpon>RptExistenciaSucursal.vb</DependentUpon>
+    <Compile Include="Reportes\DataSets\ExistenciaXSucursal.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExistenciaXSucursal.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaSucursal.vb">
+    <Compile Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.Designer.vb">
+      <DependentUpon>RptExistenciaProductosConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Diseñadores\RptExistenciaXSucursal.Designer.vb">
+      <DependentUpon>RptExistenciaXSucursal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Diseñadores\RptExistenciaXSucursal.vb">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Formularios\FrmFacturacion.resx">
@@ -328,8 +339,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaSucursal.resx">
-      <DependentUpon>RptExistenciaSucursal.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.resx">
+      <DependentUpon>RptExistenciaProductosConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaXSucursal.resx">
+      <DependentUpon>RptExistenciaXSucursal.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="My Project\Settings.settings">
@@ -349,6 +363,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\DataSets\ExistenciaXSucursal.xsc">
+      <DependentUpon>ExistenciaXSucursal.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSets\ExistenciaXSucursal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExistenciaXSucursal.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSets\ExistenciaXSucursal.xss">
+      <DependentUpon>ExistenciaXSucursal.xsd</DependentUpon>
+    </None>
     <None Include="Resources\add1.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -477,9 +502,7 @@
   <ItemGroup>
     <None Include="Resources\Print_32x32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reportes\DataSets\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -109,8 +109,9 @@ tipoerr:
         If Not Drconfig Is Nothing Then
             txtNumAjuste.Text = Drconfig!Ajustes.ToString
         End If
-        If Not lueSucursal.EditValue Is Nothing Then
-            Dim DrSucursal As DataRow = BusquedaSeleccionFila(String.Format("Select * from Sucursales Where IdSucursal={0}", lueSucursal.EditValue.ToString))
+        If Not lueSucursal.EditValue Is Nothing Or lueSucursal.EditValue.ToString <> "" Then
+
+            Dim DrSucursal As DataRow = BusquedaSeleccionFila(String.Format("Select * from Sucursales Where IdSucursal={0}", lueSucursal.Text.ToString))
             If Not DrSucursal Is Nothing Then
                 txtDocSucursal.Text = DrSucursal!NumAjusteSuc.ToString
             End If

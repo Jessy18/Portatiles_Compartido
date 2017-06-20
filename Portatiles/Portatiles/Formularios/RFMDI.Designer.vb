@@ -54,6 +54,7 @@ Partial Class RFMDI
         Me.ToggleRecurrenceItem1 = New DevExpress.XtraScheduler.UI.ToggleRecurrenceItem()
         Me.ChangeAppointmentReminderItem1 = New DevExpress.XtraScheduler.UI.ChangeAppointmentReminderItem()
         Me.RepositoryItemDuration1 = New DevExpress.XtraScheduler.UI.RepositoryItemDuration()
+        Me.Reportes = New DevExpress.XtraBars.BarButtonItem()
         Me.CalendarToolsRibbonPageCategory1 = New DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory()
         Me.SchedulerControl1 = New DevExpress.XtraScheduler.SchedulerControl()
         Me.SchedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
@@ -78,7 +79,6 @@ Partial Class RFMDI
         Me.PanelAgenda = New DevExpress.XtraEditors.PanelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.SchedulerBarController1 = New DevExpress.XtraScheduler.UI.SchedulerBarController()
-        Me.Reportes = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemDuration1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SchedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -297,6 +297,13 @@ Partial Class RFMDI
         Me.RepositoryItemDuration1.ShowEmptyItem = True
         Me.RepositoryItemDuration1.ValidateOnEnterKey = True
         '
+        'Reportes
+        '
+        Me.Reportes.Caption = "Reportes"
+        Me.Reportes.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
+        Me.Reportes.Id = 40
+        Me.Reportes.Name = "Reportes"
+        '
         'CalendarToolsRibbonPageCategory1
         '
         Me.CalendarToolsRibbonPageCategory1.Control = Me.SchedulerControl1
@@ -508,13 +515,6 @@ Partial Class RFMDI
         Me.SchedulerBarController1.BarItems.Add(Me.ToggleRecurrenceItem1)
         Me.SchedulerBarController1.BarItems.Add(Me.ChangeAppointmentReminderItem1)
         Me.SchedulerBarController1.Control = Me.SchedulerControl1
-        '
-        'Reportes
-        '
-        Me.Reportes.Caption = "Reportes"
-        Me.Reportes.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.Reportes.Id = 40
-        Me.Reportes.Name = "Reportes"
         '
         'RFMDI
         '
