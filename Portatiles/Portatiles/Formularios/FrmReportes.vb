@@ -19,22 +19,22 @@ Public Class FrmReportes
     Private Sub BtnImprimir_Click(sender As Object, e As EventArgs) Handles BtnImprimir.Click
         Dim Node As Integer
         Node = CInt(Me.TreeList1.FocusedNode.Id)
-        'If Node = 0 Then
-        '    Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
-        '    Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
-        '    Tool.ShowPreview()
-        'ElseIf Node = 1 Then
-        '    Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
-        '    Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
-        '    Tool.ShowPreview()
-        'ElseIf Node = 2 Then
-        '    Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
-        '    Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
-        '    Tool.ShowPreview()
-        'ElseIf Node = 3 Then
-        '    Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
-        '    Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
-        '    Tool.ShowPreview()
-        'End If
+        If Node = 0 Then
+            Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
+            Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
+            Tool.ShowPreview()
+        ElseIf Node = 1 Then
+            Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
+            Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
+            Tool.ShowPreview()
+        ElseIf Node = 2 Then
+            Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
+            Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
+            Tool.ShowPreview()
+        ElseIf Node = 3 Then
+            Dim Rpt As RptExistenciaXSucursal = New RptExistenciaXSucursal
+            Dim Tool As ReportPrintTool = New ReportPrintTool(Rpt)
+            Tool.ShowPreview()
+        End If
     End Sub
 End Class
