@@ -3,6 +3,7 @@
 Module ModVariables
     Public Comando As SqlCommand
     Public Transaccion As SqlTransaction
+    Public reader As SqlDataReader
     Public ExisteRegistro As Boolean
     Public GenericSql As String
     Public GenericRow As DataRow
@@ -16,6 +17,7 @@ Module ModVariables
     Public Administrador As Boolean
 
     'Variables de configuración de empresa
+    Public IdEmpresa
     Public Empresa As String
     Public RazonSocial As String
     Public RUCEmpresa As String
@@ -28,6 +30,7 @@ Module ModVariables
     Public MovimientoListado As String = ""
     Public CodigoGenerico As String = ""
     Public DtSeleccion As DataTable
+    Public FechaGuardar As Date
 
     'Variables de documentos a editar
     Public NumAjuste As String = ""
