@@ -1131,6 +1131,7 @@ tipoerr:
     End Sub
     Private Sub GvSucursal_DoubleClick(sender As Object, e As EventArgs) Handles GvSucursal.DoubleClick
         If GvSucursal.RowCount = 0 Then Exit Sub
+        If GvSucursal.GetFocusedDataRow Is Nothing Then Exit Sub
         txtIdSucursal.Text = GvSucursal.GetFocusedDataRow.Item("IdSucursal").ToString
 
     End Sub

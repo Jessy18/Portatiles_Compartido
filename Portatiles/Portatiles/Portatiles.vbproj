@@ -15,6 +15,21 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -109,6 +124,12 @@
     <Compile Include="Formularios\FrmFacturacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmHistorialAcciones.Designer.vb">
+      <DependentUpon>FrmHistorialAcciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmHistorialAcciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmImportador.Designer.vb">
       <DependentUpon>FrmImportador.vb</DependentUpon>
     </Compile>
@@ -175,10 +196,10 @@
     <Compile Include="Formularios\FrmCatalogos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmRemisiones.Designer.vb">
-      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    <Compile Include="Formularios\FrmRemision.Designer.vb">
+      <DependentUpon>FrmRemision.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmRemisiones.vb">
+    <Compile Include="Formularios\FrmRemision.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmReportes.Designer.vb">
@@ -249,20 +270,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExistenciaXSucursal.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.Designer.vb">
-      <DependentUpon>RptExistenciaProductosConsolidado.vb</DependentUpon>
+    <Compile Include="Reportes\Diseñadores\xrHistorialAcciones.Designer.vb">
+      <DependentUpon>xrHistorialAcciones.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaXSucursal.Designer.vb">
-      <DependentUpon>RptExistenciaXSucursal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaXSucursal.vb">
+    <Compile Include="Reportes\Diseñadores\xrHistorialAcciones.vb">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Formularios\FrmFacturacion.resx">
       <DependentUpon>FrmFacturacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmHistorialAcciones.resx">
+      <DependentUpon>FrmHistorialAcciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmImportador.resx">
       <DependentUpon>FrmImportador.vb</DependentUpon>
@@ -297,8 +315,8 @@
     <EmbeddedResource Include="Formularios\FrmCatalogos.resx">
       <DependentUpon>FrmCatalogos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmRemisiones.resx">
-      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmRemision.resx">
+      <DependentUpon>FrmRemision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmReportes.resx">
       <DependentUpon>FrmReportes.vb</DependentUpon>
@@ -339,11 +357,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.resx">
-      <DependentUpon>RptExistenciaProductosConsolidado.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaXSucursal.resx">
-      <DependentUpon>RptExistenciaXSucursal.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\Diseñadores\xrHistorialAcciones.resx">
+      <DependentUpon>xrHistorialAcciones.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="My Project\Settings.settings">
@@ -502,7 +517,23 @@
   <ItemGroup>
     <None Include="Resources\Print_32x32.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
