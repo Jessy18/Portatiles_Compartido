@@ -988,34 +988,33 @@ tipoerr:
         End If
 
         If ExisteRegistro Then
-            CrearComando("UPDATE Sucursales SET IdEmpresa = @IdEmpresa, Sucursal = @Sucursal, DirSucursal = @DirSucursal, Activa = @Activa, NumDocCompra = @NumDocCompra,  NumDocRemision = @NumDocRemision, NumDocFactura = @NumDocFactura, NumDocAjuste = @NumDocAjuste WHERE  IdSucursal = @IdSucursal ")
+            CrearComando("Sucursales_Actualizar")
+            Comando.Parameters.AddWithValue("Activa", CBool(ChkSucursalActiva.Checked))
         Else
-            GenericSql = "INSERT INTO Sucursales (IdSucursal, IdEmpresa, Sucursal, DirSucursal, Activa, NumDocCompra, NumDocRemision, NumDocFactura, NumDocAjuste) VALUES (@IdSucursal, @IdEmpresa, @Sucursal, @DirSucursal, @Activa, @NumDocCompra, @NumDocRemision, @NumDocFactura, @NumDocAjuste) "
-            CrearComando(GenericSql)
+            CrearComando("Sucursales_Agregar")
         End If
 
         With Comando.Parameters
             .AddWithValue("IdSucursal", txtIdSucursal.Text)
-            .AddWithValue("IdEmpresa", BuscarRegistroSql("Empresa", "IdEmpresa", "1", "1"))
+            .AddWithValue("IdEmpresa", IdEmpresa)
             .AddWithValue("Sucursal", txtSucursal.Text.Trim)
             .AddWithValue("DirSucursal", txtDirSucursal.Text.Trim)
-            .AddWithValue("NumDocCompra", SpeNumCompra.Text)
-            .AddWithValue("NumDocRemision", SpeNumRemision.Text)
-            .AddWithValue("NumDocFactura", SpeNumFactura.Text)
-            .AddWithValue("NumDocAjuste", SpeNumAjuste.Text)
-            .AddWithValue("Activa", CBool(ChkSucursalActiva.Checked))
+            .AddWithValue("NumCompraSuc", SpeNumCompra.Text)
+            .AddWithValue("NumRemisionSuc", SpeNumRemision.Text)
+            .AddWithValue("NumFacturaSuc", SpeNumFactura.Text)
+            .AddWithValue("NumAjusteSuc", SpeNumAjuste.Text)
 
         End With
-        If EjecutarComando() Then
+        If EjecutarComandoProc() Then
             XtraMessageBox.Show("El Registro se ha guardado correctamente", "Datos Almacenados", MessageBoxButtons.OK, MessageBoxIcon.Information)
             HADatosNEW = "IdSucursal: " & txtIdSucursal.Text & " | " & _
-                    "IdEmpresa: " & BuscarRegistroSql("Empresa", "IdEmpresa", "1", "1") & " | " & _
+                    "IdEmpresa: " & IdEmpresa.ToString & " | " & _
                     "Sucursal: " & txtSucursal.Text.Trim & " | " & _
                     "DirSucursal: " & txtDirSucursal.Text.Trim & " | " & _
-                    "NumSucCompra: " & SpeNumCompra.Text & " | " & _
-                    "NumSucRemision: " & SpeNumRemision.Text & " | " & _
-                    "NumSucFactura: " & SpeNumFactura.Text & " | " & _
-                    "NumSucAjuste: " & SpeNumAjuste.Text & " | " & _
+                    "NumCompraSuc: " & SpeNumCompra.Text & " | " & _
+                    "NumRemisionSuc: " & SpeNumRemision.Text & " | " & _
+                    "NumFacturaSuc: " & SpeNumFactura.Text & " | " & _
+                    "NumAjusteSuc: " & SpeNumAjuste.Text & " | " & _
                     "Activa: " & ChkSucursalActiva.Checked.ToString
 
             If ExisteRegistro Then
@@ -1023,10 +1022,12 @@ tipoerr:
             Else
                 GuardarHistorialAccion("Insertar", "Sucursales", txtIdSucursal.Text, "", HADatosNEW)
             End If
+
+            LoadSucursales()
+            txtIdSucursal.Focus()
         End If
 
-        LoadSucursales()
-        txtIdSucursal.Focus()
+        
         Exit Sub
 tipoerr:
         XtraMessageBox.Show(Err.Description, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1068,10 +1069,10 @@ tipoerr:
             txtSucursal.Text = Trim(GenericRow!Sucursal.ToString)
             txtDirSucursal.Text = Trim(GenericRow!DirSucursal.ToString)
             ChkSucursalActiva.Checked = CBool(GenericRow!Activa)
-            SpeNumCompra.Text = IIf(IsDBNull(GenericRow!NumDocCompra), "1", GenericRow!NumDocCompra.ToString)
-            SpeNumRemision.Text = IIf(IsDBNull(GenericRow!NumDocRemision), "1", GenericRow!NumDocRemision.ToString)
-            SpeNumFactura.Text = IIf(IsDBNull(GenericRow!NumDocFactura), "1", GenericRow!NumDocFactura.ToString)
-            SpeNumAjuste.Text = IIf(IsDBNull(GenericRow!NumDocAjuste), "1", GenericRow!NumDocAjuste.ToString)
+            SpeNumCompra.Text = IIf(IsDBNull(GenericRow!NumCompraSuc), "1", GenericRow!NumCompraSuc.ToString)
+            SpeNumRemision.Text = IIf(IsDBNull(GenericRow!NumRemisionSuc), "1", GenericRow!NumRemisionSuc.ToString)
+            SpeNumFactura.Text = IIf(IsDBNull(GenericRow!NumFacturaSuc), "1", GenericRow!NumFacturaSuc.ToString)
+            SpeNumAjuste.Text = IIf(IsDBNull(GenericRow!NumAjusteSuc), "1", GenericRow!NumAjusteSuc.ToString)
             HADatosOLD = CrearHADatosOLD(GenericRow)
         End If
 
