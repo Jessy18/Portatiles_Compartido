@@ -175,10 +175,10 @@
     <Compile Include="Formularios\FrmCatalogos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmRemisiones.Designer.vb">
-      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    <Compile Include="Formularios\FrmRemision.Designer.vb">
+      <DependentUpon>FrmRemision.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmRemisiones.vb">
+    <Compile Include="Formularios\FrmRemision.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmReportes.Designer.vb">
@@ -249,16 +249,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExistenciaXSucursal.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.Designer.vb">
-      <DependentUpon>RptExistenciaProductosConsolidado.vb</DependentUpon>
+    <Compile Include="Reportes\Diseñadores\xrHistorialAcciones.Designer.vb">
+      <DependentUpon>xrHistorialAcciones.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaXSucursal.Designer.vb">
-      <DependentUpon>RptExistenciaXSucursal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\Diseñadores\RptExistenciaXSucursal.vb">
+    <Compile Include="Reportes\Diseñadores\xrHistorialAcciones.vb">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Formularios\FrmFacturacion.resx">
@@ -297,8 +291,8 @@
     <EmbeddedResource Include="Formularios\FrmCatalogos.resx">
       <DependentUpon>FrmCatalogos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmRemisiones.resx">
-      <DependentUpon>FrmRemisiones.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmRemision.resx">
+      <DependentUpon>FrmRemision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmReportes.resx">
       <DependentUpon>FrmReportes.vb</DependentUpon>
@@ -339,11 +333,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaProductosConsolidado.resx">
-      <DependentUpon>RptExistenciaProductosConsolidado.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Diseñadores\RptExistenciaXSucursal.resx">
-      <DependentUpon>RptExistenciaXSucursal.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\Diseñadores\xrHistorialAcciones.resx">
+      <DependentUpon>xrHistorialAcciones.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="My Project\Settings.settings">

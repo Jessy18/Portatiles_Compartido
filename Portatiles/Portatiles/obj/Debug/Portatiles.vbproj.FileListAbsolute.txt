@@ -72,7 +72,6 @@ C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Co
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPermisos.resources
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmPresentacion.resources
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmCatalogos.resources
-C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmRemisiones.resources
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmSeriesProducto.resources
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmTile.resources
 C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.RFMDI.resources
@@ -145,3 +144,8 @@ C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portat
 C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.exe.licenses
 C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.RptExistenciaProductosConsolidado.resources
 C:\Users\ESDREY_PC\Desktop\Proyecto Real Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.RptExistenciaXSucursal.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmRemision.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmReportes.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.FrmReportViewer.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.Kardex.resources
+C:\Users\Jessenia\Documents\Visual Studio 2012\Projects\Portatiles\Portatiles_Compartido\Portatiles\Portatiles\obj\Debug\Portatiles.xrHistorialAcciones.resources
