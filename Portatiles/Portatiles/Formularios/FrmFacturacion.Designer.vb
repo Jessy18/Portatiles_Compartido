@@ -96,7 +96,6 @@ Partial Class FrmFacturacion
         Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl()
         Me.SchedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
         Me.SchedulerStorage2 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
-        Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SpellChecker1 = New DevExpress.XtraSpellChecker.SpellChecker(Me.components)
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -774,10 +773,6 @@ Partial Class FrmFacturacion
         Me.LabelControl12.TabIndex = 0
         Me.LabelControl12.Text = "Productos"
         '
-        'DefaultLookAndFeel1
-        '
-        Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Blue"
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
@@ -894,6 +889,5 @@ Partial Class FrmFacturacion
     Friend WithEvents SchedulerStorage1 As DevExpress.XtraScheduler.SchedulerStorage
     Friend WithEvents SpellChecker1 As DevExpress.XtraSpellChecker.SpellChecker
     Friend WithEvents SchedulerStorage2 As DevExpress.XtraScheduler.SchedulerStorage
-    Friend WithEvents DefaultLookAndFeel1 As DevExpress.LookAndFeel.DefaultLookAndFeel
     Private WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

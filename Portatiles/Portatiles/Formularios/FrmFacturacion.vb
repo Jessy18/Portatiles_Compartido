@@ -4,6 +4,7 @@ Public Class FrmFacturacion
 
     Dim DtDetalle As DataTable
     Dim Exonerado As Boolean
+    Dim DrNumeros As DataRow
 
     Private Sub FrmFacturacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.DteFecha.DateTime = Now
@@ -54,50 +55,97 @@ tipoerr:
 
         'Procedemos a guardar el maestro de compr
 
-        GenericSql = "INSERT INTO Compras (NumCompra, IdSucursal, IdUsuario, IdProveedor, NumDocCompra, Fecha, Tipo, DocReferencia, Subtotal, IVA, Observaciones, Editar, Anulada) VALUES (@NumCompra, @IdSucursal, @IdUsuario, @IdProveedor, @NumDocCompra, @Fecha, @Tipo, @DocReferencia, @Subtotal, @IVA, @Observaciones, @Editar, @Anulada) "
+        If Guardar() Then
+            XtraMessageBox.Show("La compra se ha guardado correctamente", "Datos Almacenados", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-        CrearComando(GenericSql)
-
-        With Comando.Parameters
-            .AddWithValue("NumCompra", txtNumVenta.Text)
-            .AddWithValue("IdSucursal", lueSucursal.EditValue.ToString)
-            .AddWithValue("IdUsuario", CodUsuario)
-            .AddWithValue("IdProveedor", LueVendedor.EditValue.ToString)
-            .AddWithValue("DocReferencia", txtCodCliente.Text.ToString)
-            .AddWithValue("NumDocCompra", txtDocSucursal.Text)
-            .AddWithValue("Fecha", DteFecha.DateTime)
-            .AddWithValue("Subtotal", txtSubTotal.Text)
-            .AddWithValue("Tipo", "Contado")
-            .AddWithValue("IVA", txtIVA.Text)
-            .AddWithValue("Observaciones", MeObservaciones.Text)
-            .AddWithValue("Editar", True)
-            .AddWithValue("Anulada", False)
-
-        End With
-        EjecutarComando()
-
-        EjecutarConsulta(String.Format("Delete from DetalleCompra Where NumCompra={0}", txtNumVenta.Text))
-        For Each DrFila As DataRow In DtDetalle.Rows
-            'Procedemos a guardar el detalle de compra
-            GenericSql = "INSERT INTO DetalleCompra(NumCompra, IdProducto, Cantidad, Costo, Exonerado) VALUES (@NumCompra, @IdProducto, @Cantidad, @Costo, @Exonerado) "
-            CrearComando(GenericSql)
-
-            With Comando.Parameters
-                .AddWithValue("NumCompra", txtNumVenta.Text)
-                .AddWithValue("IdProducto", DrFila!IdProducto.ToString)
-                .AddWithValue("Cantidad", DrFila!Cantidad.ToString)
-                .AddWithValue("Costo", DrFila!Costo.ToString)
-                .AddWithValue("Exonerado", CBool(DrFila!Exonerado))
-            End With
-            EjecutarComando()
-        Next
-        XtraMessageBox.Show("La compra se ha guardado correctamente", "Datos Almacenados", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
         Me.Dispose()
         Me.Close()
         Exit Sub
 tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
     End Sub
+
+
+    Private Function Guardar() As Boolean
+
+        'la fecha del control  mas la hora actual
+        FechaGuardar = CDate(DteFecha.DateTime.ToString("dd/MM/yyyy") & " " & Now.ToString("hh:mm:ss"))
+        Try
+
+            AbrirTransaccion()
+
+            'se obtiene las numeraciones Actuales
+            DrNumeros = BusquedaSeleccionFila("select * From Ventas_ObtieneNum('" & lueSucursal.EditValue.ToString & "')")
+
+            'Se actualiza las numeraciones (+1)
+            Comando.Parameters.Clear()
+            Comando.CommandText = "Ventas_ActualizaNum"
+            Comando.CommandType = CommandType.StoredProcedure
+            Comando.Parameters.AddWithValue("IdSucursal", lueSucursal.EditValue)
+            Comando.ExecuteNonQuery()
+
+            'Guardo el Maestro
+            Comando.Parameters.Clear()
+            Comando.CommandText = "Remisiones_Agregar"
+            Comando.CommandType = CommandType.StoredProcedure
+            With Comando.Parameters
+                .AddWithValue("NumRemision", DrNumeros!NumRemision)
+                .AddWithValue("IdSucursalSalida", lueSucursal.EditValue.ToString)
+                .AddWithValue("IdUsuRemite", CodUsuario)
+                .AddWithValue("NumRemisionSuc", DrNumeros!NumRemisionSuc)
+                .AddWithValue("Fecha", FechaGuardar)
+                .AddWithValue("Observaciones", MeObservaciones.Text.Trim)
+                .AddWithValue("Total", Val(txtCantidad.Text))
+            End With
+            Comando.ExecuteNonQuery()
+
+            'Guardo el Detalle
+            For Each item As DataRow In DtDetalle.Rows
+                Comando.Parameters.Clear()
+                Comando.CommandText = "Remisiones_Det_Agregar"
+                Comando.CommandType = CommandType.StoredProcedure
+                With Comando.Parameters
+                    .AddWithValue("NumRemision", DrNumeros!NumRemision)
+                    .AddWithValue("IdProducto", item!CodProducto)
+                    .AddWithValue("Cantidad", item!Cantidad)
+                    .AddWithValue("Costo", item!Costo)
+                End With
+                Comando.ExecuteNonQuery()
+            Next
+
+            CommitTransaccion()
+        Catch ex As Exception
+            RevertirTransaccion(ex.Message)
+            Return False
+        End Try
+
+        'Actualizamos existencias por Sucursal
+        For Each item As DataRow In DtDetalle.Rows
+            'Sucursal de Entrada
+            CrearComando("Productos_ActualizarExist")
+            Comando.Parameters.AddWithValue("idProducto", item!IdProducto)
+            Comando.Parameters.AddWithValue("idSucursal", lueSucursal.EditValue)
+            EjecutarComando()
+
+            'Sucursal de Salida
+            CrearComando("Productos_ActualizarExist")
+            Comando.Parameters.AddWithValue("idProducto", item!IdProducto)
+            Comando.Parameters.AddWithValue("idSucursal", lueSucursal.EditValue)
+            EjecutarComando()
+        Next
+
+        HADatosNEW = "NumRemision: " & txtNumVenta.Text & " | " & _
+                    "NumRemisionSucursal: " & txtDocSucursal.Text & " | " & _
+                    "SucursalSalida: " & lueSucursal.EditValue.ToString & _
+                    "Fecha: " & FechaGuardar.ToLongDateString & " | " & _
+                    "Observaciones: " & MeObservaciones.Text & " | "
+
+        GuardarHistorialAccion("Insertar", "Sucursales", txtNumVenta.Text, "", HADatosNEW)
+
+        Return True
+    End Function
+
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Dispose()

@@ -20,6 +20,7 @@ Partial Class RFMDI
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RFMDI))
         Dim TimeRuler1 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
         Dim TimeRuler2 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
         Dim TimeRuler3 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
@@ -55,6 +56,7 @@ Partial Class RFMDI
         Me.ChangeAppointmentReminderItem1 = New DevExpress.XtraScheduler.UI.ChangeAppointmentReminderItem()
         Me.RepositoryItemDuration1 = New DevExpress.XtraScheduler.UI.RepositoryItemDuration()
         Me.Reportes = New DevExpress.XtraBars.BarButtonItem()
+        Me.ImgColMDI = New DevExpress.Utils.ImageCollection(Me.components)
         Me.CalendarToolsRibbonPageCategory1 = New DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory()
         Me.SchedulerControl1 = New DevExpress.XtraScheduler.SchedulerControl()
         Me.SchedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
@@ -65,6 +67,7 @@ Partial Class RFMDI
         Me.RPGMovimientos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPGListados = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RPGCatalogo = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RPHerramientas = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RPGConfiguracion = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
@@ -81,6 +84,7 @@ Partial Class RFMDI
         Me.SchedulerBarController1 = New DevExpress.XtraScheduler.UI.SchedulerBarController()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemDuration1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgColMDI, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SchedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SchedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelIzq, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,11 +101,12 @@ Partial Class RFMDI
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BBIFacturacion, Me.BBIRemision, Me.BBIAjustes, Me.BBICompras, Me.BBIKardex, Me.BBIListaFacturas, Me.BBIListaRemisiones, Me.BBIListadoAjustes, Me.BBIListadoCompras, Me.BBICatalogos, Me.BBIConfiguracion, Me.BBIImportador, Me.bbiPermisos, Me.bbiVerTile, Me.SkinRibbonGalleryBarItem1, Me.btsVerPanelLatIzq, Me.SkinRibbonGalleryBarItem2, Me.EditAppointmentQueryItem1, Me.EditOccurrenceUICommandItem1, Me.EditSeriesUICommandItem1, Me.DeleteAppointmentsItem1, Me.DeleteOccurrenceItem1, Me.DeleteSeriesItem1, Me.SplitAppointmentItem1, Me.ChangeAppointmentStatusItem1, Me.ChangeAppointmentLabelItem1, Me.ToggleRecurrenceItem1, Me.ChangeAppointmentReminderItem1, Me.Reportes})
+        Me.RibbonControl.LargeImages = Me.ImgColMDI
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 41
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageCategories.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageCategory() {Me.CalendarToolsRibbonPageCategory1})
-        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RPMovimientos})
+        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.AppointmentRibbonPage1, Me.RPMovimientos, Me.RPHerramientas})
         Me.RibbonControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemDuration1})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
         Me.RibbonControl.Size = New System.Drawing.Size(1017, 145)
@@ -112,6 +117,7 @@ Partial Class RFMDI
         Me.BBIFacturacion.Caption = "Facturación"
         Me.BBIFacturacion.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIFacturacion.Id = 10
+        Me.BBIFacturacion.LargeImageIndex = 59
         Me.BBIFacturacion.Name = "BBIFacturacion"
         '
         'BBIRemision
@@ -119,6 +125,7 @@ Partial Class RFMDI
         Me.BBIRemision.Caption = "Remisión"
         Me.BBIRemision.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIRemision.Id = 11
+        Me.BBIRemision.LargeImageIndex = 64
         Me.BBIRemision.Name = "BBIRemision"
         '
         'BBIAjustes
@@ -126,7 +133,7 @@ Partial Class RFMDI
         Me.BBIAjustes.Caption = "Ajustes"
         Me.BBIAjustes.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIAjustes.Id = 12
-        Me.BBIAjustes.LargeGlyph = Global.Portatiles.My.Resources.Resources.Document_Spreadsheet
+        Me.BBIAjustes.LargeImageIndex = 10
         Me.BBIAjustes.Name = "BBIAjustes"
         '
         'BBICompras
@@ -134,7 +141,7 @@ Partial Class RFMDI
         Me.BBICompras.Caption = "Compras"
         Me.BBICompras.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBICompras.Id = 13
-        Me.BBICompras.LargeGlyph = Global.Portatiles.My.Resources.Resources.shopping_cart
+        Me.BBICompras.LargeImageIndex = 81
         Me.BBICompras.Name = "BBICompras"
         '
         'BBIKardex
@@ -142,6 +149,7 @@ Partial Class RFMDI
         Me.BBIKardex.Caption = "Kardex"
         Me.BBIKardex.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIKardex.Id = 14
+        Me.BBIKardex.LargeImageIndex = 25
         Me.BBIKardex.Name = "BBIKardex"
         '
         'BBIListaFacturas
@@ -149,6 +157,7 @@ Partial Class RFMDI
         Me.BBIListaFacturas.Caption = "Listado de Facturas"
         Me.BBIListaFacturas.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIListaFacturas.Id = 15
+        Me.BBIListaFacturas.LargeImageIndex = 58
         Me.BBIListaFacturas.Name = "BBIListaFacturas"
         '
         'BBIListaRemisiones
@@ -156,6 +165,7 @@ Partial Class RFMDI
         Me.BBIListaRemisiones.Caption = "Listado de Remisiones"
         Me.BBIListaRemisiones.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIListaRemisiones.Id = 16
+        Me.BBIListaRemisiones.LargeImageIndex = 57
         Me.BBIListaRemisiones.Name = "BBIListaRemisiones"
         '
         'BBIListadoAjustes
@@ -163,6 +173,7 @@ Partial Class RFMDI
         Me.BBIListadoAjustes.Caption = "Listado de Ajustes"
         Me.BBIListadoAjustes.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIListadoAjustes.Id = 17
+        Me.BBIListadoAjustes.LargeImageIndex = 22
         Me.BBIListadoAjustes.Name = "BBIListadoAjustes"
         '
         'BBIListadoCompras
@@ -170,6 +181,7 @@ Partial Class RFMDI
         Me.BBIListadoCompras.Caption = "Listado de Compras"
         Me.BBIListadoCompras.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIListadoCompras.Id = 18
+        Me.BBIListadoCompras.LargeImageIndex = 20
         Me.BBIListadoCompras.Name = "BBIListadoCompras"
         '
         'BBICatalogos
@@ -177,7 +189,7 @@ Partial Class RFMDI
         Me.BBICatalogos.Caption = "Catálogos"
         Me.BBICatalogos.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBICatalogos.Id = 20
-        Me.BBICatalogos.LargeGlyph = Global.Portatiles.My.Resources.Resources.Contact
+        Me.BBICatalogos.LargeGlyph = Global.Portatiles.My.Resources.Resources.imagen
         Me.BBICatalogos.Name = "BBICatalogos"
         '
         'BBIConfiguracion
@@ -185,7 +197,7 @@ Partial Class RFMDI
         Me.BBIConfiguracion.Caption = "Configuración"
         Me.BBIConfiguracion.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIConfiguracion.Id = 21
-        Me.BBIConfiguracion.LargeGlyph = Global.Portatiles.My.Resources.Resources.Luggage
+        Me.BBIConfiguracion.LargeImageIndex = 60
         Me.BBIConfiguracion.Name = "BBIConfiguracion"
         '
         'BBIImportador
@@ -193,19 +205,21 @@ Partial Class RFMDI
         Me.BBIImportador.Caption = "Importador"
         Me.BBIImportador.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.BBIImportador.Id = 22
-        Me.BBIImportador.LargeGlyph = Global.Portatiles.My.Resources.Resources.Arrow___Down
+        Me.BBIImportador.LargeImageIndex = 33
         Me.BBIImportador.Name = "BBIImportador"
         '
         'bbiPermisos
         '
         Me.bbiPermisos.Caption = "Permisos de Acceso"
         Me.bbiPermisos.Id = 24
+        Me.bbiPermisos.LargeGlyph = Global.Portatiles.My.Resources.Resources.Lock
         Me.bbiPermisos.Name = "bbiPermisos"
         '
         'bbiVerTile
         '
         Me.bbiVerTile.Caption = "Ventana Accesos Directos"
         Me.bbiVerTile.Id = 25
+        Me.bbiVerTile.LargeImageIndex = 74
         Me.bbiVerTile.Name = "bbiVerTile"
         '
         'SkinRibbonGalleryBarItem1
@@ -302,13 +316,100 @@ Partial Class RFMDI
         Me.Reportes.Caption = "Reportes"
         Me.Reportes.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
         Me.Reportes.Id = 40
+        Me.Reportes.LargeGlyph = Global.Portatiles.My.Resources.Resources.colores
         Me.Reportes.Name = "Reportes"
+        '
+        'ImgColMDI
+        '
+        Me.ImgColMDI.ImageSize = New System.Drawing.Size(32, 32)
+        Me.ImgColMDI.ImageStream = CType(resources.GetObject("ImgColMDI.ImageStream"), DevExpress.Utils.ImageCollectionStreamer)
+        Me.ImgColMDI.Images.SetKeyName(0, "Add Bookmark.ico")
+        Me.ImgColMDI.Images.SetKeyName(1, "Add Card.ico")
+        Me.ImgColMDI.Images.SetKeyName(2, "Add Folder.ico")
+        Me.ImgColMDI.Images.SetKeyName(3, "Add Separator.ico")
+        Me.ImgColMDI.Images.SetKeyName(4, "Add Tab.ico")
+        Me.ImgColMDI.Images.SetKeyName(5, "Add to Favourites.ico")
+        Me.ImgColMDI.Images.SetKeyName(6, "Add Window 1.ico")
+        Me.ImgColMDI.Images.SetKeyName(7, "Add Window 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(8, "Address Book.ico")
+        Me.ImgColMDI.Images.SetKeyName(9, "Addressbook.ico")
+        Me.ImgColMDI.Images.SetKeyName(10, "Advanced Options.ico")
+        Me.ImgColMDI.Images.SetKeyName(11, "Anchor.ico")
+        Me.ImgColMDI.Images.SetKeyName(12, "Attach.ico")
+        Me.ImgColMDI.Images.SetKeyName(13, "Back - Previous.ico")
+        Me.ImgColMDI.Images.SetKeyName(14, "Back 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(15, "Block Junk Mail.ico")
+        Me.ImgColMDI.Images.SetKeyName(16, "Bookmarks 1.ico")
+        Me.ImgColMDI.Images.SetKeyName(17, "Bookmarks 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(18, "Bookmarks 3.ico")
+        Me.ImgColMDI.Images.SetKeyName(19, "Bookmarks 4.ico")
+        Me.ImgColMDI.Images.SetKeyName(20, "Browse 1.ico")
+        Me.ImgColMDI.Images.SetKeyName(21, "Browse 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(22, "Browse 3.ico")
+        Me.ImgColMDI.Images.SetKeyName(23, "Calendar Day.ico")
+        Me.ImgColMDI.Images.SetKeyName(24, "Calendar Month.ico")
+        Me.ImgColMDI.Images.SetKeyName(25, "Calendar Multiweek.ico")
+        Me.ImgColMDI.Images.SetKeyName(26, "Calendar Week.ico")
+        Me.ImgColMDI.Images.SetKeyName(27, "Chat 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(28, "Chat.ico")
+        Me.ImgColMDI.Images.SetKeyName(29, "Contacts.ico")
+        Me.ImgColMDI.Images.SetKeyName(30, "Copy.ico")
+        Me.ImgColMDI.Images.SetKeyName(31, "Cut.ico")
+        Me.ImgColMDI.Images.SetKeyName(32, "Delete.ico")
+        Me.ImgColMDI.Images.SetKeyName(33, "Download.ico")
+        Me.ImgColMDI.Images.SetKeyName(34, "Email App Icon.ico")
+        Me.ImgColMDI.Images.SetKeyName(35, "Email Display.ico")
+        Me.ImgColMDI.Images.SetKeyName(36, "Email Envelope.ico")
+        Me.ImgColMDI.Images.SetKeyName(37, "Extensions.ico")
+        Me.ImgColMDI.Images.SetKeyName(38, "Favourites.ico")
+        Me.ImgColMDI.Images.SetKeyName(39, "File.ico")
+        Me.ImgColMDI.Images.SetKeyName(40, "Fonts 1.ico")
+        Me.ImgColMDI.Images.SetKeyName(41, "Fonts 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(42, "Forward - Next.ico")
+        Me.ImgColMDI.Images.SetKeyName(43, "Forward 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(44, "Forward Email.ico")
+        Me.ImgColMDI.Images.SetKeyName(45, "garageband.ico")
+        Me.ImgColMDI.Images.SetKeyName(46, "General Options.ico")
+        Me.ImgColMDI.Images.SetKeyName(47, "Get Mail.ico")
+        Me.ImgColMDI.Images.SetKeyName(48, "Go.ico")
+        Me.ImgColMDI.Images.SetKeyName(49, "H. Line.ico")
+        Me.ImgColMDI.Images.SetKeyName(50, "ical.ico")
+        Me.ImgColMDI.Images.SetKeyName(51, "iphoto.ico")
+        Me.ImgColMDI.Images.SetKeyName(52, "Link.ico")
+        Me.ImgColMDI.Images.SetKeyName(53, "List.ico")
+        Me.ImgColMDI.Images.SetKeyName(54, "Move.ico")
+        Me.ImgColMDI.Images.SetKeyName(55, "New Doc.ico")
+        Me.ImgColMDI.Images.SetKeyName(56, "New Folder.ico")
+        Me.ImgColMDI.Images.SetKeyName(57, "New Window.ico")
+        Me.ImgColMDI.Images.SetKeyName(58, "Paste.ico")
+        Me.ImgColMDI.Images.SetKeyName(59, "Print.ico")
+        Me.ImgColMDI.Images.SetKeyName(60, "Properties.ico")
+        Me.ImgColMDI.Images.SetKeyName(61, "Publish.ico")
+        Me.ImgColMDI.Images.SetKeyName(62, "Quote 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(63, "Quote.ico")
+        Me.ImgColMDI.Images.SetKeyName(64, "Refresh.ico")
+        Me.ImgColMDI.Images.SetKeyName(65, "Rename - Edit.ico")
+        Me.ImgColMDI.Images.SetKeyName(66, "Reply to All.ico")
+        Me.ImgColMDI.Images.SetKeyName(67, "Reply.ico")
+        Me.ImgColMDI.Images.SetKeyName(68, "Save.ico")
+        Me.ImgColMDI.Images.SetKeyName(69, "Search.ico")
+        Me.ImgColMDI.Images.SetKeyName(70, "Security.ico")
+        Me.ImgColMDI.Images.SetKeyName(71, "Send 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(72, "Send Later.ico")
+        Me.ImgColMDI.Images.SetKeyName(73, "Send.ico")
+        Me.ImgColMDI.Images.SetKeyName(74, "Spell.ico")
+        Me.ImgColMDI.Images.SetKeyName(75, "Stop 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(76, "Stop.ico")
+        Me.ImgColMDI.Images.SetKeyName(77, "Table 1.ico")
+        Me.ImgColMDI.Images.SetKeyName(78, "Themes 2.ico")
+        Me.ImgColMDI.Images.SetKeyName(79, "Themes.ico")
+        Me.ImgColMDI.Images.SetKeyName(80, "View Doc.ico")
+        Me.ImgColMDI.Images.SetKeyName(81, "Write.ico")
         '
         'CalendarToolsRibbonPageCategory1
         '
         Me.CalendarToolsRibbonPageCategory1.Control = Me.SchedulerControl1
         Me.CalendarToolsRibbonPageCategory1.Name = "CalendarToolsRibbonPageCategory1"
-        Me.CalendarToolsRibbonPageCategory1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.AppointmentRibbonPage1})
         Me.CalendarToolsRibbonPageCategory1.Visible = False
         '
         'SchedulerControl1
@@ -353,7 +454,7 @@ Partial Class RFMDI
         '
         'RPMovimientos
         '
-        Me.RPMovimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPGMovimientos, Me.RPGListados, Me.RPGCatalogo, Me.RPGConfiguracion, Me.RibbonPageGroup1})
+        Me.RPMovimientos.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPGMovimientos, Me.RPGListados, Me.RPGCatalogo})
         Me.RPMovimientos.Name = "RPMovimientos"
         Me.RPMovimientos.Text = "Movimientos"
         '
@@ -379,8 +480,15 @@ Partial Class RFMDI
         'RPGCatalogo
         '
         Me.RPGCatalogo.ItemLinks.Add(Me.BBICatalogos)
+        Me.RPGCatalogo.ItemLinks.Add(Me.Reportes)
         Me.RPGCatalogo.Name = "RPGCatalogo"
         Me.RPGCatalogo.Text = "Catálogos"
+        '
+        'RPHerramientas
+        '
+        Me.RPHerramientas.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPGConfiguracion, Me.RibbonPageGroup1})
+        Me.RPHerramientas.Name = "RPHerramientas"
+        Me.RPHerramientas.Text = "Herramientas"
         '
         'RPGConfiguracion
         '
@@ -395,7 +503,6 @@ Partial Class RFMDI
         'RibbonPageGroup1
         '
         Me.RibbonPageGroup1.ItemLinks.Add(Me.SkinRibbonGalleryBarItem2)
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.Reportes)
         Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
         Me.RibbonPageGroup1.ShowCaptionButton = False
         Me.RibbonPageGroup1.Text = "Estilos"
@@ -536,6 +643,7 @@ Partial Class RFMDI
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemDuration1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgColMDI, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SchedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SchedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelIzq, System.ComponentModel.ISupportInitialize).EndInit()
@@ -606,6 +714,8 @@ Partial Class RFMDI
     Friend WithEvents OptionsRibbonPageGroup1 As DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup
     Friend WithEvents SchedulerBarController1 As DevExpress.XtraScheduler.UI.SchedulerBarController
     Friend WithEvents Reportes As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents ImgColMDI As DevExpress.Utils.ImageCollection
+    Friend WithEvents RPHerramientas As DevExpress.XtraBars.Ribbon.RibbonPage
 
 
 End Class
