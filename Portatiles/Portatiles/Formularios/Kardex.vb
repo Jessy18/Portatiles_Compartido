@@ -24,6 +24,7 @@ Public Class Kardex
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         BuscarRegistros()
+        BuscarSaldoInicial()
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -122,7 +123,7 @@ tipoerr:
             TotalVenta = TotalVenta + CantVenta
         Next
 
-        DrCompras = BusquedaSeleccion("SELECT  dbo.DetalleVenta.NumVenta, dbo.DetalleVenta.Cantidad, dbo.Ventas.Fecha, dbo.Productos.Producto FROM   dbo.Ventas INNER JOIN   dbo.DetalleVenta ON dbo.Ventas.NumVenta = dbo.DetalleVenta.NumVenta  INNER JOIN  dbo.Productos ON dbo.DetalleVenta.IdProducto = dbo.Productos.IdProducto WHere Ventas.Fecha<(Convert(datetime,'" & Format(DteFechaIni.DateTime) & "')) And Ventas.Anulada=0 And Productos.IdProducto='" & lueProducto.EditValue & "'")
+        DrCompras = BusquedaSeleccion("SELECT  dbo.DetalleCompra.NumCompra, dbo.DetalleCompra.Cantidad, dbo.Compras.Fecha, dbo.Productos.Producto FROM   dbo.Ventas INNER JOIN   dbo.DetalleVenta ON dbo.Ventas.NumVenta = dbo.DetalleVenta.NumVenta  INNER JOIN  dbo.Productos ON dbo.DetalleVenta.IdProducto = dbo.Productos.IdProducto WHere Ventas.Fecha<(Convert(datetime,'" & Format(DteFechaIni.DateTime) & "')) And Ventas.Anulada=0 And Productos.IdProducto='" & lueProducto.EditValue & "'")
         For Each Dr As DataRow In DrCompras.Rows
             CantVenta = 0
             CantVenta = CDbl(Dr!Cantidad)
