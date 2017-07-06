@@ -3,6 +3,7 @@ Imports DevExpress.XtraEditors
 Public Class FrmFacturacion
 
     Dim DtDetalle As DataTable
+    Dim DtDetalleSerie As DataTable
     Dim Exonerado As Boolean
     Dim DrNumeros As DataRow
 
@@ -87,29 +88,42 @@ tipoerr:
 
             'Guardo el Maestro
             Comando.Parameters.Clear()
-            Comando.CommandText = "Remisiones_Agregar"
+            Comando.CommandText = "Ventas_Agregar"
             Comando.CommandType = CommandType.StoredProcedure
             With Comando.Parameters
-                .AddWithValue("NumRemision", DrNumeros!NumRemision)
-                .AddWithValue("IdSucursalSalida", lueSucursal.EditValue.ToString)
-                .AddWithValue("IdUsuRemite", CodUsuario)
-                .AddWithValue("NumRemisionSuc", DrNumeros!NumRemisionSuc)
+                .AddWithValue("NumVenta", DrNumeros!NumVenta)
+                .AddWithValue("IdSucursal", lueSucursal.EditValue.ToString)
+                .AddWithValue("IdUsuario", CodUsuario)
+                .AddWithValue("IdCliente", txtCodCliente.Text)
+                .AddWithValue("IdVendedor", LueVendedor.EditValue)
+                .AddWithValue("NumFacturaSuc", txtDocSucursal.Text)
+                .AddWithValue("IdVendedor", LueVendedor.EditValue)
+
                 .AddWithValue("Fecha", FechaGuardar)
+                .AddWithValue("Tipo", "Contado")
+                .AddWithValue("Subtotal", CDbl(txtSubTotal.Text))
+                .AddWithValue("Descuento", CDbl(0))
+                .AddWithValue("IVA", CDbl(txtIVA.Text))
                 .AddWithValue("Observaciones", MeObservaciones.Text.Trim)
-                .AddWithValue("Total", Val(txtCantidad.Text))
             End With
             Comando.ExecuteNonQuery()
 
             'Guardo el Detalle
             For Each item As DataRow In DtDetalle.Rows
                 Comando.Parameters.Clear()
-                Comando.CommandText = "Remisiones_Det_Agregar"
+                Comando.CommandText = "Ventas_Det_Agregar"
                 Comando.CommandType = CommandType.StoredProcedure
                 With Comando.Parameters
-                    .AddWithValue("NumRemision", DrNumeros!NumRemision)
+                    .AddWithValue("NumVenta", DrNumeros!NumRemision)
                     .AddWithValue("IdProducto", item!CodProducto)
+                    .AddWithValue("IdSerie", item!IdSerie)
                     .AddWithValue("Cantidad", item!Cantidad)
                     .AddWithValue("Costo", item!Costo)
+                    .AddWithValue("Cantidad", item!Cantidad)
+                    .AddWithValue("Precio", item!Precio)
+                    .AddWithValue("Exonerado", item!Exonerado)
+                    .AddWithValue("Cortesia", item!Cortesia)
+            
                 End With
                 Comando.ExecuteNonQuery()
             Next
@@ -189,6 +203,7 @@ tipoerr:
         With DtDetalle
             .Columns.Add("IdProducto", GetType(String))
             .Columns.Add("Producto", GetType(String))
+            .Columns.Add("IdSerie", GetType(Integer))
             .Columns.Add("Cantidad", GetType(Double))
             .Columns.Add("Precio", GetType(Double))
             .Columns.Add("TipoPrecio", GetType(String))
@@ -207,6 +222,7 @@ tipoerr:
             '    gvMovimientos.Columns(DCDetalle.FieldName).OptionsColumn.AllowEdit = True
             'End If
         Next
+     
         Exit Sub
 tipoerr:
         MsgBox(Err.Description, MsgBoxStyle.Critical)
@@ -277,7 +293,7 @@ tipoerr:
             End If
         Next
 
-        'Aquí se agrega un elemento nuevo al detalle del ajuste
+        'Aquí se agrega un elemento nuevo al detalle de la venta
         DrDato = DtDetalle.NewRow
         DrDato!IdProducto = txtCodProducto.Text.Trim
         DrDato!Producto = txtProducto.Text.Trim
