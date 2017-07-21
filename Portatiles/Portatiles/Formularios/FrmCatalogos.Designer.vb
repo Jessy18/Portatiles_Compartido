@@ -615,13 +615,13 @@ Partial Class FrmCatalogos
         Me.xtpMarcas.Controls.Add(Me.LabelControl4)
         Me.xtpMarcas.Controls.Add(Me.txtIdMarca)
         Me.xtpMarcas.Name = "xtpMarcas"
-        Me.xtpMarcas.Size = New System.Drawing.Size(466, 337)
+        Me.xtpMarcas.Size = New System.Drawing.Size(465, 337)
         Me.xtpMarcas.Text = "Marcas"
         '
         'ChkMarcaActiva
         '
         Me.ChkMarcaActiva.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ChkMarcaActiva.Location = New System.Drawing.Point(385, 12)
+        Me.ChkMarcaActiva.Location = New System.Drawing.Point(384, 12)
         Me.ChkMarcaActiva.Name = "ChkMarcaActiva"
         Me.ChkMarcaActiva.Properties.Appearance.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkMarcaActiva.Properties.Appearance.Options.UseFont = True
@@ -637,7 +637,7 @@ Partial Class FrmCatalogos
         Me.gcMarcas.Location = New System.Drawing.Point(9, 68)
         Me.gcMarcas.MainView = Me.gvMarcas
         Me.gcMarcas.Name = "gcMarcas"
-        Me.gcMarcas.Size = New System.Drawing.Size(433, 253)
+        Me.gcMarcas.Size = New System.Drawing.Size(432, 253)
         Me.gcMarcas.TabIndex = 9
         Me.gcMarcas.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvMarcas})
         '
@@ -667,7 +667,7 @@ Partial Class FrmCatalogos
         Me.txtMarca.Name = "txtMarca"
         Me.txtMarca.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMarca.Properties.Appearance.Options.UseFont = True
-        Me.txtMarca.Size = New System.Drawing.Size(345, 22)
+        Me.txtMarca.Size = New System.Drawing.Size(344, 22)
         Me.txtMarca.TabIndex = 7
         '
         'LabelControl4
@@ -687,7 +687,7 @@ Partial Class FrmCatalogos
         Me.txtIdMarca.Name = "txtIdMarca"
         Me.txtIdMarca.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIdMarca.Properties.Appearance.Options.UseFont = True
-        Me.txtIdMarca.Size = New System.Drawing.Size(277, 22)
+        Me.txtIdMarca.Size = New System.Drawing.Size(276, 22)
         Me.txtIdMarca.TabIndex = 5
         '
         'xtpCategorias

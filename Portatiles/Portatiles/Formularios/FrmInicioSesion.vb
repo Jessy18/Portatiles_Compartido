@@ -48,6 +48,7 @@ ErrorException:
                 If Not DRUsuario Is Nothing Then
                     If CBool(DRUsuario!Activo) Then
                         CodUsuario = DRUsuario!IdUsuario.ToString
+                        Usuario = DRUsuario!Nombre.ToString
                         CodSucursal = DRUsuario!IdSucursal.ToString
                         Administrador = CBool(DRUsuario!Administrador)
 
